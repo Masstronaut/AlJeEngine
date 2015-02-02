@@ -1,0 +1,9 @@
+enum EComponent
+{
+
+};
+
+struct Component
+{
+  
+};
