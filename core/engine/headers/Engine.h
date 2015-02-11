@@ -3,14 +3,18 @@
  * @author Allan Deutsch
  * @version 0.5
  * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
- * 
+ *
  * @brief The Engine class is the core of the game engine.
- * 
+ *
  */
 
 
 #pragma once
 #include <memory> // Shared pointers for automatic memory management
+#include <vector>
+#include "System.h"
+#include "Entity.h"
+
 
 struct Engine
 {
@@ -23,9 +27,9 @@ struct Engine
   void mainLoop();
 
 private:
-  void populateEntities(shared_ptr < System > sys);
-  std::vector < shared_ptr < System > > _systems;
-  std::vector < shared_ptr < Entity > > _entities;
+  void populateEntities( std::shared_ptr < System > sys);
+  std::vector < std::shared_ptr < System > > _systems;
+  std::vector < std::shared_ptr < Entity > > _entities;
 
   bool _running;
 };

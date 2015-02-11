@@ -3,14 +3,14 @@
  * @author Allan Deutsch
  * @version 0.5
  * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
- * 
+ *
  */
 
 #include <cassert>
 
-#include "Entity.h"
+#include "../headers/Entity.h"
 
-void Entity::AddComponent ( shared_ptr < Component > component )
+void Entity::AddComponent ( std::shared_ptr < Component > component )
 {
   // If this evaluates to 0, there is already a component of the specified type.
   // Adding multiple instances of one component is not support.
@@ -45,7 +45,8 @@ void Entity::RemoveComponent ( EnumeratedComponent ec )
 
 bool Entity::HasComponent ( EnumeratedComponent ec )
 {
-  return _components[ec];
+  // It must be explicitly cast, as it does not allow implicit conversions.
+  return static_cast<bool>(_components[ec]);
 }
 
 mask Entity::Mask()

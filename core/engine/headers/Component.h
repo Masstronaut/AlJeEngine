@@ -13,14 +13,19 @@ typedef unsigned mask;
 
 enum EnumeratedComponent
 {
-
+  EC_Transform,
+  EC_Drawable,
+  EC_RigidBody,
 
   EC_Max
 };
 
 enum BitfieldComponent
 {
-
+  MC_Alive = 1,
+  MC_Transform = 1 << 1,
+  MC_Drawable = 1 << 2,
+  MC_RigidBody = 1 << 3
 
 
 };

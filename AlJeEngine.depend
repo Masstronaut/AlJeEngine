@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1423654885 source:c:\users\allan\documents\github\aljeengine\core\engine\main.cpp
+	"headers/Engine.h"
+	<memory>
+
+1423654437 c:\users\allan\documents\github\aljeengine\core\engine\headers\engine.h
+	<memory>
+	<vector>
+	"System.h"
+	"Entity.h"
+
+1423654557 c:\users\allan\documents\github\aljeengine\core\engine\headers\system.h
+	<memory>
+	<vector>
+	"Entity.h"
+	"Component.h"
+
+1423654846 c:\users\allan\documents\github\aljeengine\core\engine\headers\entity.h
+	<cassert>
+	<memory>
+	<string>
+	"Component.h"
+
+1423573635 c:\users\allan\documents\github\aljeengine\core\engine\headers\component.h
+
+1423655378 source:c:\users\allan\documents\github\aljeengine\core\engine\src\engine.cpp
+	"../headers/Engine.h"
+	<iostream>
+
+1423655120 source:c:\users\allan\documents\github\aljeengine\core\engine\src\entity.cpp
+	<cassert>
+	"../headers/Entity.h"
+
+1423655129 source:c:\users\allan\documents\github\aljeengine\core\engine\src\system.cpp
+	"../headers/System.h"
+
