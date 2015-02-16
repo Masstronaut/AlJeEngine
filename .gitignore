@@ -26,3 +26,8 @@
 *.exe
 *.out
 *.app
+*.tlog
+*.idb
+*.opensdf
+*.sdf
+lib/math/src/math.cpp
