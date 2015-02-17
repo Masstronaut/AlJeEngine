@@ -28,6 +28,15 @@
     <Filter Include="Libraries">
       <UniqueIdentifier>{1b4fbafc-e155-46e2-b20c-09f7296ba4c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{8aed3340-a008-490c-a0c5-d3670c16518c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\include file">
+      <UniqueIdentifier>{492a1ff2-dac2-4351-b706-13d8294aaf0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Header Files">
+      <UniqueIdentifier>{b8dd13e1-2b58-4c80-8368-d84e11e38bb6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\Engine.cpp">
@@ -55,6 +64,18 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\System.h">
       <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Components.h">
+      <Filter>Components\include file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Sprite.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Transform.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Collider.h">
+      <Filter>Components\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

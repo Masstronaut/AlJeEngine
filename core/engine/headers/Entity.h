@@ -12,6 +12,7 @@
 #include <memory> // automated memory management for components
 #include <string>
 #include "Component.h"
+#include "../../components/Components.h"
 
 namespace AlJeEngine
 {
@@ -40,7 +41,19 @@ namespace AlJeEngine
      */
     bool HasComponent(EnumeratedComponent           ec);
 
+    /**
+    * @brief Gets a copy of the Entity's mask, which is a bitfield of the components attached to it.
+    *
+    * @return returns a mask of all the components attached to the entity.
+    */
     mask Mask();
+
+    /**
+    * @brief Gets the collider type of the entity.
+    *
+    * @return Returns the collider type being used by the Entity.
+    */
+    ColliderType Collider();
 
 #define GET_COMPONENT( type ) \
   GetComponent<type>(EC_##type)
@@ -49,6 +62,7 @@ namespace AlJeEngine
     std::shared_ptr<T> GetComponent(EnumeratedComponent           ec);
 
   private:
+    ColliderType _collider;
     std::shared_ptr<Component> _components[EC_Max];
     const std::string _name;
     mask _mask;

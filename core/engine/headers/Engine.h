@@ -28,6 +28,8 @@ namespace AlJeEngine
 
     void mainLoop();
 
+#pragma message ("Add frame time stuff to engine")
+
   private:
     void populateEntities(std::shared_ptr < System > sys);
     std::vector < std::shared_ptr < System > > _systems;
