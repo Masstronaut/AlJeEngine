@@ -12,7 +12,7 @@ namespace AlJeEngine
 {
 
   typedef unsigned mask;
-
+#pragma region metadataEnums
   enum EnumeratedComponent
   {
     EC_Transform      =  0,
@@ -36,9 +36,8 @@ namespace AlJeEngine
     MC_CircleCollider  = 1 <<  6,
     MC_BoxCollider     = 1 <<  7,
 
-
-
   };
+#pragma endregion
 
 
   struct Component

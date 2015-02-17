@@ -10,6 +10,7 @@
 #pragma once
 #include <cassert>
 #include <memory> // automated memory management for components
+#include <vector> // the best data structure ever
 #include <string>
 #include "Component.h"
 #include "../../components/Components.h"
@@ -17,6 +18,12 @@
 namespace AlJeEngine
 {
 
+  // depends for typedef magic
+  //#include <vector>
+  //#include <memory>
+  // typedef magic! AKA laziness
+  typedef std::shared_ptr< Component > ComponentPtr;
+  typedef std::vector< ComponentPtr > ComponentVec;
   struct Entity
   {
     /**
@@ -31,7 +38,7 @@ namespace AlJeEngine
      *
      * @param ec The type of component to remove from the entity.
      */
-    void RemoveComponent(EnumeratedComponent           ec);
+    void RemoveComponent(EnumeratedComponent ec);
 
     /**
      * @brief Checks if the entity has a specific type of component.
@@ -39,7 +46,7 @@ namespace AlJeEngine
      * @param ec The type of component to check for.
      * @return Returns true if the entity has the specified component type, false otherwise.
      */
-    bool HasComponent(EnumeratedComponent           ec);
+    bool HasComponent(EnumeratedComponent ec);
 
     /**
     * @brief Gets a copy of the Entity's mask, which is a bitfield of the components attached to it.
@@ -59,12 +66,12 @@ namespace AlJeEngine
   GetComponent<type>(EC_##type)
 
     template <typename T>
-    std::shared_ptr<T> GetComponent(EnumeratedComponent           ec);
+    std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
 
   private:
     ColliderType _collider;
-    std::shared_ptr<Component> _components[EC_Max];
-    const std::string _name;
+    ComponentPtr _components[EC_Max];
+    std::string _name;
     mask _mask;
   };
 
@@ -78,4 +85,8 @@ namespace AlJeEngine
     return _components[ec];
   }
 
+  // typedef magic! AKA laziness
+  typedef std::shared_ptr< Entity > EntityPtr;
+  typedef std::vector< EntityPtr > EntityVec;
+#pragma endregion
 }; // AlJeEngine

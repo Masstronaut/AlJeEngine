@@ -124,7 +124,9 @@
     <ClCompile Include="..\..\core\engine\main.cpp" />
     <ClCompile Include="..\..\core\engine\src\Engine.cpp" />
     <ClCompile Include="..\..\core\engine\src\Entity.cpp" />
+    <ClCompile Include="..\..\core\engine\src\Space.cpp" />
     <ClCompile Include="..\..\core\engine\src\System.cpp" />
+    <ClCompile Include="..\..\core\systems\TestSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\components\Collider.h" />
@@ -134,7 +136,9 @@
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
     <ClInclude Include="..\..\core\engine\headers\Engine.h" />
     <ClInclude Include="..\..\core\engine\headers\Entity.h" />
+    <ClInclude Include="..\..\core\engine\headers\Space.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />
+    <ClInclude Include="..\..\core\systems\TestSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

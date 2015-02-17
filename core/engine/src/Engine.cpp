@@ -42,7 +42,7 @@ namespace AlJeEngine
     for (auto sys : _systems)
     {
       // Make sure the system has all the entities that meet it's requirements
-      populateEntities(sys);
+      //populateEntities(sys);
 
       sys->Update(dt);
     }
@@ -57,18 +57,12 @@ namespace AlJeEngine
       // some frametime logic
       // probably dependent on the graphics library
 
-      float dt = 0.016667f;
+      float dt = 1.f / 60.f;
       // Update all the systems
       Update(dt);
     }
   }
 
-  void Engine::populateEntities(std::shared_ptr < System > sys)
-  {
-    sys->_entities.clear();
-    for (auto it : _entities)
-      if ((it->Mask() & sys->Mask()) == sys->Mask())
-        sys->_entities.push_back(it);
-  }
+
 
 }; //AlJeEngine
