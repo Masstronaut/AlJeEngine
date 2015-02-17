@@ -12,34 +12,39 @@
 #include "Entity.h"
 #include "Component.h"
 
-enum EnumeratedSystem
+namespace AlJeEngine
 {
 
-  ES_MAX
-};
+  enum EnumeratedSystem
+  {
 
-typedef EnumeratedSystem ESys;
+    ES_MAX
+  };
 
-
-struct System
-{
-
-  virtual void   Init              (                   ) = 0;
-  virtual void   Update            ( float             ) = 0;
-  virtual void   Shutdown          (                   ) = 0;
-          void   RegisterComponent ( BitfieldComponent );
-  friend  struct Engine;
-
-  inline  mask   Mask              (                   )
-          {
-            return _mask;
-          }
+  typedef EnumeratedSystem ESys;
 
 
-protected:
-  mask _mask;
-  std::vector < std::shared_ptr < Entity > > _entities;
-  // Basic system metadata
-  ESys _type;
-  std::string _name;
-};
+  struct System
+  {
+
+    virtual void   Init() = 0;
+    virtual void   Update(float) = 0;
+    virtual void   Shutdown() = 0;
+    void   RegisterComponent(BitfieldComponent);
+    friend  struct Engine;
+
+    inline  mask   Mask()
+    {
+      return _mask;
+    }
+
+
+  protected:
+    mask _mask;
+    std::vector < std::shared_ptr < Entity > > _entities;
+    // Basic system metadata
+    ESys _type;
+    std::string _name;
+  };
+
+}; //AlJeEngine

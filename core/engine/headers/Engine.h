@@ -15,22 +15,25 @@
 #include "System.h"
 #include "Entity.h"
 
-
-struct Engine
+namespace AlJeEngine
 {
 
-  void Init();
-  void Shutdown();
+  struct Engine
+  {
 
-  void Update(float);
+    void Init();
+    void Shutdown();
 
-  void mainLoop();
+    void Update(float);
 
-private:
-  void populateEntities( std::shared_ptr < System > sys);
-  std::vector < std::shared_ptr < System > > _systems;
-  std::vector < std::shared_ptr < Entity > > _entities;
+    void mainLoop();
 
-  bool _running;
-};
+  private:
+    void populateEntities(std::shared_ptr < System > sys);
+    std::vector < std::shared_ptr < System > > _systems;
+    std::vector < std::shared_ptr < Entity > > _entities;
 
+    bool _running;
+  };
+
+}; // AlJeEngine

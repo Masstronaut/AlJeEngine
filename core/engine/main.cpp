@@ -1,7 +1,17 @@
 
 
+/**
+* @author Allan Deutsch
+* @version 0.5
+* @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
+*
+*/
+
 #include "headers/Engine.h"
 #include <memory>
+
+using namespace AlJeEngine;
+
 int main( )
 {
   std::shared_ptr < Engine > ENGINE( new Engine( ) );

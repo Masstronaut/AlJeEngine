@@ -9,7 +9,13 @@
 
 #include "../headers/System.h"
 
-void System::RegisterComponent ( BitfieldComponent bc)
+
+namespace AlJeEngine
 {
-  _mask |= bc;
-}
+
+  void System::RegisterComponent(BitfieldComponent bc)
+  {
+    _mask |= bc;
+  }
+
+}; //AlJeEngine
