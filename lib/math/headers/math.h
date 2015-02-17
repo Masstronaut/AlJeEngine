@@ -21,15 +21,16 @@ namespace AlJeEngine
       Vector2D,
       Point2D
     };
-
+#pragma region vec2
     class vec2
     {
     public:
       /*****************************************************************************/
       /***************************** Constructors **********************************/
       /*****************************************************************************/
-      vec2() noexcept;
-      vec2(const float X, const float Y, coordType = Vector2D) noexcept;
+      vec2()                             noexcept;
+      vec2(const float X, const float Y) noexcept;
+      vec2(const vec2 &rhs)              noexcept;
 
       // utility
       void  zero()                          noexcept;
@@ -65,26 +66,80 @@ namespace AlJeEngine
       bool operator==(const vec2 &rhs) const noexcept;
       bool operator!=(const vec2 &rhs) const noexcept;
 
+      friend class mat3;
 
     private:
       // if I want to do point2d in the same struct this makes it easy.
       //vec2(const float X, const float Y, const float W) noexcept;
-      float x = 0;
-      float y = 0;
-      float w = 0;
+      float x = 0.f;
+      float y = 0.f;
+    };
+#pragma endregion
 
+
+#pragma region vec4
+
+    class vec4
+    {
+    public:
+      // accessors
+      inline const float  X() const noexcept;
+      inline const float  Y() const noexcept;
+      inline const float  Z() const noexcept;
+      inline const float  W() const noexcept;
+
+      // mutators
+      inline       float& X()       noexcept;
+      inline       float& Y()       noexcept;
+      inline       float& Z()       noexcept;
+      inline       float& W()       noexcept;
+
+
+    private:
+      float x;
+      float y;
+      float z;
+      float w;
+    };
+#pragma endregion
+
+#pragma region colorVec
+    struct colorVec
+    {
+      char r = 0;
+      char g = 0;
+      char b = 0;
+      char a = 0;
 
 
     };
+#pragma endregion
+
+#pragma region mat3
+    class mat3
+    {
+    public:
+
+      // constructors
+      // this intentionally doesn't initialize values for speed.
+      mat3() noexcept;
+      mat3(const vec2 &col1, const vec2 &col2, const vec2 &col3) noexcept;
+
+      // operator overloads
+      mat3 operator+(const mat3 &rhs) const noexcept;
+      mat3 operator*(const mat3 &rhs) const noexcept;
+
+      // transform a point
+      vec2 operator*(const vec2 &rhs) const noexcept;
+
+    private:
+      float matrix[3][3];
+    };
+
+#pragma endregion
+
+  }; // namespace math
 
 
 
-
-
-
-
-  };
-
-
-
-};
+}; // namespace AlJeEngine
