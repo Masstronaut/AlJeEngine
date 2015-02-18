@@ -47,6 +47,9 @@
     <Filter Include="Engine\Space">
       <UniqueIdentifier>{9fbe340d-31ce-44bf-a735-258d15863429}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\Timers">
+      <UniqueIdentifier>{d4079226-90dd-4c73-b706-a1af39a154c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\systems\TestSystem.cpp">
@@ -98,6 +101,12 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Space.h">
       <Filter>Engine\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\timers\ScopeTimer.hpp">
+      <Filter>Libraries\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\timers\TimeDefines.h">
+      <Filter>Libraries\Timers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

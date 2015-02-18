@@ -9,9 +9,11 @@
  *
  */
 
+#include "../../../lib/timers/ScopeTimer.hpp"
 #include "../headers/Engine.h"
 #include <iostream>
 using std::cout;
+using AlJeEngine::Time::ScopeTimer;
 
 namespace AlJeEngine
 {
@@ -46,21 +48,35 @@ namespace AlJeEngine
 
       sys->Update(dt);
     }
-    cout << "updated: " << dt << "ms\n";
+
+    cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
 
   }
 
   void Engine::mainLoop()
   {
+    // manually set the initial dt to prevent weird issues in the first frame.
+    dt = 1.f / 60.f;
+
+
     while (_running)
     {
-      // some frametime logic
-      // probably dependent on the graphics library
+      // ScopeTimer is defined in lib/Timers/ScopeTimer.hpp
+      // ScopeTimer automatically starts timing when it is created, 
+      // and stops when it leaves scope. 
+      // It stores the time delta in the input float pointer. Nifty!
+      ScopeTimer frameTimer(&dt);
 
-      float dt = 1.f / 60.f;
       // Update all the systems
       Update(dt);
+
+
     }
+  }
+
+  float Engine::FrameTime()
+  {
+    return dt;
   }
 
 

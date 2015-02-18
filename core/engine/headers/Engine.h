@@ -33,10 +33,12 @@ namespace AlJeEngine
 
     // <chrono> automated scoped-based timer would be awesome, please do that future Allan.
 #pragma message ("Add frame time stuff to engine")
-
+    float FrameTime();
 #pragma message ("Add a way to access spaces")
 
   private:
+    float dt;
+
     std::unordered_map<std::string, Space> _spaces;
 
     SystemVec _systems;
