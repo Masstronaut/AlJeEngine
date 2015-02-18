@@ -21,11 +21,14 @@ namespace AlJeEngine
 {
   namespace Math
   {
+    typedef unsigned char byte;
+
     enum coordType
     {
       Vector2D,
       Point2D
     };
+
 #pragma region vec2
     class vec2
     {
@@ -111,10 +114,10 @@ namespace AlJeEngine
 #pragma region colorVec
     struct colorVec
     {
-      char r = 0;
-      char g = 0;
-      char b = 0;
-      char a = 0;
+      byte r = 0;
+      byte g = 0;
+      byte b = 0;
+      byte a = 255;
 
 
     };

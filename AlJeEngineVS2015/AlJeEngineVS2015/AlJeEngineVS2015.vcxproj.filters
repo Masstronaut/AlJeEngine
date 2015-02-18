@@ -11,50 +11,102 @@
     <Filter Include="Systems">
       <UniqueIdentifier>{08889496-d650-436f-bf64-aac72ebc7853}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Engine\Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Systems\Source Files">
-      <UniqueIdentifier>{842b08ca-7a65-47c1-95f3-fa4d2c5ea835}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Systems\Header Files">
-      <UniqueIdentifier>{197d4727-d112-480d-bc07-1bea6998c692}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Libraries">
       <UniqueIdentifier>{1b4fbafc-e155-46e2-b20c-09f7296ba4c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{8aed3340-a008-490c-a0c5-d3670c16518c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\include file">
+      <UniqueIdentifier>{492a1ff2-dac2-4351-b706-13d8294aaf0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Header Files">
+      <UniqueIdentifier>{b8dd13e1-2b58-4c80-8368-d84e11e38bb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Test">
+      <UniqueIdentifier>{b68ef5bf-abc2-421c-9d58-286bea33edb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Test\Header Files">
+      <UniqueIdentifier>{89a4f738-0e32-4302-b3c1-f3668bf9b5e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Test\Source Files">
+      <UniqueIdentifier>{b50b130d-3100-4b7f-b470-5a5af4cf02c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component">
+      <UniqueIdentifier>{53fc07af-daf7-4067-a18b-a80bca329db7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\System">
+      <UniqueIdentifier>{11f2e326-7151-453d-9c54-4406fddaafd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Entity">
+      <UniqueIdentifier>{ab3140c2-b10d-4740-8c90-a6e01c34cc33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Engine">
+      <UniqueIdentifier>{4993fc4c-d1eb-4002-a059-62b435cb6ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Space">
+      <UniqueIdentifier>{9fbe340d-31ce-44bf-a735-258d15863429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\Timers">
+      <UniqueIdentifier>{d4079226-90dd-4c73-b706-a1af39a154c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\core\engine\src\Engine.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\engine\src\Entity.cpp">
-      <Filter>Engine\Source Files</Filter>
+    <ClCompile Include="..\..\core\systems\TestSystem.cpp">
+      <Filter>Systems\Test\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
-      <Filter>Engine\Source Files</Filter>
+      <Filter>Engine\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\Entity.cpp">
+      <Filter>Engine\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\Engine.cpp">
+      <Filter>Engine\Engine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\main.cpp">
-      <Filter>Engine\Source Files</Filter>
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\Space.cpp">
+      <Filter>Engine\Space</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\core\components\Components.h">
+      <Filter>Components\include file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Sprite.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Transform.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Collider.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\TestSystem.h">
+      <Filter>Systems\Test\Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\engine\headers\Engine.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\engine\headers\Entity.h">
-      <Filter>Engine\Header Files</Filter>
+      <Filter>Engine\Component</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\System.h">
-      <Filter>Engine\Header Files</Filter>
+      <Filter>Engine\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\Entity.h">
+      <Filter>Engine\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\Engine.h">
+      <Filter>Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\Space.h">
+      <Filter>Engine\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\timers\ScopeTimer.hpp">
+      <Filter>Libraries\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\timers\TimeDefines.h">
+      <Filter>Libraries\Timers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

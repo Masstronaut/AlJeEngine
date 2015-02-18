@@ -57,4 +57,9 @@ namespace AlJeEngine
     return _mask;
   }
 
+  ColliderType Entity::Collider()
+  {
+    return _collider;
+  }
+
 }; //AlJeEngine

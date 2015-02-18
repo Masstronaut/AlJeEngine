@@ -12,8 +12,10 @@
 #pragma once
 #include <memory> // Shared pointers for automatic memory management
 #include <vector>
+#include <unordered_map>
 #include "System.h"
 #include "Entity.h"
+#include "Space.h"
 
 namespace AlJeEngine
 {
@@ -22,18 +24,26 @@ namespace AlJeEngine
   {
 
     void Init();
+
     void Shutdown();
 
     void Update(float);
 
     void mainLoop();
 
-  private:
-    void populateEntities(std::shared_ptr < System > sys);
-    std::vector < std::shared_ptr < System > > _systems;
-    std::vector < std::shared_ptr < Entity > > _entities;
+    // <chrono> automated scoped-based timer would be awesome, please do that future Allan.
+#pragma message ("Add frame time stuff to engine")
+    float FrameTime();
+#pragma message ("Add a way to access spaces")
 
-    bool _running;
+  private:
+    float dt;
+
+    std::unordered_map<std::string, Space> _spaces;
+
+    SystemVec _systems;
+
+    bool _running = true;
   };
 
 }; // AlJeEngine

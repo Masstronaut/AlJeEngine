@@ -9,9 +9,11 @@
  *
  */
 
+#include "../../../lib/timers/ScopeTimer.hpp"
 #include "../headers/Engine.h"
 #include <iostream>
 using std::cout;
+using AlJeEngine::Time::ScopeTimer;
 
 namespace AlJeEngine
 {
@@ -42,33 +44,41 @@ namespace AlJeEngine
     for (auto sys : _systems)
     {
       // Make sure the system has all the entities that meet it's requirements
-      populateEntities(sys);
+      //populateEntities(sys);
 
       sys->Update(dt);
     }
-    cout << "updated: " << dt << "ms\n";
+
+    cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
 
   }
 
   void Engine::mainLoop()
   {
+    // manually set the initial dt to prevent weird issues in the first frame.
+    dt = 1.f / 60.f;
+
+
     while (_running)
     {
-      // some frametime logic
-      // probably dependent on the graphics library
+      // ScopeTimer is defined in lib/Timers/ScopeTimer.hpp
+      // ScopeTimer automatically starts timing when it is created, 
+      // and stops when it leaves scope. 
+      // It stores the time delta in the input float pointer. Nifty!
+      ScopeTimer frameTimer(&dt);
 
-      float dt = 0.016667f;
       // Update all the systems
       Update(dt);
+
+
     }
   }
 
-  void Engine::populateEntities(std::shared_ptr < System > sys)
+  float Engine::FrameTime()
   {
-    sys->_entities.clear();
-    for (auto it : _entities)
-      if ((it->Mask() & sys->Mask()) == sys->Mask())
-        sys->_entities.push_back(it);
+    return dt;
   }
+
+
 
 }; //AlJeEngine
