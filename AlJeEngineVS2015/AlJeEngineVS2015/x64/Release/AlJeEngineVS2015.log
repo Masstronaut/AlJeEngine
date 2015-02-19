@@ -1,7 +1,7 @@
-﻿Build started 2/18/2015 8:30:06 PM.
+﻿Build started 2/18/2015 9:32:14 PM.
      1>Project "C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\AlJeEngineVS2015\AlJeEngineVS2015.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt ..\..\core\engine\main.cpp ..\..\core\engine\src\Engine.cpp ..\..\core\engine\src\Entity.cpp ..\..\core\engine\src\System.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ..\..\core\engine\main.cpp ..\..\core\engine\src\Engine.cpp ..\..\core\engine\src\Entity.cpp ..\..\core\engine\src\System.cpp
          main.cpp
          Implement the functions in Space
          Add frame time stuff to engine
@@ -10,20 +10,18 @@
          Implement the functions in Space
          Add frame time stuff to engine
          Add a way to access spaces
-     1>..\..\core\engine\src\Engine.cpp(42): warning C4458: declaration of 'dt' hides class member
-         c:\users\jeffrey uong\desktop\aljeengine\core\engine\src\../headers/Engine.h(40): note: see declaration of 'AlJeEngine::Engine::dt'
          Entity.cpp
          System.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.exe" /NOLOGO SDL2.lib SDL2main.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.lib" /MACHINE:X64 x64\Release\main.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.exe" /NOLOGO glew32s.lib AlJeMath.lib SDL2.lib SDL2main.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.lib" /MACHINE:X64 x64\Release\main.obj
          x64\Release\Engine.obj
          x64\Release\Entity.obj
          x64\Release\System.obj
-     1>SDL2main.lib(SDL_windows_main.obj) : error LNK2001: unresolved external symbol __imp_fprintf
-     1>SDL2main.lib(SDL_windows_main.obj) : error LNK2001: unresolved external symbol __imp___iob_func
-     1>C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.exe : fatal error LNK1120: 2 unresolved externals
-     1>Done Building Project "C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\AlJeEngineVS2015\AlJeEngineVS2015.vcxproj" (Build target(s)) -- FAILED.
+         Generating code
+         Finished generating code
+         AlJeEngineVS2015.vcxproj -> C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\x64\Release\AlJeEngineVS2015.exe
+     1>Done Building Project "C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\AlJeEngineVS2015\AlJeEngineVS2015.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:02.73
+Time Elapsed 00:00:02.90

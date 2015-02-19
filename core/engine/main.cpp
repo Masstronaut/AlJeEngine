@@ -6,11 +6,13 @@
 * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
 *
 */
-#include "../components/Components.h"
+
 #include <GL/glew.h>
-#include "headers/Engine.h"
+
+#include "../components/Components.h"
 #include <SDL_opengl.h>
-#include "../../dependencies/include/SDL.h"
+#include <SDL.h>
+#include "headers/Engine.h"
 #include <memory>
 
 

@@ -32,7 +32,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -45,7 +45,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -66,19 +66,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\dependencies\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\dependencies\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\..\..\dependencies\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)\..\..\dependencies\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\dependencies\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\..\..\dependencies\lib\x64;$(ProjectDir)\dependencies\lib;$(ProjectDir)\lib\math\headers;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\AlJeEngine\dependencies\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\AlJeEngine\dependencies\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\..\..\dependencies\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)\..\..\dependencies\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\..\..\dependencies\include;$(ProjectDir)\..\..\lib\math\headers;$(ProjectDir)\..\..\dependencies\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\..\..\dependencies\lib\x64;$(ProjectDir)\..\..\dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -158,12 +158,15 @@
     <ClCompile Include="..\..\core\engine\src\Engine.cpp" />
     <ClCompile Include="..\..\core\engine\src\Entity.cpp" />
     <ClCompile Include="..\..\core\engine\src\System.cpp" />
+    <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
     <ClInclude Include="..\..\core\engine\headers\Engine.h" />
     <ClInclude Include="..\..\core\engine\headers\Entity.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />
+    <ClInclude Include="..\..\core\engine\headers\WindowSDL.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,17 +12,18 @@
 #include "../../../lib/timers/ScopeTimer.hpp"
 #include "../headers/Engine.h"
 #include <iostream>
+#include "..\headers\WindowSDL.h"
 using std::cout;
 using AlJeEngine::Time::ScopeTimer;
 
 namespace AlJeEngine
 {
-
-  void Engine::Init()
+	
+	void Engine::Init()
   {
     _running = true;
     // Add systems here
-
+    _systems.push_back(SystemPtr(new WindowSDL));
 
 
     // initialize all systems
@@ -49,7 +50,7 @@ namespace AlJeEngine
       sys->Update(dt);
     }
 
-    cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
+    //cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
 
   }
 

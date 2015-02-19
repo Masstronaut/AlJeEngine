@@ -18,6 +18,7 @@ namespace AlJeEngine
   enum EnumeratedSystem
   {
     ES_Test,
+    ES_WindowSDL,
     ES_MAX
   };
 #pragma endregion

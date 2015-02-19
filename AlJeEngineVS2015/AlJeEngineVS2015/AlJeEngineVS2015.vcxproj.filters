@@ -64,6 +64,9 @@
     <ClCompile Include="..\..\core\engine\main.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp">
+      <Filter>Engine\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
@@ -76,6 +79,10 @@
       <Filter>Engine\Entity</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Engine.h">
+      <Filter>Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="..\..\core\engine\headers\WindowSDL.h">
       <Filter>Engine\Engine</Filter>
     </ClInclude>
   </ItemGroup>
