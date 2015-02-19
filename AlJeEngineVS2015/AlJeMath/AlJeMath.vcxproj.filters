@@ -12,13 +12,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\lib\math\headers\math.h">
-      <Filter>Math\Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\lib\math\src\math.cpp">
       <Filter>Math\Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\lib\math\headers\affmath.h">
+      <Filter>Math\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

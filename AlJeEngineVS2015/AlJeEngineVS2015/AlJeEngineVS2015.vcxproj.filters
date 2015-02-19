@@ -52,9 +52,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\core\systems\TestSystem.cpp">
-      <Filter>Systems\Test\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
       <Filter>Engine\System</Filter>
     </ClCompile>
@@ -67,26 +64,8 @@
     <ClCompile Include="..\..\core\engine\main.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\engine\src\Space.cpp">
-      <Filter>Engine\Space</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\core\components\Components.h">
-      <Filter>Components\include file</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\components\Sprite.h">
-      <Filter>Components\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\components\Transform.h">
-      <Filter>Components\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\components\Collider.h">
-      <Filter>Components\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\systems\TestSystem.h">
-      <Filter>Systems\Test\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
       <Filter>Engine\Component</Filter>
     </ClInclude>
@@ -98,15 +77,6 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Engine.h">
       <Filter>Engine\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\engine\headers\Space.h">
-      <Filter>Engine\Space</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\lib\timers\ScopeTimer.hpp">
-      <Filter>Libraries\Timers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\lib\timers\TimeDefines.h">
-      <Filter>Libraries\Timers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

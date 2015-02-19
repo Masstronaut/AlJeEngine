@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\lib\math\headers\math.h" />
+    <ClInclude Include="..\..\lib\math\headers\affmath.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\lib\math\src\math.cpp" />

@@ -9,7 +9,7 @@
 
 #pragma once
 #include <vector>
-#include "../../lib/math/headers/math.h"
+#include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
 
 namespace AlJeEngine

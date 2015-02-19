@@ -1,0 +1,172 @@
+﻿Build started 2/18/2015 8:29:18 PM.
+     1>Project "C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\AlJeEngineVS2015\AlJeEngineVS2015.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\AlJeEngineVS2015\\dependencies\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\core\engine\main.cpp ..\..\core\engine\src\Engine.cpp ..\..\core\engine\src\Entity.cpp ..\..\core\engine\src\System.cpp
+         System.cpp
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(39): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(40): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(41): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(44): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(45): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(47): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(48): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(49): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(50): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(53): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(54): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(55): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(56): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(59): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(60): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(61): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(62): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(63): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(67): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(68): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(69): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(70): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(71): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(74): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(75): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(94): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(95): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(96): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(97): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(100): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(101): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(102): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(103): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(133): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(134): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(137): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(138): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(141): error C3646: 'noexcept' : unknown override specifier
+         Entity.cpp
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(39): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(40): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(41): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(44): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(45): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(47): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(48): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(49): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(50): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(53): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(54): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(55): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(56): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(59): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(60): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(61): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(62): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(63): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(67): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(68): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(69): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(70): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(71): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(74): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(75): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(94): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(95): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(96): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(97): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(100): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(101): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(102): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(103): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(133): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(134): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(137): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(138): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(141): error C3646: 'noexcept' : unknown override specifier
+         Engine.cpp
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(39): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(40): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(41): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(44): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(45): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(47): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(48): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(49): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(50): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(53): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(54): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(55): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(56): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(59): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(60): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(61): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(62): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(63): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(67): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(68): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(69): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(70): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(71): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(74): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(75): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(94): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(95): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(96): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(97): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(100): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(101): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(102): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(103): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(133): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(134): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(137): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(138): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(141): error C3646: 'noexcept' : unknown override specifier
+         Implement the functions in Space
+         Add frame time stuff to engine
+         Add a way to access spaces
+         main.cpp
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(39): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(40): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(41): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(44): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(45): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(47): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(48): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(49): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(50): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(53): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(54): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(55): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(56): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(59): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(60): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(61): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(62): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(63): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(67): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(68): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(69): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(70): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(71): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(74): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(75): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(94): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(95): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(96): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(97): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(100): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(101): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(102): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(103): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(133): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(134): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(137): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(138): error C3646: 'noexcept' : unknown override specifier
+     1>c:\users\jeffrey uong\desktop\aljeengine\lib\math\headers\affmath.h(141): error C3646: 'noexcept' : unknown override specifier
+         Implement the functions in Space
+         Add frame time stuff to engine
+         Add a way to access spaces
+         Generating Code...
+     1>Done Building Project "C:\Users\Jeffrey Uong\Desktop\AlJeEngine\AlJeEngineVS2015\AlJeEngineVS2015\AlJeEngineVS2015.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.67
