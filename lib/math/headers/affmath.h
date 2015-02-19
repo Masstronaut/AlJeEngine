@@ -36,49 +36,49 @@ namespace AlJeEngine
       /*****************************************************************************/
       /***************************** Constructors **********************************/
       /*****************************************************************************/
-      vec2()                             noexcept;
-      vec2(const float X, const float Y) noexcept;
-      vec2(const vec2 &rhs)              noexcept;
+      vec2()                              ;
+      vec2(const float X, const float Y)  ;
+      vec2(const vec2 &rhs)               ;
 
       // utility
-      void  zero()                          noexcept;
-      float length()                  const noexcept;
+      void  zero()                           ;
+      float length()                  const  ;
       vec2  normalize()               const;
-      vec2  normal()                        noexcept;
-      vec2  rotate(float degrees)           noexcept;
-      vec2  rotateRad(float radians)        noexcept;
-      float angle(vec2 &rhs)          const noexcept;
+      vec2  normal()                         ;
+      vec2  rotate(float degrees)            ;
+      vec2  rotateRad(float radians)         ;
+      float angle(vec2 &rhs)          const  ;
 
       // accessors and mutators
-      inline const float  X() const noexcept;
-      inline const float  Y() const noexcept;
-      inline       float& X()       noexcept;
-      inline       float& Y()       noexcept;
+      inline const float  X() const  ;
+      inline const float  Y() const  ;
+      inline       float& X()        ;
+      inline       float& Y()        ;
 
       // const operator overloads
-      vec2  operator-()                    const noexcept;
-      vec2  operator-(const vec2 &rhs)     const noexcept;
-      vec2  operator+(const vec2 &rhs)     const noexcept;
-      vec2  operator*(const float scalar)  const noexcept;
-      float operator*(const vec2 &rhs)     const noexcept;
+      vec2  operator-()                    const  ;
+      vec2  operator-(const vec2 &rhs)     const  ;
+      vec2  operator+(const vec2 &rhs)     const  ;
+      vec2  operator*(const float scalar)  const  ;
+      float operator*(const vec2 &rhs)     const  ;
       vec2  operator/(const float rhs)     const;
 
       // assignment operators
-      vec2& operator+=(const vec2 &rhs)    noexcept;
-      vec2& operator+=(const float rhs)    noexcept;
-      vec2& operator-=(const vec2 &rhs)    noexcept;
-      vec2& operator-=(const float rhs)    noexcept;
-      vec2& operator*=(const float scalar) noexcept;
+      vec2& operator+=(const vec2 &rhs)     ;
+      vec2& operator+=(const float rhs)     ;
+      vec2& operator-=(const vec2 &rhs)     ;
+      vec2& operator-=(const float rhs)     ;
+      vec2& operator*=(const float scalar)  ;
 
       // comparison operators
-      bool operator==(const vec2 &rhs) const noexcept;
-      bool operator!=(const vec2 &rhs) const noexcept;
+      bool operator==(const vec2 &rhs) const  ;
+      bool operator!=(const vec2 &rhs) const  ;
 
       friend class mat3;
 
     private:
       // if I want to do point2d in the same struct this makes it easy.
-      //vec2(const float X, const float Y, const float W) noexcept;
+      //vec2(const float X, const float Y, const float W)  ;
       float x = 0.f;
       float y = 0.f;
     };
@@ -91,16 +91,16 @@ namespace AlJeEngine
     {
     public:
       // accessors
-      inline const float  X() const noexcept;
-      inline const float  Y() const noexcept;
-      inline const float  Z() const noexcept;
-      inline const float  W() const noexcept;
+      inline const float  X() const  ;
+      inline const float  Y() const  ;
+      inline const float  Z() const  ;
+      inline const float  W() const  ;
 
       // mutators
-      inline       float& X()       noexcept;
-      inline       float& Y()       noexcept;
-      inline       float& Z()       noexcept;
-      inline       float& W()       noexcept;
+      inline       float& X()        ;
+      inline       float& Y()        ;
+      inline       float& Z()        ;
+      inline       float& W()        ;
 
 
     private:
@@ -130,15 +130,15 @@ namespace AlJeEngine
 
       // constructors
       // this intentionally doesn't initialize values for speed.
-      mat3() noexcept;
-      mat3(const vec2 &col1, const vec2 &col2, const vec2 &col3) noexcept;
+      mat3()  ;
+      mat3(const vec2 &col1, const vec2 &col2, const vec2 &col3)  ;
 
       // operator overloads
-      mat3 operator+(const mat3 &rhs) const noexcept;
-      mat3 operator*(const mat3 &rhs) const noexcept;
+      mat3 operator+(const mat3 &rhs) const  ;
+      mat3 operator*(const mat3 &rhs) const  ;
 
       // transform a point
-      vec2 operator*(const vec2 &rhs) const noexcept;
+      vec2 operator*(const vec2 &rhs) const  ;
 
     private:
       float matrix[3][3];

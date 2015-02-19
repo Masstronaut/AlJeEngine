@@ -7,6 +7,7 @@
 *
 */
 #include "../components/Components.h"
+#include <GL/glew.h>
 #include "headers/Engine.h"
 #include <SDL_opengl.h>
 #include "../../dependencies/include/SDL.h"
