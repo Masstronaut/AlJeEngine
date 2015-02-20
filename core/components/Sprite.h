@@ -9,6 +9,7 @@
 
 #pragma once
 #include <string>
+#include "../../lib/math/glm/glm.hpp"
 #include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
 
@@ -19,7 +20,7 @@ namespace AlJeEngine
   public:
     Sprite() : Component(EC_Sprite, MC_Sprite) {}
 
-    Math::colorVec color;
+    glm::vec4 color;
 
     std::string shaderName;
     std::string texture;

@@ -17,12 +17,6 @@
     <Filter Include="Components">
       <UniqueIdentifier>{8aed3340-a008-490c-a0c5-d3670c16518c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\include file">
-      <UniqueIdentifier>{492a1ff2-dac2-4351-b706-13d8294aaf0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components\Header Files">
-      <UniqueIdentifier>{b8dd13e1-2b58-4c80-8368-d84e11e38bb6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Systems\Test">
       <UniqueIdentifier>{b68ef5bf-abc2-421c-9d58-286bea33edb5}</UniqueIdentifier>
     </Filter>
@@ -67,6 +61,12 @@
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp">
       <Filter>Engine\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\systems\TestSystem.cpp">
+      <Filter>Systems\Test\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\Space.cpp">
+      <Filter>Engine\Space</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
@@ -84,6 +84,24 @@
     <ClInclude Include="Window.h" />
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h">
       <Filter>Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Collider.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Components.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Sprite.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Transform.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\TestSystem.h">
+      <Filter>Systems\Test\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\Space.h">
+      <Filter>Engine\Space</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@
 
 #pragma once
 #include <vector>
+#include "../../lib/math/glm/glm.hpp"
 #include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
 
@@ -38,7 +39,7 @@ namespace AlJeEngine
     struct PolyCollider : public Component
     {
       PolyCollider() : Component(EC_PolyCollider, MC_PolyCollider) {}
-      std::vector<Math::vec2> points;
+      std::vector<glm::vec2> points;
     };
 
 

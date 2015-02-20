@@ -8,6 +8,7 @@
 */
 
 #pragma once
+#include "../../lib/math/glm/glm.hpp"
 #include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
 
@@ -25,9 +26,9 @@ namespace AlJeEngine
 
 
 
-    Math::mat3 objectToWorld;
-    Math::vec2 position;
-    Math::vec2 scale;
+    glm::vec3 objectToWorld;
+	glm::vec2 position;
+	glm::vec2 scale;
     float rotation;
 
 
