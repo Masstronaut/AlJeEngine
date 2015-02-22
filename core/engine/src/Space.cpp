@@ -24,6 +24,17 @@ namespace AlJeEngine
         sys->_entities.push_back(it);
   }
 
+  EntityVec Space::GetEntities(mask m) const
+  {
+	  EntityVec matches;
+
+    // search for entities that fit the mask
+    for (auto it : _entities)
+      if (it->CheckMask(m))
+        matches.push_back(it);
+    return matches;
+  }
+
   void Space::RemoveEntity(EntityPtr in)
   {
 	  for (auto it : _entities)
@@ -38,6 +49,11 @@ namespace AlJeEngine
 
 	  }
 	  throw ("Tried to remove an entity that doesn't exist.\n");
+  }
+
+  void Space::Clear()
+  {
+    _entities.clear();
   }
 
 

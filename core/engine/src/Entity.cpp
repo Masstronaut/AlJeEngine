@@ -62,4 +62,9 @@ namespace AlJeEngine
     return _collider;
   }
 
+  bool Entity::CheckMask(mask m)
+  {
+	  return ((_mask & m) == m);
+  }
+
 }; //AlJeEngine

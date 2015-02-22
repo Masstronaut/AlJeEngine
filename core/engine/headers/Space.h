@@ -25,15 +25,18 @@ namespace AlJeEngine
 {
   class Space
   {
+  public:
+    Space() : _name(std::string("Unnamed Space")) {}
     Space(std::string &name) : _name(name) {}
 
 #pragma message ("Implement the functions in Space")
     EntityPtr CreateEntity();
 
     void PopulateEntities(SystemPtr) const;
-    EntityVec& GetEntities(mask) const;
+    EntityVec GetEntities(mask) const;
     void RemoveEntity(EntityPtr);
     
+    void Clear();
 
     const std::string& Name() const { return _name; }
   private:

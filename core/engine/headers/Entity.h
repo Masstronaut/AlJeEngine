@@ -62,6 +62,8 @@ namespace AlJeEngine
     */
     ColliderType Collider();
 
+	bool CheckMask(mask m);
+
 #define GET_COMPONENT( type ) \
   GetComponent<type>(EC_##type)
 

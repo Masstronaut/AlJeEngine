@@ -27,17 +27,23 @@ namespace AlJeEngine
 
     void Shutdown();
 
-    void Update(float);
+    void Update(float dt);
 
     void mainLoop();
 
-    // <chrono> automated scoped-based timer would be awesome, please do that future Allan.
-#pragma message ("Add frame time stuff to engine")
     float FrameTime();
-#pragma message ("Add a way to access spaces")
+
+    Space& CreateSpace(std::string &name);
+
+    Space& GetSpace(std::string &name);
+
+    Space& SetActiveSpace(std::string &name);
+    Space& GetActiveSpace();
 
   private:
     float dt;
+
+    std::string _activeSpace;
 
     std::unordered_map<std::string, Space> _spaces;
 

@@ -31,3 +31,5 @@
 *.sdf
 *.pdb
 lib/math/src/math.cpp
+*.pdb
+*.pdb
