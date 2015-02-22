@@ -31,3 +31,6 @@
 *.sdf
 *.pdb
 lib/math/src/math.cpp
+*.log
+*.pdb
+*.log
