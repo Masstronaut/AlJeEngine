@@ -13,7 +13,7 @@ namespace AlJeEngine
   public:
     WindowSDL();  //ctor
     void Init(void);   //Initilize SDL
-    void Update(float dt); //Update everyframe
+    void Update(float dt); //Update everyframe  
     void Shutdown(void); //called when system is deleated
     void PollWindowEvent(void);
 
