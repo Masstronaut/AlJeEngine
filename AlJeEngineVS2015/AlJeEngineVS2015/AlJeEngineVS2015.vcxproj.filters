@@ -67,6 +67,15 @@
     <ClCompile Include="..\..\core\engine\src\Space.cpp">
       <Filter>Engine\Space</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\GLGraphics.cpp">
+      <Filter>Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\mesh.cpp">
+      <Filter>Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\GLShader.cpp">
+      <Filter>Engine\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
@@ -102,6 +111,12 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Space.h">
       <Filter>Engine\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\GLGraphics.hpp">
+      <Filter>Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\GLShader.h">
+      <Filter>Engine\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

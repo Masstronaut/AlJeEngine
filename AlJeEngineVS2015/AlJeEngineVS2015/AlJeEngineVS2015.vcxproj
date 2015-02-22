@@ -108,7 +108,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;AlJeMath.lib;SDL2.lib;SDL2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;AlJeMath.lib;SDL2.lib;SDL2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
@@ -147,7 +147,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>glew32s.lib;AlJeMath.lib;SDL2.lib;SDL2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;AlJeMath.lib;SDL2.lib;SDL2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -157,6 +157,9 @@
     <ClCompile Include="..\..\core\engine\main.cpp" />
     <ClCompile Include="..\..\core\engine\src\Engine.cpp" />
     <ClCompile Include="..\..\core\engine\src\Entity.cpp" />
+    <ClCompile Include="..\..\core\engine\src\GLGraphics.cpp" />
+    <ClCompile Include="..\..\core\engine\src\GLShader.cpp" />
+    <ClCompile Include="..\..\core\engine\src\mesh.cpp" />
     <ClCompile Include="..\..\core\engine\src\Space.cpp" />
     <ClCompile Include="..\..\core\engine\src\System.cpp" />
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp" />
@@ -170,6 +173,8 @@
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
     <ClInclude Include="..\..\core\engine\headers\Engine.h" />
     <ClInclude Include="..\..\core\engine\headers\Entity.h" />
+    <ClInclude Include="..\..\core\engine\headers\GLGraphics.hpp" />
+    <ClInclude Include="..\..\core\engine\headers\GLShader.h" />
     <ClInclude Include="..\..\core\engine\headers\Space.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h" />
