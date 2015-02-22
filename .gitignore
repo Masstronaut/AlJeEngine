@@ -35,3 +35,4 @@ lib/math/src/math.cpp
 *.pdb
 *.log
 *.pdb
+*.log

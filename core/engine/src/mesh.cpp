@@ -4,7 +4,7 @@
 
 struct Quad
 {
-  glm::vec3 verticies;
+  glm::vec3 vertices;
   glm::vec2 UV;
 };
 
@@ -23,7 +23,7 @@ namespace AlJeEngine
     };
 
       //Indicies of the quad
-    GLushort QuadIndecies[] =
+    GLushort QuadIndices[] =
     {
       0, 1, 2,
       0, 2, 3
@@ -49,7 +49,7 @@ namespace AlJeEngine
       //Bind the buffer for the elements/indicies for the quad
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, QuadInfo.ebo);
       //Same exact thing as the vao but this time with the indicies
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(QuadIndecies), QuadIndecies, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(QuadIndices), QuadIndices, GL_STATIC_DRAW);
 
       //Telling OpenGL how to read the data
     glEnableVertexAttribArray(0);//for vert, in the shader location=0

@@ -29,7 +29,6 @@ namespace AlJeEngine
     Space() : _name(std::string("Unnamed Space")) {}
     Space(std::string &name) : _name(name) {}
 
-#pragma message ("Implement the functions in Space")
     EntityPtr CreateEntity();
 
     void PopulateEntities(SystemPtr) const;
