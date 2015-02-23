@@ -22,7 +22,11 @@ namespace AlJeEngine
 
   struct Engine
   {
-
+    /**
+    * @brief Initializes the Engine
+    * @detail This is where the startup operations happen.
+    *   Systems are added and initialized, variables are set, and the initial space is created.
+    */
     void Init();
 
     void Shutdown();
