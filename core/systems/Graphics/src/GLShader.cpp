@@ -2,8 +2,6 @@
 #include <iostream>//cout, endl
 #include <fstream> //ifstream
 
-
-
 namespace AlJeEngine
 {
   
@@ -121,16 +119,8 @@ namespace AlJeEngine
     
   }
 
-  void GLShader::AddUniforms(std::string uniformName)
-  {
-    glGetUniformLocation(_shaderUniforms[uniformName], uniformName.c_str());
-    if (_shaderUniforms[uniformName] == -1)
-    {
-      std::cout << uniformName << " could not be found" << std::endl;
-    }
-  }
-
-    void GLShader::LoadShaderFile(std::string vert, std::string frag, std::string geo = 0)
+  void GLShader::LoadShaderFile(const std::string &vert, 
+    const std::string &frag, const std::string &geo = 0)
   {
     _shaderflags[VERTEX]   = ShaderReader(vert.c_str(), _shaderFile[VERTEX]);
     _shaderflags[FRAGMENT] = ShaderReader(frag.c_str(), _shaderFile[FRAGMENT]);

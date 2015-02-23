@@ -30,16 +30,16 @@ namespace AlJeEngine
     };
 
       //Generate the buffers
-    glGenVertexArrays(1, &QuadInfo.vao);
-    glGenBuffers(1, &QuadInfo.vbo);
-    glGenBuffers(1, &QuadInfo.ebo);
+    glGenVertexArrays(1, &_quadInfo.vao);
+    glGenBuffers(1, &_quadInfo.vbo);
+    glGenBuffers(1, &_quadInfo.ebo);
 
       //Bind the vertex array object to remember the data
       //Remember OpenGL is like a state machine, one thing at a time
-    glBindVertexArray(QuadInfo.vao);
+    glBindVertexArray(_quadInfo.vao);
 
       //Bind the buffer for the quad
-    glBindBuffer(GL_ARRAY_BUFFER, QuadInfo.vao);
+    glBindBuffer(GL_ARRAY_BUFFER, _quadInfo.vao);
       //Allocate memory on the GPU from the quad from above
     glBufferData(GL_ARRAY_BUFFER, //Type of Buffer saving to
       sizeof(GraphicsQuad),  //Size of the data
@@ -47,7 +47,7 @@ namespace AlJeEngine
       GL_STATIC_DRAW);      //Data store contents will be modified once and used many times.
     
       //Bind the buffer for the elements/indicies for the quad
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, QuadInfo.ebo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _quadInfo.ebo);
       //Same exact thing as the vao but this time with the indicies
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(QuadIndices), QuadIndices, GL_STATIC_DRAW);
 
@@ -59,7 +59,7 @@ namespace AlJeEngine
       (void*)(sizeof(GLfloat) * 3));
 
       //Binding to 0 will unbind the buffers so you cannot modify the data
-    glBindVertexArray(0); //QuadInfo.vao will now remember how to read your Data from GraphicsQuad
+    glBindVertexArray(0); //_quadInfo.vao will now remember how to read your Data from GraphicsQuad
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   }
@@ -67,17 +67,17 @@ namespace AlJeEngine
   void GLGraphics::DeleteMesh()
   {
       //Clean up after yourself when allocating memory
-    if(QuadInfo.vao < 0)
+    if(_quadInfo.vao < 0)
     {
-      glDeleteBuffers(1, &QuadInfo.vao);
+      glDeleteBuffers(1, &_quadInfo.vao);
     }
-    else if(QuadInfo.ebo < 0)
+    else if(_quadInfo.ebo < 0)
     {
-      glDeleteBuffers(1, &QuadInfo.ebo);
+      glDeleteBuffers(1, &_quadInfo.ebo);
     }
-    else if(QuadInfo.vbo < 0)
+    else if(_quadInfo.vbo < 0)
     {
-      glDeleteBuffers(1, &QuadInfo.vbo);
+      glDeleteBuffers(1, &_quadInfo.vbo);
     }
   }//DeleteMesh
 

@@ -44,6 +44,9 @@
     <Filter Include="Libraries\Timers">
       <UniqueIdentifier>{d4079226-90dd-4c73-b706-a1af39a154c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\System\Graphics">
+      <UniqueIdentifier>{fb99c097-3255-4099-861b-f3546a7cf17f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -67,14 +70,17 @@
     <ClCompile Include="..\..\core\engine\src\Space.cpp">
       <Filter>Engine\Space</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\engine\src\GLGraphics.cpp">
-      <Filter>Engine\Engine</Filter>
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp">
+      <Filter>Engine\System\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\engine\src\mesh.cpp">
-      <Filter>Engine\Engine</Filter>
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp">
+      <Filter>Engine\System\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\engine\src\GLShader.cpp">
-      <Filter>Engine\Engine</Filter>
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp">
+      <Filter>Engine\System\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp">
+      <Filter>Engine\System\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,7 +96,6 @@
     <ClInclude Include="..\..\core\engine\headers\Engine.h">
       <Filter>Engine\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h" />
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h">
       <Filter>Engine\Engine</Filter>
     </ClInclude>
@@ -112,11 +117,14 @@
     <ClInclude Include="..\..\core\engine\headers\Space.h">
       <Filter>Engine\Space</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\engine\headers\GLGraphics.hpp">
-      <Filter>Engine\Engine</Filter>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp">
+      <Filter>Engine\System\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\engine\headers\GLShader.h">
-      <Filter>Engine\Engine</Filter>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h">
+      <Filter>Engine\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h">
+      <Filter>Engine\System\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

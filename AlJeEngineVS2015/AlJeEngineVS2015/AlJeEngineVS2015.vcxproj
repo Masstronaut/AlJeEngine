@@ -157,12 +157,13 @@
     <ClCompile Include="..\..\core\engine\main.cpp" />
     <ClCompile Include="..\..\core\engine\src\Engine.cpp" />
     <ClCompile Include="..\..\core\engine\src\Entity.cpp" />
-    <ClCompile Include="..\..\core\engine\src\GLGraphics.cpp" />
-    <ClCompile Include="..\..\core\engine\src\GLShader.cpp" />
-    <ClCompile Include="..\..\core\engine\src\mesh.cpp" />
     <ClCompile Include="..\..\core\engine\src\Space.cpp" />
     <ClCompile Include="..\..\core\engine\src\System.cpp" />
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp" />
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp" />
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp" />
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp" />
+    <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp" />
     <ClCompile Include="..\..\core\systems\TestSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -173,13 +174,13 @@
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
     <ClInclude Include="..\..\core\engine\headers\Engine.h" />
     <ClInclude Include="..\..\core\engine\headers\Entity.h" />
-    <ClInclude Include="..\..\core\engine\headers\GLGraphics.hpp" />
-    <ClInclude Include="..\..\core\engine\headers\GLShader.h" />
     <ClInclude Include="..\..\core\engine\headers\Space.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h" />
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp" />
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h" />
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h" />
     <ClInclude Include="..\..\core\systems\TestSystem.h" />
-    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

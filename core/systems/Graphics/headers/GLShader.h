@@ -8,10 +8,15 @@
 #ifndef GLSHADER_H
 #define GLSHADER_H
 
-#include <string> //string
 #include "../../../dependencies/include/GL/glew.h"
+#include "GLShaderUniforms.h"
+#include <string> //string
+#include <iostream> //cout, endl
 #include <vector> //std::vector
-#include <unordered_map>//unordered_map
+#include <unordered_map>//std::unordered_map
+#include <utility> // std::forward
+
+
 namespace AlJeEngine
 {
   const int maxShaderType = 3;
@@ -23,8 +28,10 @@ namespace AlJeEngine
     GLShader();
     ~GLShader(); //dtor
 
-    void AddUniforms(std::string uniformName);
-    void LoadShaderFile(std::string vert, std::string frag, std::string geo);
+    template<typename T>
+    void AddUniforms(const std::string &uniformName, const T &data);
+
+    void LoadShaderFile(const std::string &vert, const std::string &frag, const std::string &geo);
     void Compile(); //Compile the shader itself
     void Use();   //Use the shader
     void UnUse(); //Don't use the shader
@@ -32,13 +39,23 @@ namespace AlJeEngine
       
     bool CompileFile(ShaderType type); //Compiles shaders files
     bool _shaderflags[maxShaderType];  //to check which shaders compiled
-    template<typename T> void Uniformdata(T dataType);
     GLuint _shaderProgram;
     GLuint _shaderID[maxShaderType];
     std::string _shaderFile[maxShaderType];
-    std::unordered_map<std::string, GLuint> _shaderUniforms;
+    std::unordered_map<std::string, GLint> _shaderUniforms;
   };
 
+  template<typename T>
+  void GLShader::AddUniforms(const std::string &uniformName, const T &data) 
+  {
+    _shaderUniforms[uniformName] = glGetUniformLocation(_shaderProgram, uniformName.c_str());
+    if (_shaderUniforms[uniformName] == -1)
+    {
+      std::cout << uniformName << " could not be found on the shader" << std::endl;
+    }
+    LoadShaderData(_shaderUniforms[uniformName], data);
+  }
+  
 }
 
 #endif
