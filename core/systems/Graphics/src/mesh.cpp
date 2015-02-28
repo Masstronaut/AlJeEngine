@@ -1,11 +1,23 @@
+/**
+* @author Jeffrey Uong
+* @version 0.5
+* @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
+*
+*/
+
 #include "../headers/GLGraphics.hpp"
 #include "../../../lib/math/glm/glm.hpp" //vec3,vec2
 #include "../../../lib/math/glm/gtc/type_ptr.hpp" //convert glm data type to raw pointers
 
-struct Quad
+static struct Quad
 {
   glm::vec3 vertices;
   glm::vec2 UV;
+};
+
+static struct Circle
+{
+  glm::vec3 verticies;
 };
 
 namespace AlJeEngine 

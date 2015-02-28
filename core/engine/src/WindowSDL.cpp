@@ -7,7 +7,7 @@
 
 #include "../../engine/headers/WindowSDL.h"
 
-#include <iostream>
+#include <iostream> //cout, endl
 
 const int screenWidth = 1280;
 const int screenHeight = 720;
@@ -65,13 +65,13 @@ namespace AlJeEngine
         break;
       }//switch
     }//event
-
+      //Swap the backbuffer and frontbuffer
     SDL_GL_SwapWindow(_window);
   }
 
   void WindowSDL::Update(float dt)
   {
-    PollWindowEvent();
+    PollWindowEvent(); 
   }
 
 }

@@ -1,18 +1,21 @@
 /**************************************************************************************/
 /*!
-@file dfrag.glsl
+@file dvert.glsl
 @author Jeffrey Uong
 @copyright All content © 2014 DigiPen (USA) Corporation, all rights reserved.
 */
 /**************************************************************************************/
 
 #version 330 core
+layout(location = 0)in vec3 position;
+layout(location = 1)in vec2 texcoord;
 
-in vec2 Texcoord;
+out vec2 Texcoord;
 
-uniform vec4 color;
+uniform mat4 model;
 
-void main()
+void main() 
 {
-  gl_FragColor = vec4(1.0f,0.0f,0.0f,1.0f);
+   gl_Position = model * vec4(position, 1.0);
+   Texcoord = texcoord;
 }

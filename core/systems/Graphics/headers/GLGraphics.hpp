@@ -1,13 +1,12 @@
-#ifndef GLGRAPHICS_H
-#define GLGRAPHICS_H
-
-
 /**
 * @author Jeffrey Uong
 * @version 0.5
 * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
 *
 */
+
+#ifndef GLGRAPHICS_H
+#define GLGRAPHICS_H
 
 #include "../../../engine/headers/System.h"
 #include <GL/glew.h> //Lots of opengl functions
@@ -20,6 +19,9 @@ namespace AlJeEngine
   class GLGraphics : public System
   {
   public:
+    enum MeshType {QUAD = 0, CIRCLE};
+
+    GLGraphics(); //ctor
     void Init(void);       //Initilize SDL
     void Update(float dt); //Update everyframe  
     void Shutdown(void);   //called when system is deleated

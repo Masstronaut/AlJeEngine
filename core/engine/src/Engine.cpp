@@ -12,7 +12,8 @@
 #include "../../../lib/timers/ScopeTimer.hpp"
 #include "../headers/Engine.h"
 #include <iostream>
-#include "..\headers\WindowSDL.h"
+#include "../headers/WindowSDL.h"
+#include "../../systems/Graphics/headers/GLGraphics.hpp"
 using std::cout;
 using AlJeEngine::Time::ScopeTimer;
 
@@ -30,7 +31,7 @@ namespace AlJeEngine
 
     // Add systems here
     _systems.push_back(SystemPtr(new WindowSDL));
-
+    _systems.push_back(SystemPtr(new GLGraphics));
 
     // initialize all systems
     // using c++11 range-based for loop
@@ -56,7 +57,7 @@ namespace AlJeEngine
       sys->Update(dt);
     }
 
-    cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
+    //cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
 
   }
 

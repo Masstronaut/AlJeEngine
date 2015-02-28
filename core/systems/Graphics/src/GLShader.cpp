@@ -5,19 +5,23 @@
 namespace AlJeEngine
 {
   
-  static bool ShaderReader(const char *filename, std::string &storage)
+  bool ShaderReader(const char *filename, std::string &storage)
   {
     storage.clear();
-    std::string location = "../../Shaders/GLSL/";
-    location += filename;
-    std::ifstream shaderfile(location.c_str(), std::ios::in);
+    if (filename == nullptr)
+    {
+      return false;
+    }
+
+    std::string file(filename);
+    //std::string location ("../../../Shaders/GLSL/") ;
+    //location += file;
+    std::ifstream shaderfile(file, std::ios::in);
     if (shaderfile)
     {
       storage.assign((std::istreambuf_iterator<char>(shaderfile)),
         std::istreambuf_iterator<char>());
     }
-    else if (storage.length() == 0)
-      return false;
     else
     {
       std::cout << "Could not open file " << filename << std::endl;
@@ -105,6 +109,7 @@ namespace AlJeEngine
     {
       _shaderID[i] = 0;
       _shaderFile[i].clear();
+      _shaderflags[i] = false;
     }  
     _shaderProgram = 0;
   }
@@ -119,18 +124,21 @@ namespace AlJeEngine
     
   }
 
-  void GLShader::LoadShaderFile(const std::string &vert, 
-    const std::string &frag, const std::string &geo = 0)
+  void GLShader::LoadShaderFile(const char *vert,
+    const char *frag, const char *geo)
   {
-    _shaderflags[VERTEX]   = ShaderReader(vert.c_str(), _shaderFile[VERTEX]);
-    _shaderflags[FRAGMENT] = ShaderReader(frag.c_str(), _shaderFile[FRAGMENT]);
-    _shaderflags[GEOMETRY] = ShaderReader(frag.c_str(), _shaderFile[GEOMETRY]);
+    _shaderflags[VERTEX]   = ShaderReader(vert, _shaderFile[VERTEX]);
+    _shaderflags[FRAGMENT] = ShaderReader(frag, _shaderFile[FRAGMENT]);
+    _shaderflags[GEOMETRY] = ShaderReader(geo, _shaderFile[GEOMETRY]);
+    bool bvert = _shaderflags[VERTEX];
+    bool bfrag = _shaderflags[FRAGMENT];
+    bool bgeo = _shaderflags[GEOMETRY];
   }
 
   void GLShader::Compile()
   {
       //Shaders need both a vertex and a fragment to be whole
-    if (!_shaderflags[VERTEX] && !_shaderflags[FRAGMENT])
+    if (_shaderflags[VERTEX] == false && _shaderflags[FRAGMENT] == false)
     {
       std::cout << "Error, Vertex or Fragment shader is empty, cannot compile" << std::endl;
       return;

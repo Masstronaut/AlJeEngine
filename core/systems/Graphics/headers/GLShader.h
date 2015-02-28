@@ -14,8 +14,6 @@
 #include <iostream> //cout, endl
 #include <vector> //std::vector
 #include <unordered_map>//std::unordered_map
-#include <utility> // std::forward
-
 
 namespace AlJeEngine
 {
@@ -24,14 +22,14 @@ namespace AlJeEngine
   {
   public:
     enum ShaderType {VERTEX = 0, FRAGMENT ,GEOMETRY};
-      //ctor
-    GLShader();
+  
+    GLShader();  //ctor
     ~GLShader(); //dtor
 
     template<typename T>
     void AddUniforms(const std::string &uniformName, const T &data);
 
-    void LoadShaderFile(const std::string &vert, const std::string &frag, const std::string &geo);
+    void LoadShaderFile(const char *vert, const char *frag, const char *geo);
     void Compile(); //Compile the shader itself
     void Use();   //Use the shader
     void UnUse(); //Don't use the shader

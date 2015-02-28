@@ -9,11 +9,14 @@
 namespace AlJeEngine
 {
 
-  void GLGraphics::Init(void)       //Initilize SDL
+  GLGraphics::GLGraphics() : System(std::string("GLGraphicsSystem"), ES_GLGraphics)
   {
-    GLGraphics::CreateMesh();
-    _shader.LoadShaderFile("../.. /Shaders/GLSL/dvert.glsl",
-      "../.. /Shaders/GLSL/dfrag.glsl", 0);
+  
+  }
+  void GLGraphics::Init(void) //Initilize SDL
+  {
+    CreateMesh();
+    _shader.LoadShaderFile("dvert.glsl", "dfrag.glsl", 0);
     _shader.Compile();
     glm::mat4x4 mymatrix;
     glm::scale(mymatrix,glm::vec3(.2f,.2f,1));
@@ -32,6 +35,9 @@ namespace AlJeEngine
   }
   void GLGraphics::Draw()
   {
+      //Clear the color buffer to redraw on the screen.
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     glBindVertexArray(_quadInfo.vao);
     _shader.Use();
     glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
