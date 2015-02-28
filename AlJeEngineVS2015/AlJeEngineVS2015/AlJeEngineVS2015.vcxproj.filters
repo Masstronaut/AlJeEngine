@@ -44,7 +44,7 @@
     <Filter Include="Libraries\Timers">
       <UniqueIdentifier>{d4079226-90dd-4c73-b706-a1af39a154c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\System\Graphics">
+    <Filter Include="Systems\Graphics">
       <UniqueIdentifier>{fb99c097-3255-4099-861b-f3546a7cf17f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -71,16 +71,16 @@
       <Filter>Engine\Space</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp">
-      <Filter>Engine\System\Graphics</Filter>
+      <Filter>Systems\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp">
-      <Filter>Engine\System\Graphics</Filter>
+      <Filter>Systems\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp">
-      <Filter>Engine\System\Graphics</Filter>
+      <Filter>Systems\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp">
-      <Filter>Engine\System\Graphics</Filter>
+      <Filter>Systems\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,13 +118,13 @@
       <Filter>Engine\Space</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp">
-      <Filter>Engine\System\Graphics</Filter>
+      <Filter>Systems\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h">
-      <Filter>Engine\System\Graphics</Filter>
+      <Filter>Systems\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h">
-      <Filter>Engine\System\Graphics</Filter>
+      <Filter>Systems\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

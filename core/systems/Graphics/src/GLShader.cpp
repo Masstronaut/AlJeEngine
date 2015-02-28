@@ -16,8 +16,15 @@ namespace AlJeEngine
     std::string file(filename);
     //std::string location ("../../../Shaders/GLSL/") ;
     //location += file;
-    std::ifstream shaderfile(file, std::ios::in);
-    if (shaderfile)
+
+    std::fstream testfile;
+    testfile.open("testfile.txt", std::fstream::out);
+    testfile << "This is a simple test";
+    testfile.close();
+
+
+    std::ifstream shaderfile( file );
+    if (shaderfile.good())
     {
       storage.assign((std::istreambuf_iterator<char>(shaderfile)),
         std::istreambuf_iterator<char>());
