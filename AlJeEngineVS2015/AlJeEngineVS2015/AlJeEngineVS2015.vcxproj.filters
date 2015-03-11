@@ -20,12 +20,6 @@
     <Filter Include="Systems\Test">
       <UniqueIdentifier>{b68ef5bf-abc2-421c-9d58-286bea33edb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Systems\Test\Header Files">
-      <UniqueIdentifier>{89a4f738-0e32-4302-b3c1-f3668bf9b5e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Systems\Test\Source Files">
-      <UniqueIdentifier>{b50b130d-3100-4b7f-b470-5a5af4cf02c7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Component">
       <UniqueIdentifier>{53fc07af-daf7-4067-a18b-a80bca329db7}</UniqueIdentifier>
     </Filter>
@@ -64,9 +58,6 @@
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp">
       <Filter>Engine\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\systems\TestSystem.cpp">
-      <Filter>Systems\Test\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Space.cpp">
       <Filter>Engine\Space</Filter>
     </ClCompile>
@@ -81,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp">
       <Filter>Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\TestSystem.cpp">
+      <Filter>Systems\Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,9 +105,6 @@
     <ClInclude Include="..\..\core\components\Transform.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\systems\TestSystem.h">
-      <Filter>Systems\Test\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Space.h">
       <Filter>Engine\Space</Filter>
     </ClInclude>
@@ -125,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h">
       <Filter>Systems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\TestSystem.h">
+      <Filter>Systems\Test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

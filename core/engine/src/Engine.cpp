@@ -12,14 +12,23 @@
 #include "../../../lib/timers/ScopeTimer.hpp"
 #include "../headers/Engine.h"
 #include <iostream>
+#include <cassert>
 #include "../headers/WindowSDL.h"
 #include "../../systems/Graphics/headers/GLGraphics.hpp"
 using std::cout;
 using AlJeEngine::Time::ScopeTimer;
 
+
 namespace AlJeEngine
 {
-	
+  Engine* ENGINE = nullptr;
+
+  Engine::Engine()
+  {
+    // There should only ever be one instance of the engine.
+    assert(ENGINE == nullptr);
+  }
+
 	void Engine::Init()
   {
     // Start your engines!

@@ -18,6 +18,11 @@
 
 using namespace AlJeEngine;
 
+namespace AlJeEngine
+{
+  extern Engine* ENGINE;
+}
+
 int main(int argc, char* args[])
 {
 
@@ -26,7 +31,8 @@ int main(int argc, char* args[])
   testfile << "This is a simple test";
   testfile.close();
 
-  std::shared_ptr < Engine > ENGINE( new Engine( ) );
+  ENGINE = new Engine();
+
   ENGINE->Init( );
   ENGINE->mainLoop( );
 

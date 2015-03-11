@@ -22,6 +22,7 @@ namespace AlJeEngine
 
   struct Engine
   {
+    Engine();
     /**
     * @brief Initializes the Engine
     * @detail This is where the startup operations happen.
@@ -55,5 +56,4 @@ namespace AlJeEngine
 
     bool _running = true;
   };
-
 }; // AlJeEngine

@@ -37,3 +37,4 @@ lib/math/src/math.cpp
 *.pdb
 *.log
 *.ilk
+*.ilk

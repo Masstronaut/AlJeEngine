@@ -16,7 +16,7 @@ namespace AlJeEngine
 
     class Test : public System
     {
-      Test() : System(std::string("Test System"), ES_Test) {/* the engine calls init manually */}
+      Test() : System(std::string("Test System"), ES_Test) {/* the engine calls init manually, which should take the place of the constructor. */}
 
       void Init();
 
