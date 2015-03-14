@@ -27,8 +27,8 @@ namespace AlJeEngine
     ~GLShader(); //dtor
 
     template<typename T>
-    void AddUniforms(const std::string &uniformName, const T &data);
-
+    void UpdateUniforms(const std::string &uniformName, const T &data);
+    void FindUniforms(const std::string &uniformName);
     void LoadShaderFile(const char *vert, const char *frag, const char *geo);
     void Compile(); //Compile the shader itself
     void Use();   //Use the shader
@@ -44,13 +44,8 @@ namespace AlJeEngine
   };
 
   template<typename T>
-  void GLShader::AddUniforms(const std::string &uniformName, const T &data) 
+  void GLShader::UpdateUniforms(const std::string &uniformName, const T &data) 
   {
-    _shaderUniforms[uniformName] = glGetUniformLocation(_shaderProgram, uniformName.c_str());
-    if (_shaderUniforms[uniformName] == -1)
-    {
-      std::cout << uniformName << " could not be found in the shader" << std::endl;
-    }
     LoadShaderData(_shaderUniforms[uniformName], data);
   }
   

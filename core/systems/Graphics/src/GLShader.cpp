@@ -136,6 +136,18 @@ namespace AlJeEngine
     bool bgeo = _shaderflags[GEOMETRY];
   }
 
+  void GLShader::FindUniforms(const std::string &uniformName)
+  {
+      //Finding the uniform in the shader.
+      //glGetUniformLocation should only be called once since it is pointless to call
+      //this function multiple times.
+    _shaderUniforms[uniformName] = glGetUniformLocation(_shaderProgram, uniformName.c_str());
+    if (_shaderUniforms[uniformName] == -1)
+    {
+      std::cout << uniformName << " could not be found in the shader" << std::endl;
+    }
+  }
+
   void GLShader::Compile()
   {
       //Shaders need both a vertex and a fragment to be whole
@@ -176,14 +188,15 @@ namespace AlJeEngine
 
   void AlJeEngine::GLShader::Use()
   {
+      //Use the current shader;
     glUseProgram(_shaderProgram);
   }
 
   void AlJeEngine::GLShader::UnUse()
   {
+      //Unbinding the current shader
     glUseProgram(0);
   }
-
 
 
 }//AljeEngine
