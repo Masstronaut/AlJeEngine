@@ -9,13 +9,13 @@
 #include "../../../lib/math/glm/glm.hpp" //vec3,vec2
 #include "../../../lib/math/glm/gtc/type_ptr.hpp" //convert glm data type to raw pointers
 
-static struct Quad
+struct Quad
 {
   glm::vec3 vertices;
   glm::vec2 UV;
 };
 
-static struct Circle
+struct Circle
 {
   glm::vec3 verticies;
 };

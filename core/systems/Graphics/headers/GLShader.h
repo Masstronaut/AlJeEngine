@@ -49,7 +49,7 @@ namespace AlJeEngine
     _shaderUniforms[uniformName] = glGetUniformLocation(_shaderProgram, uniformName.c_str());
     if (_shaderUniforms[uniformName] == -1)
     {
-      std::cout << uniformName << " could not be found on the shader" << std::endl;
+      std::cout << uniformName << " could not be found in the shader" << std::endl;
     }
     LoadShaderData(_shaderUniforms[uniformName], data);
   }

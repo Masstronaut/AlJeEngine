@@ -18,9 +18,8 @@ namespace AlJeEngine
     CreateMesh();
     _shader.LoadShaderFile("dvert.glsl", "dfrag.glsl", 0);
     _shader.Compile();
-    glm::mat4x4 mymatrix;
-    glm::scale(mymatrix,glm::vec3(.2f,.2f,1));
-    _shader.AddUniforms("model", mymatrix);
+    
+    
 
   }
 
@@ -35,11 +34,15 @@ namespace AlJeEngine
   }
   void GLGraphics::Draw()
   {
+    glm::mat4x4 mymatrix;
+    glm::scale(mymatrix, glm::vec3(.5f, .5f, 1));
+
+    _shader.AddUniforms("model", mymatrix);
       //Clear the color buffer to redraw on the screen.
     glClear(GL_COLOR_BUFFER_BIT);
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    //glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glBindVertexArray(_quadInfo.vao);
     _shader.Use();
-    glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
   }
 }

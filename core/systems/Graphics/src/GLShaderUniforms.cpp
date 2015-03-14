@@ -6,6 +6,7 @@
 */
 
 #include "../headers/GLShaderUniforms.h"
+#include "../../../lib/math/glm//gtc/type_ptr.hpp" //value_ptr
 
 void LoadShaderData(const GLint location, const GLint &data)
 {
