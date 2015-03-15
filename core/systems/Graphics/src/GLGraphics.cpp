@@ -21,13 +21,13 @@ namespace AlJeEngine
     _shader.FindUniforms("model");
 
   }
-
-  void GLGraphics::Update(float dt) //Update everyframe  
+  //Update every frame 
+  void GLGraphics::Update(float dt)  
   {
     Draw();
   }
-
-  void GLGraphics::Shutdown(void)   //called when system is deleated
+  //called when system is deleated
+  void GLGraphics::Shutdown(void)   
   {
     GLGraphics::DeleteMesh();
   }
@@ -38,7 +38,7 @@ namespace AlJeEngine
 
     _shader.UpdateUniforms("model", mymatrix);
 
-      //Clear the color buffer to redraw on the screen.
+    //Clear the color buffer to redraw on the screen.
     glClear(GL_COLOR_BUFFER_BIT);
     //glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glBindVertexArray(_quadInfo.vao);
