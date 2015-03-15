@@ -12,6 +12,13 @@ namespace AlJeEngine
   {
   public:
     Render();
+
+    void Init();
+    void Update(float);
+    void Shutdown();
+
+
+
   private:
    
   };

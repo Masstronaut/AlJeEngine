@@ -11,6 +11,7 @@
 #include "../../lib/math/glm/glm.hpp"
 #include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
+#include <memory>
 
 namespace AlJeEngine
 {
@@ -34,5 +35,6 @@ namespace AlJeEngine
 
   };
 
+  typedef std::shared_ptr<Transform> TransformPtr;
 
 }; // namespace AlJe
