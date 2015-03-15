@@ -20,6 +20,7 @@ namespace AlJeEngine
     ES_Test,
     ES_WindowSDL,
     ES_GLGraphics,
+    ES_Render,
     ES_MAX
   };
 #pragma endregion
