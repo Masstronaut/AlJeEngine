@@ -34,7 +34,7 @@ namespace AlJeEngine
   void GLGraphics::Draw()
   {
 
-    glm::mat4x4 mymatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.9f, 0.5f, 1.0f));
+    glm::mat4x4 mymatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f, 0.5f, 1.0f));
 
     _shader.UpdateUniforms("model", mymatrix);
 
