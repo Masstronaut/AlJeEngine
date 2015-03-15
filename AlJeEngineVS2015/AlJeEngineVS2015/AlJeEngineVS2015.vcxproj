@@ -156,6 +156,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\main.cpp" />
+    <ClCompile Include="..\..\core\engine\src\ArchetypeFactory.cpp" />
+    <ClCompile Include="..\..\core\engine\src\Archetypes.cpp" />
     <ClCompile Include="..\..\core\engine\src\Engine.cpp" />
     <ClCompile Include="..\..\core\engine\src\Entity.cpp" />
     <ClCompile Include="..\..\core\engine\src\Space.cpp" />
@@ -173,6 +175,8 @@
     <ClInclude Include="..\..\core\components\Components.h" />
     <ClInclude Include="..\..\core\components\Sprite.h" />
     <ClInclude Include="..\..\core\components\Transform.h" />
+    <ClInclude Include="..\..\core\engine\headers\ArchetypeFactory.h" />
+    <ClInclude Include="..\..\core\engine\headers\Archetypes.h" />
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
     <ClInclude Include="..\..\core\engine\headers\Engine.h" />
     <ClInclude Include="..\..\core\engine\headers\Entity.h" />

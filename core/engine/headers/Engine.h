@@ -16,6 +16,7 @@
 #include "System.h"
 #include "Entity.h"
 #include "Space.h"
+#include "ArchetypeFactory.h"
 
 namespace AlJeEngine
 {
@@ -38,14 +39,20 @@ namespace AlJeEngine
 
     float FrameTime();
 
-    Space& CreateSpace(std::string &name);
+    Space& CreateSpace(std::string name);
 
-    Space& GetSpace(std::string &name);
+    Space& GetSpace(std::string name);
 
-    Space& SetActiveSpace(std::string &name);
+    Space& SetActiveSpace(std::string name);
+
     Space& GetActiveSpace();
 
+    ArchetypeFactory& Factory();
+
   private:
+
+    bool _running = true;
+
     float dt;
 
     std::string _activeSpace;
@@ -54,6 +61,7 @@ namespace AlJeEngine
 
     SystemVec _systems;
 
-    bool _running = true;
+    ArchetypeFactory _archetypeFactory;
+
   };
 }; // AlJeEngine

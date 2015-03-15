@@ -38,3 +38,5 @@ lib/math/src/math.cpp
 *.log
 *.ilk
 *.ilk
+*.ilk
+*.suo

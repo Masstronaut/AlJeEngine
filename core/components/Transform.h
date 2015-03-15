@@ -24,13 +24,13 @@ namespace AlJeEngine
                   {
                   }
 
-
-
-    glm::vec3 objectToWorld;
-	glm::vec2 position;
-	glm::vec2 scale;
+    // The transformation data of the object.
+    glm::vec2 position;
+    glm::vec2 scale;
     float rotation;
 
+    // The matrix that transforms object vertices from object space to world space.
+    glm::vec3 objectToWorld;
 
   };
 

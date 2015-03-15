@@ -8,6 +8,7 @@
  */
 
 #pragma once
+#include <memory>
 namespace AlJeEngine
 {
 
@@ -57,5 +58,7 @@ namespace AlJeEngine
     // no default construction is allowed.
     //Component();
   };
+
+  typedef std::shared_ptr<Component> ComponentPtr;
 
 }; // AlJeEngine

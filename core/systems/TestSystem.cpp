@@ -19,12 +19,14 @@ namespace AlJeEngine
       
     void Test::Init()
     {
-      Space& gameworld = ENGINE->GetActiveSpace();
-      auto player = gameworld.CreateEntity();
-      // Here we use pointers to a base class, but store the derived class.
-      // By storing them as the base type they can be stored together.
-      player->AddComponent(std::shared_ptr<Component>(new Transform()));
-      player->AddComponent(std::shared_ptr<Component>(new BoxCollider()));
+      // Get a reference to the "Game World" space so that we can add an object to it.
+      Space& gameworld = ENGINE->GetSpace("GameWorld");
+
+      // Use the factory to create an object matching the "Box" archetype.
+      EntityPtr player = ENGINE->Factory().create("Box");
+
+      // Add the object we created to the game world space.
+      gameworld.AddEntity(player);
     }
 
     void Test::Update(float dt)
@@ -39,6 +41,6 @@ namespace AlJeEngine
 
 
 
-  }; // Systems
+  } // Systems
 
-}; // AlJeEngine
+} // AlJeEngine

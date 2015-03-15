@@ -96,20 +96,20 @@ namespace AlJeEngine
     return dt;
   }
 
-  Space & Engine::CreateSpace(std::string & name)
+  Space & Engine::CreateSpace(std::string name)
   {
     // TODO: insert return statement here
     _spaces[name] = Space(name);
     return GetSpace(name);
   }
 
-  Space & Engine::GetSpace(std::string &name)
+  Space & Engine::GetSpace(std::string name)
   {
     // TODO: insert return statement here
     return _spaces[name];
   }
 
-  Space & Engine::SetActiveSpace(std::string & name)
+  Space & Engine::SetActiveSpace(std::string name)
   {
     // TODO: insert return statement here
     _activeSpace = name;
@@ -119,6 +119,12 @@ namespace AlJeEngine
   Space & Engine::GetActiveSpace()
   {
     return _spaces[_activeSpace];
+  }
+
+  ArchetypeFactory & Engine::Factory()
+  {
+    // TODO: insert return statement here
+    return _archetypeFactory;
   }
 
 

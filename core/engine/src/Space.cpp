@@ -6,13 +6,28 @@
 *
 */
 #include "../headers/Space.h"
+#include "../headers/Engine.h"
+
 namespace AlJeEngine
 {
+  extern Engine* ENGINE;
+
+
   EntityPtr Space::CreateEntity()
   {
     _entities.push_back(std::shared_ptr<Entity>(new Entity));
     return _entities.back();
   }
+
+  EntityPtr Space::CreateCamera()
+  {
+    // Use the factory to create the default camera object.
+    EntityPtr camera = ENGINE->Factory().create("DefaultCamera");
+    _entities.push_back(camera);
+    return camera;
+  }
+
+
   void Space::PopulateEntities(SystemPtr sys) const
   {
     // clear out the old entities
@@ -49,6 +64,11 @@ namespace AlJeEngine
 
 	  }
 	  throw ("Tried to remove an entity that doesn't exist.\n");
+  }
+
+  void Space::AddEntity(EntityPtr entity)
+  {
+    _entities.push_back(entity);
   }
 
   void Space::Clear()

@@ -41,6 +41,9 @@
     <Filter Include="Systems\Graphics">
       <UniqueIdentifier>{fb99c097-3255-4099-861b-f3546a7cf17f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\ArchetypeFactory">
+      <UniqueIdentifier>{3f49fa04-782e-403a-b0cb-031b0929f871}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -75,6 +78,12 @@
     </ClCompile>
     <ClCompile Include="..\..\core\systems\TestSystem.cpp">
       <Filter>Systems\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\ArchetypeFactory.cpp">
+      <Filter>Engine\ArchetypeFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\Archetypes.cpp">
+      <Filter>Engine\ArchetypeFactory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +131,12 @@
     </ClInclude>
     <ClInclude Include="..\..\core\components\Camera.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\ArchetypeFactory.h">
+      <Filter>Engine\ArchetypeFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\Archetypes.h">
+      <Filter>Engine\ArchetypeFactory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

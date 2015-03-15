@@ -23,7 +23,8 @@ namespace AlJeEngine
 
 
 
-    //
+    // The vectors for orienting the camera in the game world.
+    // They can be modified to rotate or flip the camera.
     glm::vec2 _upVec = { 0.0, 1.0 };
     glm::vec2 _rightVec = { 1.0, 0.0 };
 
