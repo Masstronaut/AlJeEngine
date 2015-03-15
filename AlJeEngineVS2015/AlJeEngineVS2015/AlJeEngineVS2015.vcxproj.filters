@@ -44,6 +44,9 @@
     <Filter Include="Engine\ArchetypeFactory">
       <UniqueIdentifier>{3f49fa04-782e-403a-b0cb-031b0929f871}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\Graphics\Render">
+      <UniqueIdentifier>{6376406c-bca4-4c67-8037-c0d6a071514d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -84,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Archetypes.cpp">
       <Filter>Engine\ArchetypeFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Graphics\src\Render.cpp">
+      <Filter>Systems\Graphics\Render</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Archetypes.h">
       <Filter>Engine\ArchetypeFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\Render.h">
+      <Filter>Systems\Graphics\Render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

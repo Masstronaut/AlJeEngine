@@ -12,7 +12,7 @@
 #include "../../lib/math/glm/glm.hpp"
 #include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
-#include "../../Graphics/headers/GLShader.h"
+#include "../systems/Graphics/headers/GLShader.h"
 
 namespace AlJeEngine
 {

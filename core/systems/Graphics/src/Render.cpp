@@ -32,4 +32,9 @@ namespace AlJeEngine
     }
   }
 
+  void Render::Shutdown()
+  {
+
+  }
+
 }

@@ -84,7 +84,7 @@ namespace AlJeEngine
   std::shared_ptr<T> Entity::GetComponent(EnumeratedComponent ec)
   {
     assert(_components[ec]);
-    return _components[ec];
+    return std::static_pointer_cast<Transform>(_components[ec]);
   }
 
   // typedef magic! AKA laziness

@@ -167,6 +167,7 @@
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp" />
+    <ClCompile Include="..\..\core\systems\Graphics\src\Render.cpp" />
     <ClCompile Include="..\..\core\systems\TestSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,7 @@
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h" />
+    <ClInclude Include="..\..\core\systems\Graphics\headers\Render.h" />
     <ClInclude Include="..\..\core\systems\TestSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
