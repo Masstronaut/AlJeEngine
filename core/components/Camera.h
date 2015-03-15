@@ -39,7 +39,7 @@ namespace AlJeEngine
 	  //Note for me graphics programmer
 	  glm::mat4 _pespective;  //glm::perspectiveFov(_fieldOfView, 1280.0f, 720.0f, _nearPlane, _farPlane);
 	  glm::mat4 _ortho;       //glm::ortho(0.0f, 1280.0f/*windoWidth*/, 720.0f/*windoHeight*/, 0.0f, 1.0f, 100.0f);
-	  glm::mat4 _viewMatri;   //glm::lookAt(pos of camera, _target, _upVec);
+	  glm::mat4 _viewMatrix;   //glm::lookAt(pos of camera, _target, _upVec);
   };
 
 
