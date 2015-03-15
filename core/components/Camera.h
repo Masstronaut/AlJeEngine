@@ -1,7 +1,7 @@
 
 
 /**
-* @author Allan Deutsch
+* @author Jeffrey Uong
 * @version 0.5
 * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
 *
@@ -10,6 +10,7 @@
 #pragma once
 #include "../../lib/math/glm/glm.hpp"
 #include "../../lib/math/headers/affmath.h"
+#include "../../lib/math/glm/gtc/matrix_transform.hpp"
 #include "../engine/headers/Component.h"
 
 namespace AlJeEngine
@@ -17,23 +18,27 @@ namespace AlJeEngine
   class Camera : public Component
   {
   public:
+	  enum CameraView {ORTHOGRAPHIC, PERSPECTIVE};
     Camera() : Component(EC_Camera, MC_Camera)
     {
     }
+		//Default average camera values 
+	CameraView viewtype;
+	float _fieldOfView = 45; 
+	float _aspectRatio = 16.0f/9.0f;
+	float _nearPlane   = 1.0f;
+	float _farPlane    = 100.0f;
 
+	glm::vec3 _upVec   = {0.0f,1.0f,0.0f};
+	glm::vec3 _target  = { 0.0f,0.0f,1.0f };
+	
+	
 
-
-    //
-    glm::vec2 _upVec = { 0.0, 1.0 };
-    glm::vec2 _rightVec = { 1.0, 0.0 };
-
-    // NDC Coordinates of where this camera should draw on the window.
-    // The bottom left corner of the window is (-1.0, -1.0)
-    // The top right corner of the window is   ( 1.0,  1.0)
-    glm::vec2 _bottomLeft = { -1.0, -1.0 };
-    glm::vec2 _topRight = { 1.0, 1.0 };
-
-
+  private:
+	  //Note for me graphics programmer
+	  glm::mat4 _pespective;  //glm::perspectiveFov(_fieldOfView, 1280.0f, 720.0f, _nearPlane, _farPlane);
+	  glm::mat4 _ortho;       //glm::ortho(0.0f, 1280.0f/*windoWidth*/, 720.0f/*windoHeight*/, 0.0f, 1.0f, 100.0f);
+	  glm::mat4 _viewMatri;   //glm::lookAt(pos of camera, _target, _upVec);
   };
 
 

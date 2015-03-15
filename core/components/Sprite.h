@@ -12,6 +12,7 @@
 #include "../../lib/math/glm/glm.hpp"
 #include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
+#include "../../Graphics/headers/GLShader.h"
 
 namespace AlJeEngine
 {
@@ -20,10 +21,9 @@ namespace AlJeEngine
   public:
     Sprite() : Component(EC_Sprite, MC_Sprite) {}
 
-    glm::vec4 color;
-
-    std::string shaderName;
-    std::string texture;
+    glm::vec4 _color;
+	GLShader  _spriteShader;
+    
 
 
   };
