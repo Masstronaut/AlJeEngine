@@ -18,7 +18,7 @@ namespace AlJeEngine
     // If this evaluates to 0, there is already a component of the specified type.
     // Adding multiple instances of one component is not support.
     // The program will terminate.
-    assert(_components[component->_type] != NULL);
+    assert(_components[component->_type].get() == nullptr);
 
     _components[component->_type] = component;
 
@@ -32,7 +32,7 @@ namespace AlJeEngine
     /*
     // This is optional, and will terminate if the user tries to remove a component,
     // but no component of that type is on this entity.
-    assert(_components[ec] == NULL)
+    assert(_components[ec] != nullptr)
     */
     if (_components[ec])
     {

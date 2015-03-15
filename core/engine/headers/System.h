@@ -33,7 +33,8 @@ namespace AlJeEngine
     System(std::string &name, ESys type) 
           :
           _name(name),
-          _type(type)
+          _type(type),
+          _mask(MC_Alive)
           {
           }
     virtual void   Init() = 0;
@@ -52,7 +53,7 @@ namespace AlJeEngine
     mask        _mask;
     EntityVec   _entities;
     // Basic system metadata
-    ESys        _type;
+    const ESys  _type;
     std::string _name;
   };
 

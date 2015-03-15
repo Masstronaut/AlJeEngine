@@ -8,41 +8,45 @@
 #include "../../../lib/math/glm/gtc/matrix_transform.hpp" //scale, rot, trans, projection
 namespace AlJeEngine
 {
-
-  GLGraphics::GLGraphics() : System(std::string("GLGraphicsSystem"), ES_GLGraphics)
-  {
-  
-  }
-  void GLGraphics::Init(void) //Initilize SDL
-  {
-    CreateMesh();
-    _shader.LoadShaderFile("dvert.glsl", "dfrag.glsl", 0);
-    _shader.Compile();
-    _shader.FindUniforms("model");
-
-  }
-  //Update every frame 
-  void GLGraphics::Update(float dt)  
-  {
-    Draw();
-  }
-  //called when system is deleated
-  void GLGraphics::Shutdown(void)   
-  {
-    GLGraphics::DeleteMesh();
-  }
-  void GLGraphics::Draw()
+  namespace Systems
   {
 
-    glm::mat4x4 mymatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f, 0.5f, 1.0f));
+    GLGraphics::GLGraphics() : System(std::string("GLGraphicsSystem"), ES_GLGraphics)
+    {
 
-    _shader.UpdateUniforms("model", mymatrix);
+    }
+    void GLGraphics::Init(void) //Initilize SDL
+    {
+      CreateMesh();
+      _shader.LoadShaderFile("dvert.glsl", "dfrag.glsl", 0);
+      _shader.Compile();
+      _shader.FindUniforms("model");
 
-    //Clear the color buffer to redraw on the screen.
-    glClear(GL_COLOR_BUFFER_BIT);
-    //glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-    glBindVertexArray(_quadInfo.vao);
-    _shader.Use();
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
-  }
-}
+    }
+    //Update every frame 
+    void GLGraphics::Update(float dt)
+    {
+      Draw();
+    }
+    //called when system is deleated
+    void GLGraphics::Shutdown(void)
+    {
+      GLGraphics::DeleteMesh();
+    }
+    void GLGraphics::Draw()
+    {
+
+      glm::mat4x4 mymatrix = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f, 0.5f, 1.0f));
+
+      _shader.UpdateUniforms("model", mymatrix);
+
+      //Clear the color buffer to redraw on the screen.
+      glClear(GL_COLOR_BUFFER_BIT);
+      //glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+      glBindVertexArray(_quadInfo.vao);
+      _shader.Use();
+      glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
+    }
+
+  } // Systems
+} // AlJeEngine

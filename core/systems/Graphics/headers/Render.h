@@ -8,20 +8,24 @@
 #include "../../../engine/headers/System.h"
 namespace AlJeEngine
 {
-  class Render : public System
+  namespace Systems
   {
-  public:
-    Render();
+    class Render : public System
+    {
+    public:
+      Render();
 
-    void Init();
-    void Update(float);
-    void Shutdown();
+      void Init();
+      void Update(float);
+      void Shutdown();
 
 
 
-  private:
-   
-  };
+    private:
 
-}
+    };
+
+  } // Systems
+
+} // AlJeEngine
 

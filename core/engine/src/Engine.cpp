@@ -13,8 +13,7 @@
 #include "../headers/Engine.h"
 #include <iostream>
 #include <cassert>
-#include "../headers/WindowSDL.h"
-#include "../../systems/Graphics/headers/GLGraphics.hpp"
+#include "../../systems/SystemsInclude.h"
 using std::cout;
 using AlJeEngine::Time::ScopeTimer;
 
@@ -36,11 +35,18 @@ namespace AlJeEngine
 
     //  Create a world for the engine to run in
     _spaces["Game World"] = Space(std::string("Game World"));
-
+    // set the newly created world to be the active space in the engine.
+    _activeSpace = "Game World";
+    // Create a camera for the active space.
+    _spaces[_activeSpace].CreateCamera();
 
     // Add systems here
-    _systems.push_back(SystemPtr(new WindowSDL));
-    _systems.push_back(SystemPtr(new GLGraphics));
+    _systems.push_back(SystemPtr(new Systems::WindowSDL));
+    
+    _systems.push_back(SystemPtr(new Systems::Test));
+
+    _systems.push_back(SystemPtr(new Systems::GLGraphics));
+    _systems.push_back(SystemPtr(new Systems::Render));
 
     // initialize all systems
     // using c++11 range-based for loop

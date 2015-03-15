@@ -20,7 +20,7 @@ namespace AlJeEngine
     void Test::Init()
     {
       // Get a reference to the "Game World" space so that we can add an object to it.
-      Space& gameworld = ENGINE->GetSpace("GameWorld");
+      Space& gameworld = ENGINE->GetSpace("Game World");
 
       // Use the factory to create an object matching the "Box" archetype.
       EntityPtr player = ENGINE->Factory().create("Box");

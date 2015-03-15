@@ -188,6 +188,7 @@
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\Render.h" />
+    <ClInclude Include="..\..\core\systems\SystemsInclude.h" />
     <ClInclude Include="..\..\core\systems\TestSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

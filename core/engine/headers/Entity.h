@@ -71,10 +71,10 @@ namespace AlJeEngine
     std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
 
   private:
-    ColliderType _collider;
+    mask _mask = MC_Alive;
+    ColliderType _collider = none;
     ComponentPtr _components[EC_Max];
     std::string _name;
-    mask _mask;
   };
 
 

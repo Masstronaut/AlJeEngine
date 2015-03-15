@@ -8,20 +8,25 @@
 
 namespace AlJeEngine
 {
-  class WindowSDL : public System
+  namespace Systems
   {
-  public:
-    WindowSDL();  //ctor
-    void Init(void);   //Initilize SDL
-    void Update(float dt); //Update everyframe  
-    void Shutdown(void); //called when system is deleated
-    void PollWindowEvent(void);
 
-  private:
-    SDL_Window* _window;    //The actual window data
-    SDL_GLContext _context; //OpenGL context
-    SDL_Event _event; //Events from the window
+    class WindowSDL : public System
+    {
+    public:
+      WindowSDL();  //ctor
+      void Init(void);   //Initilize SDL
+      void Update(float dt); //Update everyframe  
+      void Shutdown(void); //called when system is deleated
+      void PollWindowEvent(void);
 
-  };
-}
+    private:
+      SDL_Window* _window;    //The actual window data
+      SDL_GLContext _context; //OpenGL context
+      SDL_Event _event; //Events from the window
+
+    };
+
+  } // Systems
+} // AlJeEngine
 #endif

@@ -147,5 +147,8 @@
     <ClInclude Include="..\..\core\systems\Graphics\headers\Render.h">
       <Filter>Systems\Graphics\Render</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\core\systems\SystemsInclude.h">
+      <Filter>Systems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

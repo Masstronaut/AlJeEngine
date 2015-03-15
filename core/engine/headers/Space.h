@@ -29,6 +29,8 @@ namespace AlJeEngine
     Space() : _name(std::string("Unnamed Space")) {}
     Space(std::string &name) : _name(name) {}
 
+    Space(Space &space) : _name(space._name), _entities(space._entities) {}
+
     EntityPtr CreateEntity();
 
     // Creates a camera for the space.

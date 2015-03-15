@@ -16,36 +16,39 @@
 
 namespace AlJeEngine
 {
-  class GLGraphics : public System
+  namespace Systems
   {
-  public:
-    enum MeshType {QUAD = 0, CIRCLE};
-
-    GLGraphics(); //ctor
-    void Init(void);       //Initilize SDL
-    void Update(float dt); //Update everyframe  
-    void Shutdown(void);   //called when system is deleated
-
-  private:
-    struct MeshInfo
+    class GLGraphics : public System
     {
-      GLuint vbo;//vertex buffer object
-      GLuint vao;//vertex array object
-      GLuint ebo;//element array object
+    public:
+      enum MeshType { QUAD = 0, CIRCLE };
 
-      MeshInfo() :vbo(0), vao(0), ebo(0) {}//Init everything to 0
+      GLGraphics(); //ctor
+      void Init(void);       //Initilize SDL
+      void Update(float dt); //Update everyframe  
+      void Shutdown(void);   //called when system is deleated
+
+    private:
+      struct MeshInfo
+      {
+        GLuint vbo;//vertex buffer object
+        GLuint vao;//vertex array object
+        GLuint ebo;//element array object
+
+        MeshInfo() :vbo(0), vao(0), ebo(0) {}//Init everything to 0
+      };
+
+      void Draw();
+      void CreateMesh();
+      void DeleteMesh();
+      MeshInfo _quadInfo;
+      GLShader _shader;
+
     };
 
-    void Draw();
-    void CreateMesh();
-    void DeleteMesh();
-    MeshInfo _quadInfo;
-    GLShader _shader;
+  } // Systems
 
-  };
-
-}
-
+} // AlJeEngine
 
 
 #endif
