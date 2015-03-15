@@ -120,5 +120,8 @@
     <ClInclude Include="..\..\core\systems\TestSystem.h">
       <Filter>Systems\Test</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\core\components\Camera.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

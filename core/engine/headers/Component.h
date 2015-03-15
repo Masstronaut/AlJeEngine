@@ -22,6 +22,7 @@ namespace AlJeEngine
     EC_PolyCollider   =  4,
     EC_CircleCollider =  5,
     EC_BoxCollider    =  6,
+    EC_Camera         =  7,
     EC_Max
   };
 
@@ -35,6 +36,7 @@ namespace AlJeEngine
     MC_PolyCollider    = 1 <<  5,
     MC_CircleCollider  = 1 <<  6,
     MC_BoxCollider     = 1 <<  7,
+    MC_Camera          = 1 <<  8,
 
   };
 #pragma endregion
@@ -44,7 +46,7 @@ namespace AlJeEngine
   {
     Component(EnumeratedComponent type, BitfieldComponent mask) : _type(type), _mask(mask) {}
 
-
+    // These are const because once the component is created, it should never change types.
     const EnumeratedComponent _type;
     const BitfieldComponent   _mask;
 
