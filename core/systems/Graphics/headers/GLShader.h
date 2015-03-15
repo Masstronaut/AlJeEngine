@@ -46,6 +46,9 @@ namespace AlJeEngine
   template<typename T>
   void GLShader::UpdateUniforms(const std::string &uniformName, const T &data) 
   {
+    //Using a standard unordered map to hold all my data.
+    //The string will be used as a key to find my data in the map
+    //Read more at http://en.cppreference.com/w/cpp/container/unordered_map
     LoadShaderData(_shaderUniforms[uniformName], data);
   }
   
