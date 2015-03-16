@@ -38,13 +38,13 @@ namespace AlJeEngine
         MeshInfo() :vbo(0), vao(0), ebo(0) {}//Init everything to 0
       };
 
-      void Draw();
       void DrawEntity(const EntityPtr&);
       void CreateMesh();
       void DeleteMesh();
       MeshInfo _quadInfo;
       
-      GLShader _shader;
+      ShaderPtr getShader(std::string);
+      void addShader(std::string, ShaderPtr);
 
       typedef std::unordered_map<std::string, ShaderPtr> ShaderMap;
 
