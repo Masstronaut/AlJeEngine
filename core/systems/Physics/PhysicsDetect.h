@@ -29,7 +29,8 @@ namespace AlJeEngine
 
       void Shutdown();
 
-
+    private:
+      bool AABBCheck(EntityPtr, EntityPtr);
 
     };
 

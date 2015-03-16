@@ -112,6 +112,7 @@
     <ClCompile Include="..\..\core\systems\Physics\PhysicsDetect.cpp">
       <Filter>Systems\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\components\Collider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">

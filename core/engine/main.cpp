@@ -8,7 +8,7 @@
 */
 
 #include <GL/glew.h>
-
+#include <iostream>
 #include "../components/Components.h"
 #include <SDL_opengl.h>
 #include <SDL.h>
@@ -26,15 +26,17 @@ namespace AlJeEngine
 int main(int argc, char* args[])
 {
 
-  std::fstream testfile;
-  testfile.open("testfile.txt", std::fstream::out);
-  testfile << "This is a simple test";
-  testfile.close();
-
-  ENGINE = new Engine();
+  // Create the Engine.
+  ENGINE = new Engine( );
 
   ENGINE->Init( );
   ENGINE->mainLoop( );
+
+  // Shutdown the engine when it's no longer running
+  ENGINE->Shutdown();
+
+  // Don't leak memory!
+  delete ENGINE;
 
   return 0;
 }

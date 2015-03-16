@@ -45,8 +45,9 @@ namespace AlJeEngine
 
     // Add systems here
     _systems.push_back(SystemPtr(new Systems::WindowSDL));
-    
     _systems.push_back(SystemPtr(new Systems::Test));
+
+    _systems.push_back(SystemPtr(new Systems::PhysicsDetect));
 
     _systems.push_back(SystemPtr(new Systems::GLGraphics));
     _systems.push_back(SystemPtr(new Systems::Render));
@@ -98,6 +99,7 @@ namespace AlJeEngine
 
 
     }
+
   }
 
   float Engine::FrameTime()
