@@ -51,13 +51,17 @@ namespace AlJeEngine
     // clear out the old entities
     sys->_entities.clear();
     
-    for (auto &it : _entities)
+    if (sys->Mask() != EC_NOOBJECTS)
     {
-      // add any entities living in this space that fit the system to the system's cache.
-      mask m = sys->Mask();
-      if (it->CheckMask(m))
-        sys->_entities.push_back(it);
-    }
+      for (auto &it : _entities)
+      {
+        // add any entities living in this space that fit the system to the system's cache.
+        mask m = sys->Mask();
+        if (it->CheckMask(m))
+          sys->_entities.push_back(it);
+      } // for all entities in this space
+    } // if !EC_NOOBJECTS
+
   }
 
   EntityVec Space::GetEntities(mask m) const

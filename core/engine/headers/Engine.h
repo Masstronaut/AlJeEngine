@@ -56,6 +56,8 @@ ENGINE->GetSystem<systype>(ES_##systype)
     template<typename T>
     std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
 
+    void Stop(void) { _running = false;  }
+
   private:
 
     bool _running = true;

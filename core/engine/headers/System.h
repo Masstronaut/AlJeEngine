@@ -22,6 +22,7 @@ namespace AlJeEngine
     ES_GLGraphics,
     ES_Render,
     ES_CameraSystem,
+    ES_PhysicsDetect,
 
     // this should always be last
     ES_MAX
