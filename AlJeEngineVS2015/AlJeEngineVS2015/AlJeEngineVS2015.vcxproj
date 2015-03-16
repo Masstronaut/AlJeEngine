@@ -155,7 +155,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\core\components\Collider.cpp" />
     <ClCompile Include="..\..\core\engine\main.cpp" />
     <ClCompile Include="..\..\core\engine\src\ArchetypeFactory.cpp" />
     <ClCompile Include="..\..\core\engine\src\Archetypes.cpp" />

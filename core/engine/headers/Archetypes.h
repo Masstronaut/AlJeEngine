@@ -23,6 +23,8 @@ namespace AlJeEngine
 
     EntityPtr BoxGameObject();
 
+    EntityPtr CircleGameObject();
+
 
   } // Archetypes
 

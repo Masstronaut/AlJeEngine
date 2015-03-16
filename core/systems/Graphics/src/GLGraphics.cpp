@@ -37,7 +37,7 @@ namespace AlJeEngine
       defaultShader->FindUniforms("color");
 
       // Add the shader to the ShaderMap.
-      addShader("Default", defaultShader);
+      addShader("Box", defaultShader);
 
     }
     //Update every frame 

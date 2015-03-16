@@ -5,9 +5,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{00c00c55-6f73-4687-969e-d1a05de13431}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Systems">
       <UniqueIdentifier>{08889496-d650-436f-bf64-aac72ebc7853}</UniqueIdentifier>
     </Filter>
@@ -20,29 +17,11 @@
     <Filter Include="Systems\Test">
       <UniqueIdentifier>{b68ef5bf-abc2-421c-9d58-286bea33edb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Component">
-      <UniqueIdentifier>{53fc07af-daf7-4067-a18b-a80bca329db7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\System">
-      <UniqueIdentifier>{11f2e326-7151-453d-9c54-4406fddaafd9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Entity">
-      <UniqueIdentifier>{ab3140c2-b10d-4740-8c90-a6e01c34cc33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Engine">
-      <UniqueIdentifier>{4993fc4c-d1eb-4002-a059-62b435cb6ad4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Space">
-      <UniqueIdentifier>{9fbe340d-31ce-44bf-a735-258d15863429}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Libraries\Timers">
       <UniqueIdentifier>{d4079226-90dd-4c73-b706-a1af39a154c3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Systems\Graphics">
       <UniqueIdentifier>{fb99c097-3255-4099-861b-f3546a7cf17f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\ArchetypeFactory">
-      <UniqueIdentifier>{3f49fa04-782e-403a-b0cb-031b0929f871}</UniqueIdentifier>
     </Filter>
     <Filter Include="Systems\Graphics\Render">
       <UniqueIdentifier>{6376406c-bca4-4c67-8037-c0d6a071514d}</UniqueIdentifier>
@@ -62,25 +41,46 @@
     <Filter Include="Systems\Physics">
       <UniqueIdentifier>{24e4900c-f9c5-422c-b316-6bb7be4cacd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{00c00c55-6f73-4687-969e-d1a05de13431}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Component">
+      <UniqueIdentifier>{53fc07af-daf7-4067-a18b-a80bca329db7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\System">
+      <UniqueIdentifier>{11f2e326-7151-453d-9c54-4406fddaafd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Entity">
+      <UniqueIdentifier>{ab3140c2-b10d-4740-8c90-a6e01c34cc33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine">
+      <UniqueIdentifier>{4993fc4c-d1eb-4002-a059-62b435cb6ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Space">
+      <UniqueIdentifier>{9fbe340d-31ce-44bf-a735-258d15863429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\ArchetypeFactory">
+      <UniqueIdentifier>{3f49fa04-782e-403a-b0cb-031b0929f871}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
-      <Filter>Engine\System</Filter>
+      <Filter>Core\System</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Entity.cpp">
-      <Filter>Engine\Entity</Filter>
+      <Filter>Core\Entity</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Engine.cpp">
-      <Filter>Engine\Engine</Filter>
+      <Filter>Core\Engine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\main.cpp">
-      <Filter>Engine</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp">
-      <Filter>Engine\Engine</Filter>
+      <Filter>Core\Engine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Space.cpp">
-      <Filter>Engine\Space</Filter>
+      <Filter>Core\Space</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp">
       <Filter>Systems\Graphics</Filter>
@@ -89,10 +89,10 @@
       <Filter>Systems\Test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\ArchetypeFactory.cpp">
-      <Filter>Engine\ArchetypeFactory</Filter>
+      <Filter>Core\ArchetypeFactory</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Archetypes.cpp">
-      <Filter>Engine\ArchetypeFactory</Filter>
+      <Filter>Core\ArchetypeFactory</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\Render.cpp">
       <Filter>Systems\Graphics\Render</Filter>
@@ -112,23 +112,22 @@
     <ClCompile Include="..\..\core\systems\Physics\PhysicsDetect.cpp">
       <Filter>Systems\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\components\Collider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
-      <Filter>Engine\Component</Filter>
+      <Filter>Core\Component</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\System.h">
-      <Filter>Engine\System</Filter>
+      <Filter>Core\System</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Entity.h">
-      <Filter>Engine\Entity</Filter>
+      <Filter>Core\Entity</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Engine.h">
-      <Filter>Engine\Engine</Filter>
+      <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h">
-      <Filter>Engine\Engine</Filter>
+      <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\components\Collider.h">
       <Filter>Components</Filter>
@@ -143,7 +142,7 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Space.h">
-      <Filter>Engine\Space</Filter>
+      <Filter>Core\Space</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\systems\TestSystem.h">
       <Filter>Systems\Test</Filter>
@@ -152,10 +151,10 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\ArchetypeFactory.h">
-      <Filter>Engine\ArchetypeFactory</Filter>
+      <Filter>Core\ArchetypeFactory</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Archetypes.h">
-      <Filter>Engine\ArchetypeFactory</Filter>
+      <Filter>Core\ArchetypeFactory</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Graphics\headers\Render.h">
       <Filter>Systems\Graphics\Render</Filter>

@@ -17,7 +17,8 @@ namespace AlJeEngine
     // This is where you add the archetype creation functions to the factory.
 
     addArchetype("DefaultCamera", DefaultCamera);
-    addArchetype("Box", BoxGameObject);
+    addArchetype("Box",           BoxGameObject);
+    addArchetype("Circle",        CircleGameObject);
   }
 
   void ArchetypeFactory::addArchetype(std::string archetype, CreateArchetypeFn creator)

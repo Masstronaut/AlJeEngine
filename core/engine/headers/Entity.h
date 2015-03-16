@@ -62,7 +62,11 @@ namespace AlJeEngine
     */
     ColliderType Collider();
 
-	bool CheckMask(mask m);
+    bool CheckMask(mask m);
+
+    const std::string& Name() { return _name; }
+
+    void SetName(std::string name) { _name = name; }
 
 #define GET_COMPONENT( type ) \
   GetComponent<type>(EC_##type)

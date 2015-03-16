@@ -7,8 +7,9 @@
  */
 
 #include <cassert>
-
+#include <memory>
 #include "../headers/Entity.h"
+#include "../../components/Components.h"
 
 namespace AlJeEngine
 {
@@ -24,6 +25,12 @@ namespace AlJeEngine
 
     // Add the component's mask to the entity.
     _mask |= component->_mask;
+
+    // If the component was a collider we want to set the Entity's collider type.
+    if (component->_type == EC_Collider)
+    {
+      _collider = std::static_pointer_cast<::AlJeEngine::Collider>(component)->_colliderType;
+    }
   }
 
 

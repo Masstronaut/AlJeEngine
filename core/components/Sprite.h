@@ -23,7 +23,7 @@ namespace AlJeEngine
 
     glm::vec4 _color = { 0.0f, 1.0f, 0.0f, 1.f };
 
-    std::string _shaderName = "Default";
+    std::string _shaderName = "Box";
     
 
 
