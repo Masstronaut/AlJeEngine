@@ -5,6 +5,9 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include "../../engine/headers/System.h"
+#include "../glm/vec2.hpp"
+#include <utility> //std::pair
+
 
 namespace AlJeEngine
 {
@@ -15,16 +18,22 @@ namespace AlJeEngine
     {
     public:
       WindowSDL();  //ctor
-      void Init(void);   //Initilize SDL
-      void Update(float dt); //Update everyframe  
-      void Shutdown(void); //called when system is deleated
+      void Init(void);   //Initialize SDL
+      void Update(float dt); //Update every frame  
+      void Shutdown(void); //called when system is deleted
+      
+	  int GetWindowHeight(void);
+	  int GetWindowWidth(void);
+	  std::pair<int,int> GetWindowDimensions(void);
+    private:
       void PollWindowEvent(void);
 
-    private:
+
       SDL_Window* _window;    //The actual window data
       SDL_GLContext _context; //OpenGL context
       SDL_Event _event; //Events from the window
-
+	  int _width;         //Window width
+	  int _height;        //Window height
     };
 
   } // Systems

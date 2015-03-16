@@ -6,7 +6,7 @@
 */
 
 #include "../../engine/headers/WindowSDL.h"
-
+#include "../headers/Engine.h"
 #include <iostream> //cout, endl
 
 const int screenWidth = 1280;
@@ -14,6 +14,7 @@ const int screenHeight = 720;
 
 namespace AlJeEngine
 {
+  extern Engine* ENGINE;
   namespace Systems
   {
 
@@ -22,6 +23,8 @@ namespace AlJeEngine
 
       _window = nullptr;
       _context = NULL;
+      _width = screenWidth;
+      _height = screenHeight;
     }
 
     void WindowSDL::Init()
@@ -35,7 +38,7 @@ namespace AlJeEngine
 
       //Creating the screen and setting position and screen size
       _window = SDL_CreateWindow("AlJeEngine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        screenWidth, screenHeight, SDL_WINDOW_OPENGL);
+        _width, _height, SDL_WINDOW_OPENGL);
 
       //Creating the context for OpenGL
       _context = SDL_GL_CreateContext(_window);
@@ -63,12 +66,37 @@ namespace AlJeEngine
         case SDL_WINDOWEVENT_MOVED:
           std::cout << "Window moved" << std::endl;
           break;
+        case SDL_WINDOWEVENT_RESIZED:
+          std::cout << "Window Resized" << std::endl;
+          SDL_GetWindowSize(_window, &_width, &_height);
+          break;
+        case SDL_QUIT:
+          ENGINE->STOP();
+          break;
         default:
+          throw std::invalid_argument("Event from WindowSDL Unknown");
           break;
         }//switch
       }//event
-        //Swap the backbuffer and frontbuffer
+        //Swap the back buffer and front buffer
       SDL_GL_SwapWindow(_window);
+    }
+
+    int WindowSDL::GetWindowHeight(void)
+    {
+      return _height;
+    }
+
+    int WindowSDL::GetWindowWidth(void)
+    {
+      return _width;
+    }
+
+    std::pair<int, int> WindowSDL::GetWindowDimensions(void)
+    {
+      std::pair<int, int> dimensions(_width, _height);
+      SDL_GetWindowSize(_window, &dimensions.first, &dimensions.second);
+      return dimensions;
     }
 
     void WindowSDL::Update(float dt)
