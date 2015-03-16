@@ -13,7 +13,11 @@ namespace AlJeEngine
   extern Engine* ENGINE;
 
 
-  EntityPtr Space::CreateEntity()
+  Space::Space(std::string & name): _name(name)
+  {
+  }
+
+    EntityPtr Space::CreateEntity()
   {
     _entities.push_back(std::shared_ptr<Entity>(new Entity));
     return _entities.back();
@@ -21,10 +25,24 @@ namespace AlJeEngine
 
   EntityPtr Space::CreateCamera()
   {
-    // Use the factory to create the default camera object.
-    EntityPtr camera = ENGINE->Factory().create("DefaultCamera");
-    _entities.push_back(camera);
-    return camera;
+    if (_camera.get() == nullptr)
+    {
+      // Use the factory to create the default camera object.
+      EntityPtr camera = ENGINE->Factory().create("DefaultCamera");
+      _entities.push_back(camera);
+      return camera;
+    }
+    return _camera;
+  }
+
+  EntityPtr Space::GetCamera()
+  {
+    if (_camera.get() != nullptr)
+    {
+      return _camera;
+    }
+    
+    return CreateCamera();
   }
 
 
@@ -33,13 +51,17 @@ namespace AlJeEngine
     // clear out the old entities
     sys->_entities.clear();
     
-    for (auto &it : _entities)
+    if (sys->Mask() != EC_NOOBJECTS)
     {
-      // add any entities living in this space that fit the system to the system's cache.
-      mask m = sys->Mask();
-      if (it->CheckMask(m))
-        sys->_entities.push_back(it);
-    }
+      for (auto &it : _entities)
+      {
+        // add any entities living in this space that fit the system to the system's cache.
+        mask m = sys->Mask();
+        if (it->CheckMask(m))
+          sys->_entities.push_back(it);
+      } // for all entities in this space
+    } // if !EC_NOOBJECTS
+
   }
 
   EntityVec Space::GetEntities(mask m) const

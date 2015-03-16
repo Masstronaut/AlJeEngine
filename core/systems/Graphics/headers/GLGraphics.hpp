@@ -28,6 +28,8 @@ namespace AlJeEngine
       void Update(float dt); //Update everyframe  
       void Shutdown(void);   //called when system is deleated
 
+      void newFrame();
+
     private:
       struct MeshInfo
       {
@@ -52,6 +54,8 @@ namespace AlJeEngine
 
 
     };
+
+    typedef std::shared_ptr<GLGraphics> GLGraphicsPtr;
 
   } // Systems
 

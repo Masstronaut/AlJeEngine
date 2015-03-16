@@ -30,4 +30,6 @@ namespace AlJeEngine
   };
 
 
+  typedef std::shared_ptr<Sprite> SpritePtr;
+
 }; // namespace AlJe

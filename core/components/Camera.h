@@ -42,5 +42,6 @@ namespace AlJeEngine
 	  glm::mat4 _viewMatrix;   //glm::lookAt(pos of camera, _target, _upVec);
   };
 
+  typedef std::shared_ptr<Camera> CameraPtr;
 
 }; // namespace AlJe

@@ -77,7 +77,9 @@ namespace AlJeEngine
           throw std::invalid_argument("Event from WindowSDL Unknown");
           break;
         }//switch
+
       }//event
+
         //Swap the back buffer and front buffer
       SDL_GL_SwapWindow(_window);
     }
@@ -106,4 +108,4 @@ namespace AlJeEngine
 
 
   } // Systems
-}// AlJeEngine
+} // AlJeEngine

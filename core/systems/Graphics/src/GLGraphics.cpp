@@ -43,8 +43,8 @@ namespace AlJeEngine
     //Update every frame 
     void GLGraphics::Update(float dt)
     {
-      // Clear the color buffer so the screen can be re-drawn.
-      glClear(GL_COLOR_BUFFER_BIT);
+      // erase the screen buffer to begin a new frame.
+      newFrame();
 
       // Enable alpha blending for opacity.
       glEnable(GL_BLEND);
@@ -90,6 +90,12 @@ namespace AlJeEngine
     void GLGraphics::Shutdown(void)
     {
       DeleteMesh();
+    }
+
+    void GLGraphics::newFrame()
+    {
+      // Clear the color buffer so the screen can be re-drawn.
+      glClear(GL_COLOR_BUFFER_BIT);
     }
     
 

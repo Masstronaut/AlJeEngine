@@ -56,6 +56,12 @@
     <Filter Include="Systems\Graphics\Shaders">
       <UniqueIdentifier>{900d88a3-c8d5-4f3c-85b2-1b2d548144cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\Graphics\Camera">
+      <UniqueIdentifier>{edb73621-9f2c-41a7-b1fc-11b7eb51789a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Physics">
+      <UniqueIdentifier>{24e4900c-f9c5-422c-b316-6bb7be4cacd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -99,6 +105,12 @@
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp">
       <Filter>Systems\Graphics\GLGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Graphics\src\CameraSystem.cpp">
+      <Filter>Systems\Graphics\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Physics\PhysicsDetect.cpp">
+      <Filter>Systems\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +170,18 @@
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp">
       <Filter>Systems\Graphics\GLGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\CameraSystem.h">
+      <Filter>Systems\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\timers\ScopeTimer.hpp">
+      <Filter>Libraries\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\timers\TimeDefines.h">
+      <Filter>Libraries\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Physics\PhysicsDetect.h">
+      <Filter>Systems\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 #ifndef WINDOWSDL_H
 #define WINDOWSDL_H
 
+#include <memory>
 #include <GL/glew.h> //glewInit()
 #include <SDL.h>
 #include <SDL_opengl.h>
@@ -35,6 +36,8 @@ namespace AlJeEngine
 	  int _width;         //Window width
 	  int _height;        //Window height
     };
+
+    typedef std::shared_ptr<WindowSDL> WindowSDLPtr;
 
   } // Systems
 } // AlJeEngine

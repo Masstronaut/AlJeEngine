@@ -24,7 +24,12 @@ namespace AlJeEngine
     EC_CircleCollider =  5,
     EC_BoxCollider    =  6,
     EC_Camera         =  7,
-    EC_Max
+    
+    // This will correspond to the maximum number of components that exist.
+    EC_Max,
+
+    // This is to be used for systems that do not wish to receive any objects automatically.
+    EC_NOOBJECTS = -1
   };
 
   enum BitfieldComponent

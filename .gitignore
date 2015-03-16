@@ -41,3 +41,6 @@ lib/math/src/math.cpp
 *.ilk
 *.suo
 *.suo
+*.ilk
+*.suo
+*.suo
