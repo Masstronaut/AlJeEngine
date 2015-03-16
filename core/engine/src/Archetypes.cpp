@@ -27,6 +27,7 @@ namespace AlJeEngine
 
       entity->AddComponent(ComponentPtr(new BoxCollider()));
       entity->AddComponent(ComponentPtr(new Transform()));
+      entity->AddComponent(ComponentPtr(new Sprite()));
 
       return entity;
     }

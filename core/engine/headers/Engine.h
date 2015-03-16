@@ -57,7 +57,9 @@ namespace AlJeEngine
 
     std::string _activeSpace;
 
-    std::unordered_map<std::string, Space> _spaces;
+    typedef std::unordered_map<std::string, SpacePtr> SpaceMap;
+
+     SpaceMap _spaces;
 
     SystemVec _systems;
 

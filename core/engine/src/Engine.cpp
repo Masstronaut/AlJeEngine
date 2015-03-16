@@ -34,11 +34,14 @@ namespace AlJeEngine
     _running = true;
 
     //  Create a world for the engine to run in
-    _spaces["Game World"] = Space(std::string("Game World"));
+    CreateSpace("Game World");
     // set the newly created world to be the active space in the engine.
-    _activeSpace = "Game World";
+    SetActiveSpace("Game World");
     // Create a camera for the active space.
-    _spaces[_activeSpace].CreateCamera();
+    EntityPtr camera = GetSpace("Game World").CreateCamera();
+
+    // test code please ignore
+    camera->GET_COMPONENT(Transform)->position = glm::vec2({ 0.5f, 0.5f });
 
     // Add systems here
     _systems.push_back(SystemPtr(new Systems::WindowSDL));
@@ -104,27 +107,35 @@ namespace AlJeEngine
 
   Space & Engine::CreateSpace(std::string name)
   {
-    // TODO: insert return statement here
-    _spaces[name] = Space(name);
+    _spaces.emplace(name, SpacePtr(new Space(name)));
     return GetSpace(name);
   }
 
   Space & Engine::GetSpace(std::string name)
   {
-    // TODO: insert return statement here
-    return _spaces[name];
+    // Search for a space with the specified name.
+    SpaceMap::iterator it = _spaces.find(name);
+
+    // Check if the space was found or not
+    if (it != _spaces.end())
+      return *(it->second);
+
+    // If the space wasn't found, throw a range error with a message about what happened.
+    throw std::range_error("The specified space does not exist.");
   }
 
   Space & Engine::SetActiveSpace(std::string name)
   {
-    // TODO: insert return statement here
+
     _activeSpace = name;
     return GetActiveSpace();
   }
 
   Space & Engine::GetActiveSpace()
   {
-    return _spaces[_activeSpace];
+    auto activeSpace = _spaces.find(_activeSpace);
+
+    return *(activeSpace->second);
   }
 
   ArchetypeFactory & Engine::Factory()

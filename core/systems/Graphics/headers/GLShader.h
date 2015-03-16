@@ -14,6 +14,7 @@
 #include <iostream> //cout, endl
 #include <vector> //std::vector
 #include <unordered_map>//std::unordered_map
+#include <memory> // std::shared_ptr
 
 namespace AlJeEngine
 {
@@ -42,6 +43,8 @@ namespace AlJeEngine
     std::string _shaderFile[maxShaderType];
     std::unordered_map<std::string, GLint> _shaderUniforms;
   };
+
+  typedef std::shared_ptr<GLShader> ShaderPtr;
 
   template<typename T>
   void GLShader::UpdateUniforms(const std::string &uniformName, const T &data) 

@@ -22,11 +22,12 @@ namespace AlJeEngine
 
   void ArchetypeFactory::addArchetype(std::string archetype, CreateArchetypeFn creator)
   {
-    _archetypes[archetype] = creator;
+    _archetypes.emplace(archetype, creator);
   }
 
   EntityPtr ArchetypeFactory::create(std::string archetype)
   {
-    return _archetypes[archetype]();
+    CreateArchetypeFn creator = _archetypes.find(archetype)->second;
+    return creator();
   }
 }; //AlJeEngine

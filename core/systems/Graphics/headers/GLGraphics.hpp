@@ -39,10 +39,17 @@ namespace AlJeEngine
       };
 
       void Draw();
+      void DrawEntity(const EntityPtr&);
       void CreateMesh();
       void DeleteMesh();
       MeshInfo _quadInfo;
+      
       GLShader _shader;
+
+      typedef std::unordered_map<std::string, ShaderPtr> ShaderMap;
+
+      ShaderMap _shaders;
+
 
     };
 

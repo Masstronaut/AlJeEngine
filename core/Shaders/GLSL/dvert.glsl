@@ -2,17 +2,16 @@
 /*!
 @file dvert.glsl
 @author Jeffrey Uong
+@copyright All content © 2015 Allan Deutsch & Jeff Uong. All rights reserved.
 */
 /**************************************************************************************/
 
 #version 330 core
 layout(location = 0)in vec3 position;
-layout(location = 1)in vec2 texcoord;
 
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 proj;
-
 
 
 void main() 

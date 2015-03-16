@@ -47,6 +47,15 @@
     <Filter Include="Systems\Graphics\Render">
       <UniqueIdentifier>{6376406c-bca4-4c67-8037-c0d6a071514d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\Graphics\Shader helpers">
+      <UniqueIdentifier>{ba40b90f-59bb-443d-80e9-965f0b617573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Graphics\GLGraphics">
+      <UniqueIdentifier>{85458d19-8baf-471d-9062-f5ad1590122c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Graphics\Shaders">
+      <UniqueIdentifier>{900d88a3-c8d5-4f3c-85b2-1b2d548144cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -67,15 +76,6 @@
     <ClCompile Include="..\..\core\engine\src\Space.cpp">
       <Filter>Engine\Space</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp">
-      <Filter>Systems\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp">
-      <Filter>Systems\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp">
-      <Filter>Systems\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp">
       <Filter>Systems\Graphics</Filter>
     </ClCompile>
@@ -90,6 +90,15 @@
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\Render.cpp">
       <Filter>Systems\Graphics\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp">
+      <Filter>Systems\Graphics\Shader helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp">
+      <Filter>Systems\Graphics\Shader helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp">
+      <Filter>Systems\Graphics\GLGraphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,15 +132,6 @@
     <ClInclude Include="..\..\core\engine\headers\Space.h">
       <Filter>Engine\Space</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp">
-      <Filter>Systems\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h">
-      <Filter>Systems\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h">
-      <Filter>Systems\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\core\systems\TestSystem.h">
       <Filter>Systems\Test</Filter>
     </ClInclude>
@@ -150,5 +150,22 @@
     <ClInclude Include="..\..\core\systems\SystemsInclude.h">
       <Filter>Systems</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h">
+      <Filter>Systems\Graphics\Shader helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h">
+      <Filter>Systems\Graphics\Shader helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp">
+      <Filter>Systems\Graphics\GLGraphics</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\core\Shaders\GLSL\dfrag.glsl">
+      <Filter>Systems\Graphics\Shaders</Filter>
+    </None>
+    <None Include="..\..\core\Shaders\GLSL\dvert.glsl">
+      <Filter>Systems\Graphics\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

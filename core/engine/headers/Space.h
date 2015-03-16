@@ -26,10 +26,11 @@ namespace AlJeEngine
   class Space
   {
   public:
-    Space() : _name(std::string("Unnamed Space")) {}
+    // Spaces should never be default or copy constructed. Only construction should be via name.
+    //Space() : _name(std::string("Unnamed Space")) {}
+    //Space(Space &space) : _name(space._name), _entities(space._entities) {}
     Space(std::string &name) : _name(name) {}
 
-    Space(Space &space) : _name(space._name), _entities(space._entities) {}
 
     EntityPtr CreateEntity();
 
@@ -52,5 +53,8 @@ namespace AlJeEngine
     std::string _name;
     EntityVec _entities;
   };
+
+  typedef std::shared_ptr<Space> SpacePtr;
+
 
 }; // AlJeEngine

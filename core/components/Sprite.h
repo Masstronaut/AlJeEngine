@@ -21,8 +21,9 @@ namespace AlJeEngine
   public:
     Sprite() : Component(EC_Sprite, MC_Sprite) {}
 
-    glm::vec4 _color;
-	GLShader  _spriteShader;
+    glm::vec4 _color = { 1.0f, 1.0f, 0.0f, 1.0f };
+
+    std::string _shaderName = "Default";
     
 
 
