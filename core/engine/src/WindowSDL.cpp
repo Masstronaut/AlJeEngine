@@ -71,10 +71,10 @@ namespace AlJeEngine
           SDL_GetWindowSize(_window, &_width, &_height);
           break;
         case SDL_QUIT:
-          ENGINE->STOP();
+          ENGINE->Stop();
           break;
         default:
-          throw std::invalid_argument("Event from WindowSDL Unknown");
+          //throw std::invalid_argument("Event from WindowSDL Unknown");
           break;
         }//switch
 
