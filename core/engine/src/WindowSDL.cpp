@@ -54,34 +54,104 @@ namespace AlJeEngine
       SDL_GL_DeleteContext(_context);
     }
 
-    void WindowSDL::PollWindowEvent(void)
+    bool WindowSDL::GetMouseTrigger(void)
     {
-      if (SDL_PollEvent(&_event))
+      return _theMouse.Trigger;
+    }
+
+    std::pair<int, int> WindowSDL::GetMousePosition(void)
+    {
+      return std::pair<int,int>(_theMouse.position.first, _theMouse.position.second);
+    }
+
+    void WindowSDL::PollWindowEvent(SDL_Event &currentEvent)
+    {
+      switch (currentEvent.type)
       {
-        switch (_event.type)
+      case SDL_WINDOWEVENT:
+        switch (currentEvent.window.event)
         {
         case SDL_WINDOWEVENT_CLOSE:
-          std::cout << "Window closed" << std::endl;
           break;
         case SDL_WINDOWEVENT_MOVED:
-          std::cout << "Window moved" << std::endl;
           break;
         case SDL_WINDOWEVENT_RESIZED:
-          std::cout << "Window Resized" << std::endl;
           SDL_GetWindowSize(_window, &_width, &_height);
           break;
-        case SDL_QUIT:
+        case SDL_WINDOWEVENT_FOCUS_GAINED:
+          break;
+        case SDL_WINDOWEVENT_FOCUS_LOST:
+          break;
+        }
+        break;
+      case SDL_QUIT:
+        ENGINE->Stop();
+        break;
+      default:
+        break;
+      }//switch
+    }
+
+    void WindowSDL::PollKeyEvent(SDL_Event &currentEvent)
+    {
+      switch (currentEvent.type)
+      {
+      case SDL_KEYDOWN:
+        //If the key that is down is the escape key
+        if (currentEvent.key.keysym.sym == SDLK_ESCAPE)
+        {
+          //Exit the game
           ENGINE->Stop();
-          break;
-        default:
-          //throw std::invalid_argument("Event from WindowSDL Unknown");
-          break;
-        }//switch
+        }
+        break;
+      case SDL_KEYUP:
+        break;
+      }
 
-      }//event
+    }
 
-        //Swap the back buffer and front buffer
-      SDL_GL_SwapWindow(_window);
+    void WindowSDL::PollMouseEvent(SDL_Event &currentEvent)
+    {
+      switch (currentEvent.type)
+      {
+      case SDL_MOUSEMOTION:
+        _theMouse.position.first  = _event.motion.x;
+        _theMouse.position.second = _event.motion.y;
+        break;
+      case SDL_MOUSEBUTTONDOWN:
+        if (currentEvent.button.button == SDL_BUTTON_LEFT)
+        {
+          if (_theMouse.Pressed == false)
+            _theMouse.Trigger = true;
+          else
+            _theMouse.Trigger = false;
+
+          _theMouse.Released = false;
+          _theMouse.Pressed = true;
+        }
+        break;
+      case SDL_MOUSEBUTTONUP:
+        if (currentEvent.button.button == SDL_BUTTON_LEFT)
+        {
+          _theMouse.Pressed = false;
+          _theMouse.Released = true;
+
+        }
+        
+        break;
+      default:
+        break;
+      }
+    }
+
+    void WindowSDL::PollEvents(void)
+    {
+      if(SDL_PollEvent(&_event))
+      {
+        PollWindowEvent(_event);
+        PollKeyEvent(_event);
+        PollMouseEvent(_event);
+      }
     }
 
     int WindowSDL::GetWindowHeight(void)
@@ -103,7 +173,9 @@ namespace AlJeEngine
 
     void WindowSDL::Update(float dt)
     {
-      PollWindowEvent();
+      PollEvents();
+        //Swap the back buffer and front buffer
+      SDL_GL_SwapWindow(_window);
     }
 
 

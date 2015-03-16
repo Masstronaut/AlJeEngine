@@ -22,19 +22,31 @@ namespace AlJeEngine
       void Init(void);   //Initialize SDL
       void Update(float dt); //Update every frame  
       void Shutdown(void); //called when system is deleted
-      
+      bool GetMouseTrigger(void);
+      std::pair<int, int> GetMousePosition(void);
 	  int GetWindowHeight(void);
 	  int GetWindowWidth(void);
 	  std::pair<int,int> GetWindowDimensions(void);
     private:
-      void PollWindowEvent(void);
+      struct SDLMouse
+      {
+        std::pair<int,int> position;
+        bool Pressed;
+        bool Released;
+        bool Trigger;
+      };
 
+      void PollEvents(void);
+      void PollWindowEvent(SDL_Event &currentEvent);
+      void PollKeyEvent(SDL_Event &currentEvent);
+      void PollMouseEvent(SDL_Event &currentEvent);
 
       SDL_Window* _window;    //The actual window data
       SDL_GLContext _context; //OpenGL context
       SDL_Event _event; //Events from the window
 	  int _width;         //Window width
 	  int _height;        //Window height
+      SDLMouse _theMouse;
     };
 
     typedef std::shared_ptr<WindowSDL> WindowSDLPtr;

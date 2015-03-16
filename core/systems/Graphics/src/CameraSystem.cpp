@@ -36,8 +36,6 @@ namespace AlJeEngine
         CameraPtr camera = it->GET_COMPONENT(Camera);
 
         WindowSDLPtr window = GETSYS(WindowSDL);
-
-
       }
     }
 
