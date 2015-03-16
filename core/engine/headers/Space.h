@@ -29,13 +29,15 @@ namespace AlJeEngine
     // Spaces should never be default or copy constructed. Only construction should be via name.
     //Space() : _name(std::string("Unnamed Space")) {}
     //Space(Space &space) : _name(space._name), _entities(space._entities) {}
-    Space(std::string &name) : _name(name) {}
-
+    Space(std::string &name);
 
     EntityPtr CreateEntity();
 
     // Creates a camera for the space.
     EntityPtr CreateCamera();
+
+    // Access the camera for the space.
+    EntityPtr GetCamera();
 
     void PopulateEntities(SystemPtr) const;
 
@@ -52,6 +54,7 @@ namespace AlJeEngine
   private:
     std::string _name;
     EntityVec _entities;
+    EntityPtr _camera;
   };
 
   typedef std::shared_ptr<Space> SpacePtr;

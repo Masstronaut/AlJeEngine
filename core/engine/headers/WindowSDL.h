@@ -1,6 +1,7 @@
 #ifndef WINDOWSDL_H
 #define WINDOWSDL_H
 
+#include <memory>
 #include <GL/glew.h> //glewInit()
 #include <SDL.h>
 #include <SDL_opengl.h>
@@ -26,6 +27,8 @@ namespace AlJeEngine
       SDL_Event _event; //Events from the window
 
     };
+
+    typedef std::shared_ptr<WindowSDL> WindowSDLPtr;
 
   } // Systems
 } // AlJeEngine

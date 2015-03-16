@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\core\engine\src\Space.cpp" />
     <ClCompile Include="..\..\core\engine\src\System.cpp" />
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp" />
+    <ClCompile Include="..\..\core\systems\Graphics\src\CameraSystem.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="..\..\core\engine\headers\Space.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h" />
+    <ClInclude Include="..\..\core\systems\Graphics\headers\CameraSystem.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h" />

@@ -56,6 +56,9 @@
     <Filter Include="Systems\Graphics\Shaders">
       <UniqueIdentifier>{900d88a3-c8d5-4f3c-85b2-1b2d548144cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\Graphics\Camera">
+      <UniqueIdentifier>{edb73621-9f2c-41a7-b1fc-11b7eb51789a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -99,6 +102,9 @@
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp">
       <Filter>Systems\Graphics\GLGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Graphics\src\CameraSystem.cpp">
+      <Filter>Systems\Graphics\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +164,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp">
       <Filter>Systems\Graphics\GLGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Graphics\headers\CameraSystem.h">
+      <Filter>Systems\Graphics\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

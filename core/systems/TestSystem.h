@@ -7,6 +7,8 @@
 */
 
 #pragma once
+#include <memory>
+
 #include "../engine/headers/System.h"
 #include "../components/Components.h"
 namespace AlJeEngine
@@ -17,7 +19,7 @@ namespace AlJeEngine
     class Test : public System
     {
     public:
-      Test() : System(std::string("Test System"), ES_Test) {/* the engine calls init manually, which should take the place of the constructor. */}
+      Test() : System(std::string("Test System"), ES_Test) {/* the engine calls init manually, which should take the place of most of the constructor. */}
 
       void Init();
 
@@ -29,7 +31,7 @@ namespace AlJeEngine
 
     };
 
-
+    typedef std::shared_ptr<Test> TestPtr;
 
   }; // Systems
 

@@ -8,14 +8,15 @@
 #include <memory>
 
 #include "../../../engine/headers/System.h"
+
 namespace AlJeEngine
 {
   namespace Systems
   {
-    class Render : public System
+    class CameraSystem : public System
     {
     public:
-      Render();
+      CameraSystem();
 
       void Init();
       void Update(float);
@@ -27,7 +28,7 @@ namespace AlJeEngine
 
     };
 
-    typedef std::shared_ptr<Render> RenderPtr;
+    typedef std::shared_ptr<CameraSystem> CameraSystemPtr;
 
   } // Systems
 

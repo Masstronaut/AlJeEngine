@@ -21,6 +21,9 @@ namespace AlJeEngine
     ES_WindowSDL,
     ES_GLGraphics,
     ES_Render,
+    ES_CameraSystem,
+
+    // this should always be last
     ES_MAX
   };
 #pragma endregion

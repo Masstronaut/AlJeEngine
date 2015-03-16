@@ -66,8 +66,10 @@ namespace AlJeEngine
         default:
           break;
         }//switch
+
       }//event
-        //Swap the backbuffer and frontbuffer
+
+      //Swap the backbuffer and frontbuffer
       SDL_GL_SwapWindow(_window);
     }
 
@@ -78,4 +80,4 @@ namespace AlJeEngine
 
 
   } // Systems
-}// AlJeEngine
+} // AlJeEngine

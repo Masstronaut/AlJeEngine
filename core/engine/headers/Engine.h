@@ -49,6 +49,13 @@ namespace AlJeEngine
 
     ArchetypeFactory& Factory();
 
+
+#define GETSYS( systype ) \
+ENGINE->GetSystem<systype>(ES_##systype)
+
+    template<typename T>
+    std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
+
   private:
 
     bool _running = true;
@@ -66,4 +73,21 @@ namespace AlJeEngine
     ArchetypeFactory _archetypeFactory;
 
   };
+
+  template <typename T>
+  std::shared_ptr<T> Engine::GetSystem(EnumeratedSystem sysType)
+  {
+    for (auto &it : _systems)
+    {
+      if (it->_type == sysType)
+        return std::static_pointer_cast<T>(it);
+    }
+
+    // Throw an error if the system doesn't exist in the engine.
+    throw std::range_error("The specified system does not exist.");
+
+  }
+
+
+
 }; // AlJeEngine
