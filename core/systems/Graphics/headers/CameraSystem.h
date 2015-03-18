@@ -4,7 +4,9 @@
 * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
 *
 */
-#pragma once
+#ifndef CAMERA_SYSTEM_H
+#define CAMERA_SYSTEM_H
+
 #include <memory>
 
 #include "../../../engine/headers/System.h"
@@ -33,4 +35,6 @@ namespace AlJeEngine
   } // Systems
 
 } // AlJeEngine
+
+#endif
 

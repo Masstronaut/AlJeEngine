@@ -45,9 +45,14 @@ namespace AlJeEngine
       glm::vec3 circleMesh[30000];
       for (int i = 0; i < 30000; ++i)
       {
-        float angle = 2.0f * 3.1415926535 * ((float)i / 30000.0f);
-        circleMesh[i].x = cosf(angle);
-        circleMesh[i].y = sinf(angle);
+        float angle = 2.0f * __PI__ * ((float)i / 30000.0f);
+        circleMesh[i].x = cos(angle);
+        circleMesh[i].y = sin(angle);
+      }
+      GLushort circleIndicies[30000];
+      for (int i = 0; i < 30000; ++i)
+      {
+        circleIndicies[i] = i;
       }
 
       //Indicies of the quad
@@ -74,7 +79,7 @@ namespace AlJeEngine
         GraphicsQuad,          //Where the data stats
         GL_STATIC_DRAW);      //Data store contents will be modified once and used many times.
 
-        //Bind the buffer for the elements/indicies for the quad
+      //Bind the buffer for the elements/indicies for the quad
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _quadInfo.ebo);
       //Same exact thing as the vao but this time with the indicies
       glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(QuadIndices), QuadIndices, GL_STATIC_DRAW);
@@ -91,16 +96,21 @@ namespace AlJeEngine
       glBindBuffer(GL_ARRAY_BUFFER, 0);
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-
+      ////////////////////////////////////////////////////////////////
       //FOR CIRCLES
       glGenVertexArrays(1, &_circleInfo.vao);
       glGenBuffers(1, &_circleInfo.vbo);
+      glGenBuffers(1, &_circleInfo.ebo);
 
       glBindVertexArray(_circleInfo.vao);
       glBindBuffer(GL_ARRAY_BUFFER, _circleInfo.vbo);
+      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _circleInfo.ebo);
 
       glBufferData(GL_ARRAY_BUFFER, sizeof(circleMesh), circleMesh, GL_STATIC_DRAW);
-      
+     
+      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _circleInfo.ebo);
+      glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(circleIndicies), circleIndicies, GL_STATIC_DRAW);
+
       glEnableVertexAttribArray(0);//for vert, in the shader location=0
 
         //Telling opengl how to read your data
@@ -108,6 +118,7 @@ namespace AlJeEngine
       
       glBindVertexArray(0); 
       glBindBuffer(GL_ARRAY_BUFFER, 0);
+      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     }
 

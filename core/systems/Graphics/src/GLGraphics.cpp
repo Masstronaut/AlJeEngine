@@ -6,7 +6,8 @@
 */
 #include "../../../engine/headers/Engine.h"
 #include "../headers/GLGraphics.hpp"
-#include "../../../lib/math/glm/gtc/matrix_transform.hpp" //scale, rot, trans, projection
+#include "../../../lib/math/glm/gtc/matrix_transform.hpp" //scale, rot, trans, projection, ortho
+
 namespace AlJeEngine
 {
   extern Engine* ENGINE;
@@ -46,11 +47,11 @@ namespace AlJeEngine
       addShader("Box", defaultShader);
 
     }
-    //Update every frame 
+    // Update every frame 
     void GLGraphics::Update(float dt)
     {
       CameraPtr camera = ENGINE->GetActiveSpace().GetCamera()->GET_COMPONENT(Camera);
-      // erase the screen buffer to begin a new frame.
+      // clear the buffers to begin a new frame.
       newFrame();
 
       // Enable alpha blending for opacity.
@@ -72,22 +73,24 @@ namespace AlJeEngine
 
       if (shader.get() != nullptr)
       {
+        //constructing the matrix of the transform
         glm::mat4x4 object2world;
         object2world = glm::scale(object2world, glm::vec3(transform->scale.x,
                                                           transform->scale.y,
                                                           0.f));
 
-        object2world = glm::rotate(object2world, transform->rotation, glm::vec3(0.f, 0.f, 1.f));
+        object2world = glm::rotate(object2world, transform->rotation, glm::vec3(0.f, 0.f, 1.0f));
 
         object2world = glm::translate(object2world, glm::vec3(Entity->GET_COMPONENT(Transform)->position.x,
           Entity->GET_COMPONENT(Transform)->position.y,
           0.0f));
 
+        //Updating the uniforms in the shader, has to happen every frame
         shader->UpdateUniforms("model", object2world);
 
         shader->UpdateUniforms("view", camera->_viewMatrix);
         
-
+        //Switching the camera's projection matrix based on the flag
         switch (camera->viewtype)
         {
         case Camera::ORTHOGRAPHIC:
@@ -101,9 +104,23 @@ namespace AlJeEngine
         shader->UpdateUniforms("color", Entity->GET_COMPONENT(Sprite)->_color);
         
         shader->Use();
-        glBindVertexArray(_quadInfo.vao);
-        //glDrawArrays(GL_LINES, 0, 30000);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
+
+        switch (Entity->GET_COMPONENT(Sprite)->mesh)
+        {
+        case Sprite::QUAD:
+          glBindVertexArray(_quadInfo.vao);
+          glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_SHORT, nullptr);
+          break;
+        case Sprite::CIRCLE:
+          glBindVertexArray(_circleInfo.vao);
+          glDrawElements(GL_TRIANGLE_FAN,30000, GL_UNSIGNED_SHORT, nullptr);
+          break;
+        default:
+          glBindVertexArray(_quadInfo.vao);
+          glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_SHORT, nullptr);
+          break;
+        }
+            
       }
     }
 
@@ -135,6 +152,7 @@ namespace AlJeEngine
 
     void GLGraphics::addShader(std::string shaderName, ShaderPtr shader)
     {
+      //Adding the shader to the map, .first = shadername .second = shader
       _shaders.emplace(shaderName, shader);
     }
 
