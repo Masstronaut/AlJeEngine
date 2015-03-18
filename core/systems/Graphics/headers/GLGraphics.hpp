@@ -43,7 +43,8 @@ namespace AlJeEngine
       void DrawEntity(const EntityPtr&, const CameraPtr&);
       void CreateMesh();
       void DeleteMesh();
-      MeshInfo _quadInfo;
+      MeshInfo _quadInfo, _circleInfo;
+      
       
       ShaderPtr getShader(std::string);
       void addShader(std::string, ShaderPtr);
