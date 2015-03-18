@@ -15,6 +15,7 @@ namespace AlJeEngine
 
   Space::Space(std::string & name): _name(name)
   {
+    _camera = CreateCamera();
   }
 
     EntityPtr Space::CreateEntity()
@@ -25,24 +26,15 @@ namespace AlJeEngine
 
   EntityPtr Space::CreateCamera()
   {
-    if (_camera.get() == nullptr)
-    {
-      // Use the factory to create the default camera object.
-      EntityPtr camera = ENGINE->Factory().create("DefaultCamera");
-      _entities.push_back(camera);
-      return camera;
-    }
-    return _camera;
+    // Use the factory to create the default camera object.
+    EntityPtr camera = ENGINE->Factory().create("DefaultCamera");
+    _entities.push_back(camera);
+    return camera;
   }
 
   EntityPtr Space::GetCamera()
-  {
-    if (_camera.get() != nullptr)
-    {
-      return _camera;
-    }
-    
-    return CreateCamera();
+  {    
+    return _camera;
   }
 
 

@@ -40,7 +40,7 @@ namespace AlJeEngine
         MeshInfo() :vbo(0), vao(0), ebo(0) {}//Init everything to 0
       };
 
-      void DrawEntity(const EntityPtr&);
+      void DrawEntity(const EntityPtr&, const CameraPtr&);
       void CreateMesh();
       void DeleteMesh();
       MeshInfo _quadInfo;

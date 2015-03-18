@@ -19,6 +19,8 @@ namespace AlJeEngine
       camera->AddComponent(ComponentPtr(new Transform()));
       camera->SetName("Camera");
 
+      camera->GET_COMPONENT(Transform)->scale = glm::vec2(160.0f, 90.0f);
+
       return camera;
     }
 

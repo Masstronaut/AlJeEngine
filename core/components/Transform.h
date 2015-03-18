@@ -20,7 +20,7 @@ namespace AlJeEngine
   public:
     Transform() : Component(EC_Transform, MC_Transform), 
                   position({ 0.f, 0.f }), 
-                  scale({ .25f, .25f }), 
+                  scale({ 1.0f, 1.0f }), 
                   rotation(0.f) 
                   {
                   }

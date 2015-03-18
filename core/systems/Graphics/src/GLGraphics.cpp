@@ -4,10 +4,12 @@
 * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
 *
 */
+#include "../../../engine/headers/Engine.h"
 #include "../headers/GLGraphics.hpp"
 #include "../../../lib/math/glm/gtc/matrix_transform.hpp" //scale, rot, trans, projection
 namespace AlJeEngine
 {
+  extern Engine* ENGINE;
   namespace Systems
   {
 
@@ -34,7 +36,11 @@ namespace AlJeEngine
 
       // Find the variables in the shaders that will be modified by the end-users.
       defaultShader->FindUniforms("model");
+      defaultShader->FindUniforms("view");
+      defaultShader->FindUniforms("proj");
       defaultShader->FindUniforms("color");
+      
+      
 
       // Add the shader to the ShaderMap.
       addShader("Box", defaultShader);
@@ -43,6 +49,7 @@ namespace AlJeEngine
     //Update every frame 
     void GLGraphics::Update(float dt)
     {
+      CameraPtr camera = ENGINE->GetActiveSpace().GetCamera()->GET_COMPONENT(Camera);
       // erase the screen buffer to begin a new frame.
       newFrame();
 
@@ -52,13 +59,12 @@ namespace AlJeEngine
       
       for (auto &it : _entities)
       {
-        DrawEntity(it);
+        DrawEntity(it, camera);
       }
       
     }
 
-
-    void GLGraphics::DrawEntity(const EntityPtr &Entity)
+    void GLGraphics::DrawEntity(const EntityPtr &Entity, const CameraPtr &camera)
     {
       ShaderPtr shader = _shaders.find(Entity->GET_COMPONENT(Sprite)->_shaderName)->second;
 
@@ -78,6 +84,24 @@ namespace AlJeEngine
           0.0f));
 
         shader->UpdateUniforms("model", object2world);
+     /*   shader->UpdateUniforms("view", glm::lookAt(glm::vec3(0, 0, -2.0f),
+          camera->_target,
+          camera->_upVec));
+        shader->UpdateUniforms("proj", glm::perspectiveFov(45.0f,
+          16.0f,
+          9.0f,
+          1.0f,
+          100.0f));*/
+        shader->UpdateUniforms("view", camera->_viewMatrix);
+        if (camera->viewtype == Camera::ORTHOGRAPHIC)
+        {
+          shader->UpdateUniforms("proj", camera->_ortho);
+        }
+        else
+        {
+          shader->UpdateUniforms("proj", camera->_pespective);
+        }
+
         shader->UpdateUniforms("color", Entity->GET_COMPONENT(Sprite)->_color);
 
         glBindVertexArray(_quadInfo.vao);

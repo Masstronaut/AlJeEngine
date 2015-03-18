@@ -38,10 +38,7 @@ namespace AlJeEngine
     // set the newly created world to be the active space in the engine.
     SetActiveSpace("Game World");
     // Create a camera for the active space.
-    EntityPtr camera = GetSpace("Game World").CreateCamera();
-
-    // test code please ignore
-    camera->GET_COMPONENT(Transform)->position = glm::vec2({ 0.5f, 0.5f });
+    //EntityPtr camera = GetSpace("Game World").CreateCamera();
 
     // Add systems here
     _systems.push_back(SystemPtr(new Systems::WindowSDL));
@@ -49,6 +46,7 @@ namespace AlJeEngine
 
     _systems.push_back(SystemPtr(new Systems::PhysicsDetect));
 
+    _systems.push_back(SystemPtr(new Systems::CameraSystem));
     _systems.push_back(SystemPtr(new Systems::GLGraphics));
     _systems.push_back(SystemPtr(new Systems::Render));
 
