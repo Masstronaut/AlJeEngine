@@ -60,7 +60,7 @@ namespace AlJeEngine
     *
     * @return Returns the collider type being used by the Entity.
     */
-    ColliderType Collider();
+    EnumeratedComponent Collider();
 
     bool CheckMask(mask m);
 
@@ -77,7 +77,7 @@ namespace AlJeEngine
   private:
     std::string _name;
     mask _mask = MC_Alive;
-    ColliderType _collider = none;
+    EnumeratedComponent _collider = EC_None;
     ComponentPtr _components[EC_Max];
   };
 

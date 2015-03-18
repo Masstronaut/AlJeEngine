@@ -16,12 +16,14 @@ namespace AlJeEngine
 #pragma region metadataEnums
   enum EnumeratedComponent
   {
-    EC_Transform      =  0,
+    EC_None           =  0,
     EC_Drawable       =  1,
     EC_RigidBody      =  2,
     EC_Sprite         =  3,
-    EC_Collider       =  4,
-    EC_Camera         =  5,
+    EC_BoxCollider    =  4,
+    EC_CircleCollider =  5,
+    EC_Camera         =  6,
+    EC_Transform      =  7,
     
     // This will correspond to the maximum number of components that exist.
     EC_Max,
@@ -37,8 +39,9 @@ namespace AlJeEngine
     MC_Drawable        = 1 <<  2,
     MC_RigidBody       = 1 <<  3,
     MC_Sprite          = 1 <<  4,
-    MC_Collider        = 1 <<  5,
-    MC_Camera          = 1 <<  6,
+    MC_BoxCollider     = 1 <<  5,
+    MC_CircleCollider  = 1 <<  6,
+    MC_Camera          = 1 <<  7,
 
   };
 #pragma endregion

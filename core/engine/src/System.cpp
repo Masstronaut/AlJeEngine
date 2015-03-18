@@ -16,4 +16,5 @@ namespace AlJeEngine
     _mask |= bc;
   }
 
+
 }; //AlJeEngine

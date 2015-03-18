@@ -27,9 +27,13 @@ namespace AlJeEngine
     _mask |= component->_mask;
 
     // If the component was a collider we want to set the Entity's collider type.
-    if (component->_type == EC_Collider)
+    if (component->_type == EC_BoxCollider || component->_type == EC_CircleCollider)
     {
-      _collider = std::static_pointer_cast<::AlJeEngine::Collider>(component)->_colliderType;
+      if (_collider != EC_None)
+        throw std::logic_error("Cannot add a collider to an object that already has a collider.");
+      else
+        _collider = component->_type;
+
     }
   }
 
@@ -50,6 +54,8 @@ namespace AlJeEngine
       _components[ec].reset();
     }
 
+    if (ec == EC_BoxCollider || ec == EC_CircleCollider)
+      _collider = EC_None;
 
   }
 
@@ -64,7 +70,7 @@ namespace AlJeEngine
     return _mask;
   }
 
-  ColliderType Entity::Collider()
+  EnumeratedComponent Entity::Collider()
   {
     return _collider;
   }

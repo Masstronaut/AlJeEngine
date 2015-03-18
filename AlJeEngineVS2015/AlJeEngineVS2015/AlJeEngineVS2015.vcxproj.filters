@@ -62,6 +62,9 @@
     <Filter Include="Core\ArchetypeFactory">
       <UniqueIdentifier>{3f49fa04-782e-403a-b0cb-031b0929f871}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Message">
+      <UniqueIdentifier>{b79f0a0e-f468-4781-83a5-4eab5cc7c33d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -182,6 +185,12 @@
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Physics\PhysicsDetect.h">
       <Filter>Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\RigidBody.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\Message.h">
+      <Filter>Core\Message</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

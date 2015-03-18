@@ -10,7 +10,6 @@
 #define CAMERA_H
 
 #include "../../lib/math/glm/glm.hpp"
-#include "../../lib/math/headers/affmath.h"
 #include "../../lib/math/glm/gtc/matrix_transform.hpp"
 #include "../engine/headers/Component.h"
 

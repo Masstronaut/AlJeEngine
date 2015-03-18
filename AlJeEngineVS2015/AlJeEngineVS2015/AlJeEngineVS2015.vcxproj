@@ -176,6 +176,7 @@
     <ClInclude Include="..\..\core\components\Camera.h" />
     <ClInclude Include="..\..\core\components\Collider.h" />
     <ClInclude Include="..\..\core\components\Components.h" />
+    <ClInclude Include="..\..\core\components\RigidBody.h" />
     <ClInclude Include="..\..\core\components\Sprite.h" />
     <ClInclude Include="..\..\core\components\Transform.h" />
     <ClInclude Include="..\..\core\engine\headers\ArchetypeFactory.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
     <ClInclude Include="..\..\core\engine\headers\Engine.h" />
     <ClInclude Include="..\..\core\engine\headers\Entity.h" />
+    <ClInclude Include="..\..\core\engine\headers\Message.h" />
     <ClInclude Include="..\..\core\engine\headers\Space.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h" />
