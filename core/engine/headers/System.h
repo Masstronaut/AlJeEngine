@@ -11,6 +11,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Component.h"
+#include "Message.h"
 
 namespace AlJeEngine
 {
@@ -44,15 +45,18 @@ namespace AlJeEngine
     virtual void   Init() = 0;
     virtual void   Update(float) = 0;
     virtual void   Shutdown() = 0;
-    void   RegisterComponent(BitfieldComponent);
-    friend  struct Engine;
 
-    inline  mask   Mask()
-    {
-      return _mask;
-    }
+    // Implementing this function in a derived system is optional.
+    // If it is not implemented, the system won't receive any messages
+    virtual void SendMessage(EntityPtr, EntityPtr, Message::Message) {}
+
+
+    void RegisterComponent(BitfieldComponent);
+
+    inline mask   Mask() { return _mask; }
 
     friend class Space;
+    friend  struct Engine;
   protected:
     mask        _mask;
     EntityVec   _entities;

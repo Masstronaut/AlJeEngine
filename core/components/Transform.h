@@ -9,7 +9,6 @@
 
 #pragma once
 #include "../../lib/math/glm/glm.hpp"
-#include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
 #include <memory>
 

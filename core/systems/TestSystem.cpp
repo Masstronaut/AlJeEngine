@@ -36,29 +36,55 @@ namespace AlJeEngine
       gameworld.AddEntity(player);
 
       // repeat the process for a few more objects
-      for (float i = -0.5f; i < 0.5f; i += 0.25f)
+      for (unsigned i = 0; i < 200; ++i) 
       {
         EntityPtr entity = ENGINE->Factory().create("Box");
-        entity->GET_COMPONENT(Transform)->position = glm::vec2(i, i);
         gameworld.AddEntity(entity);
       }
     }
 
     void Test::Update(float dt)
     {
+      glm::vec2 prevObjPosition = { 0.0f, 0.0f };
+
+      bool firstObject = true;
+      float prevRot = -1.f;
+      float rotSpeed = 0.5f;
       for (auto &it : _entities)
       {
         TransformPtr transform = it->GET_COMPONENT(Transform);
         glm::vec2* position = &transform->position;
 
-        transform->rotation += dt * 1.5f;
+        if (firstObject)
+        {
+          firstObject = false;
+          prevRot = transform->rotation;
+          transform->rotation = prevRot + dt * rotSpeed;
+        }
+        else
+        {
+          transform->rotation += dt * rotSpeed;
 
-        position->x = (0.f - 3.0f * -cosf(transform->rotation));
+        }
 
-        position->y = (0.f + 3.0f * sinf(transform->rotation));
-        //transform->position.x = 50.f * cosf(10.f / __PI__) * dt;
-        //transform->position.y = 50.f * cosf(10.f / __PI__) * dt;
+        rotSpeed += .5f;
 
+
+        position->x = (prevObjPosition.x - 10.0f * -cosf(transform->rotation));
+        position->y = (prevObjPosition.y + 10.0f * sinf(transform->rotation));
+
+        prevObjPosition = { position->x, position->y };
+
+
+        // Let's make them look more interesting too!
+        SpritePtr sprite = it->GET_COMPONENT(Sprite);
+        sprite->_color.r += rotSpeed * dt * 0.005f;
+        if (sprite->_color.r > 1.f)
+          sprite->_color.r = 0.f;
+
+        sprite->_color.g -= rotSpeed * dt * 0.005f;
+        if (sprite->_color.g < 0.f)
+          sprite->_color.g = 1.f;
 
       }
     }

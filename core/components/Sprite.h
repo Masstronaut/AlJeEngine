@@ -10,7 +10,6 @@
 #pragma once
 #include <string>
 #include "../../lib/math/glm/glm.hpp"
-#include "../../lib/math/headers/affmath.h"
 #include "../engine/headers/Component.h"
 #include "../systems/Graphics/headers/GLShader.h"
 
