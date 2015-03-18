@@ -30,7 +30,7 @@ namespace AlJeEngine
     }
     
 		//Default average camera values 
-	CameraView viewtype  = ORTHOGRAPHIC;
+	CameraView viewtype  = PERSPECTIVE;
 	float _fieldOfView   = 45.0f; 
 	float _nearPlane     = 1.0f;
 	float _farPlane      = 100.0f;

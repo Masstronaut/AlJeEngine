@@ -8,16 +8,12 @@
 #include "../headers/GLGraphics.hpp"
 #include "../../../lib/math/glm/glm.hpp" //vec3,vec2
 #include "../../../lib/math/glm/gtc/type_ptr.hpp" //convert glm data type to raw pointers
+#include <math.h> //sin cos
 
 struct Quad
 {
   glm::vec3 vertices;
   glm::vec2 UV;
-};
-
-struct Circle
-{
-  glm::vec3 verticies;
 };
 
 namespace AlJeEngine 
@@ -33,9 +29,26 @@ namespace AlJeEngine
         //Position of quad             //UV coordiates of quad
         glm::vec3(-1.0f,  1.0f, 0.0f), glm::vec2(0.0f, 1.0f),//indices 0
         glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec2(0.0f, 0.0f),//indices 1
-        glm::vec3(1.0f, -1.0f, 0.0f), glm::vec2(1.0f, 0.0f),//indices 2
-        glm::vec3(1.0f,  1.0f, 0.0f), glm::vec2(1.0f, 1.0f) //indices 3    
+        glm::vec3(1.0f, -1.0f,  0.0f), glm::vec2(1.0f, 0.0f),//indices 2
+        glm::vec3(1.0f,  1.0f,  0.0f), glm::vec2(1.0f, 1.0f) //indices 3    
       };
+
+
+      //glm::vec3 circleVert[32] = {};
+      //for (int i = 0; i < 32; ++i)
+      //{
+      //  float theta = 2.0f * __PI__ * ((float)i / (float)32);
+      //  circleVert[i].x = cos(theta);
+      //  circleVert[i].y = sin(theta);
+      //}
+
+      glm::vec3 circleMesh[30000];
+      for (int i = 0; i < 30000; ++i)
+      {
+        float angle = 2.0f * __PI__ * ((float)i / 30000.0f);
+        circleMesh[i].x = cosf(angle);
+        circleMesh[i].y = sinf(angle);
+      }
 
       //Indicies of the quad
       GLushort QuadIndices[] =
@@ -77,6 +90,25 @@ namespace AlJeEngine
       glBindVertexArray(0); //_quadInfo.vao will now remember how to read your Data from GraphicsQuad
       glBindBuffer(GL_ARRAY_BUFFER, 0);
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+
+      //FOR CIRCLES
+      glGenVertexArrays(1, &_circleInfo.vao);
+      glGenBuffers(1, &_circleInfo.vbo);
+
+      glBindVertexArray(_circleInfo.vao);
+      glBindBuffer(GL_ARRAY_BUFFER, _circleInfo.vbo);
+
+      glBufferData(GL_ARRAY_BUFFER, sizeof(circleMesh), circleMesh, GL_STATIC_DRAW);
+      
+      glEnableVertexAttribArray(0);//for vert, in the shader location=0
+
+        //Telling opengl how to read your data
+      glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 3, 0);
+      
+      glBindVertexArray(0); 
+      glBindBuffer(GL_ARRAY_BUFFER, 0);
+
     }
 
     void GLGraphics::DeleteMesh()
@@ -86,14 +118,30 @@ namespace AlJeEngine
       {
         glDeleteBuffers(1, &_quadInfo.vao);
       }
-      else if (_quadInfo.ebo < 0)
+      if (_quadInfo.ebo < 0)
       {
         glDeleteBuffers(1, &_quadInfo.ebo);
       }
-      else if (_quadInfo.vbo < 0)
+      if (_quadInfo.vbo < 0)
       {
         glDeleteBuffers(1, &_quadInfo.vbo);
       }
+
+
+      //DELETE CIRCLE
+      if (_circleInfo.vao < 0)
+      {
+        glDeleteBuffers(1, &_quadInfo.vao);
+      }
+      if (_circleInfo.ebo < 0)
+      {
+        glDeleteBuffers(1, &_quadInfo.ebo);
+      }
+      if (_circleInfo.vbo < 0)
+      {
+        glDeleteBuffers(1, &_quadInfo.vbo);
+      }
+
     }//DeleteMesh
 
   } // Systems
