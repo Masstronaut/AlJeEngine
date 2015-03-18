@@ -45,7 +45,7 @@ namespace AlJeEngine
       glm::vec3 circleMesh[30000];
       for (int i = 0; i < 30000; ++i)
       {
-        float angle = 2.0f * __PI__ * ((float)i / 30000.0f);
+        float angle = 2.0f * 3.1415926535 * ((float)i / 30000.0f);
         circleMesh[i].x = cos(angle);
         circleMesh[i].y = sin(angle);
       }
