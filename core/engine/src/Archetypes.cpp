@@ -72,6 +72,7 @@ namespace AlJeEngine
       entity->AddComponent(ComponentPtr(new Particle()));
       entity->AddComponent(ComponentPtr(new Transform()));
       entity->AddComponent(ComponentPtr(new Sprite()));
+      entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
       entity->SetName("Circle Particle");
 
       return entity;
