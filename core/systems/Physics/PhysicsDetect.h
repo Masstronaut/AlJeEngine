@@ -32,7 +32,9 @@ namespace AlJeEngine
       void SendMsg(EntityPtr, EntityPtr, Message::Message);
 
     private:
-      bool AABBCheck(EntityPtr, EntityPtr);
+      bool AABBAABBCheck(EntityPtr, EntityPtr);
+      bool AABBCircleCheck(EntityPtr, EntityPtr);
+      bool CircleCircleCheck(EntityPtr, EntityPtr);
 
     };
 

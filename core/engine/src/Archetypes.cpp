@@ -7,6 +7,7 @@
 
 #include "../headers/Archetypes.h"
 
+
 namespace AlJeEngine
 {
   namespace Archetypes
@@ -45,6 +46,7 @@ namespace AlJeEngine
       entity->AddComponent(ComponentPtr(new RigidBody()));
       entity->AddComponent(ComponentPtr(new Transform()));
       entity->AddComponent(ComponentPtr(new Sprite()));
+      entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
       entity->SetName("Circle Object");
 
       return entity;

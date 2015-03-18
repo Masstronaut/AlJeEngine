@@ -58,10 +58,10 @@ namespace AlJeEngine
             switch (obj2ColliderType)
             {
             case(EC_BoxCollider) :
-              collisionFound = AABBCheck(*obj1, *obj2);
+              collisionFound = AABBAABBCheck(*obj1, *obj2);
               break;
             case(EC_CircleCollider) :
-              // Implement box to circle collision check
+              AABBCircleCheck(*obj1, *obj2);
               break;
             default:
               // This is the case where an object has no collider.
@@ -74,10 +74,11 @@ namespace AlJeEngine
             switch (obj2ColliderType)
             {
             case(EC_BoxCollider) :
-              // Implement box to circle collision check
+              // We have to switch their order because it takes the AABB object first.
+              AABBCircleCheck(*obj2, *obj1);
               break;
             case(EC_CircleCollider) :
-              // Implement circle to circle collision check
+              CircleCircleCheck(*obj1, *obj2);
               break;
             default:
               // This is the case where an object has no collider.
@@ -103,7 +104,12 @@ namespace AlJeEngine
 
     }
 
-    bool PhysicsDetect::AABBCheck(EntityPtr e1, EntityPtr e2)
+    void PhysicsDetect::SendMsg(EntityPtr, EntityPtr, Message::Message)
+    {
+
+    }
+
+    bool PhysicsDetect::AABBAABBCheck(EntityPtr e1, EntityPtr e2)
     {
       // get the transform pointers in a more accessible way.
       TransformPtr t1 = (e1)->GET_COMPONENT(Transform);
@@ -128,9 +134,39 @@ namespace AlJeEngine
     }
 
 
-    void PhysicsDetect::SendMsg(EntityPtr, EntityPtr, Message::Message)
+    bool PhysicsDetect::AABBCircleCheck(EntityPtr box, EntityPtr circle)
     {
+      glm::vec2 boxPos = box->GET_COMPONENT(Transform)->position;
+      glm::vec2 circleCenter = circle->GET_COMPONENT(Transform)->position;
+      BoxColliderPtr boxCollider = box->GET_COMPONENT(BoxCollider);
+      float radius = circle->GET_COMPONENT(CircleCollider)->radius;
 
+      glm::vec2 nearestPoint = circleCenter;
+
+      float boxTop = boxPos.y + boxCollider->height * 0.5f;
+      float boxBot = boxPos.y - boxCollider->height * 0.5f;
+      float boxleft = boxPos.x - boxCollider->width * 0.5f;
+      float boxright = boxPos.x + boxCollider->width * 0.5f;
+
+      if (nearestPoint.x < boxleft) nearestPoint.x = boxleft;
+      else if (nearestPoint.x > boxright) nearestPoint.x = boxright;
+      if (nearestPoint.y < boxBot) nearestPoint.y = boxBot;
+      else if (nearestPoint.y > boxTop) nearestPoint.y = boxTop;
+
+      return glm::distance(nearestPoint, circleCenter) < radius;
+    }
+
+    bool PhysicsDetect::CircleCircleCheck(EntityPtr e1, EntityPtr e2)
+    {
+      glm::vec2 e1Pos = e1->GET_COMPONENT(Transform)->position;
+      glm::vec2 e2Pos = e2->GET_COMPONENT(Transform)->position;
+      float e1radius = e1->GET_COMPONENT(CircleCollider)->radius;
+      float e2radius = e2->GET_COMPONENT(CircleCollider)->radius;
+
+      float radii = e1radius * e1radius + e2radius * e2radius;
+      float distance = glm::distance(e1Pos, e2Pos);
+
+      return radii >= distance;
     }
 
   } // Systems

@@ -53,13 +53,20 @@ namespace AlJeEngine
       // repeat the process for a few more objects
       for (unsigned i = 0; i < 200; ++i) 
       {
-        // Create an entity from the "Box" archetype.
-        EntityPtr entity = ENGINE->Factory().create("Box");
-
-        // Create a string stream to generate a name for the entity.
+        EntityPtr entity;
         std::ostringstream name;
-        name << "Box" << i;
-
+        if (i % 2)
+        {
+          // Create an entity from the "Box" archetype.
+          entity = ENGINE->Factory().create("Box");
+          // Create a string stream to generate a name for the entity.
+          name << "Box" << i / 2;
+        }
+        else
+        {
+          entity = ENGINE->Factory().create("Circle");
+          name << "Circle" << i / 2 + 1;
+        }
         // Set the generated name.
         entity->SetName(name.str());
 
