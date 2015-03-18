@@ -61,7 +61,7 @@ namespace AlJeEngine
               collisionFound = AABBAABBCheck(*obj1, *obj2);
               break;
             case(EC_CircleCollider) :
-              AABBCircleCheck(*obj1, *obj2);
+              collisionFound = AABBCircleCheck(*obj1, *obj2);
               break;
             default:
               // This is the case where an object has no collider.
@@ -75,10 +75,10 @@ namespace AlJeEngine
             {
             case(EC_BoxCollider) :
               // We have to switch their order because it takes the AABB object first.
-              AABBCircleCheck(*obj2, *obj1);
+              collisionFound = AABBCircleCheck(*obj2, *obj1);
               break;
             case(EC_CircleCollider) :
-              CircleCircleCheck(*obj1, *obj2);
+              collisionFound = CircleCircleCheck(*obj1, *obj2);
               break;
             default:
               // This is the case where an object has no collider.
@@ -129,7 +129,10 @@ namespace AlJeEngine
 
       // check if the distance between the centers is less than the size of the boxes.
       if (xdist <= widths * widths && ydist <= heights * heights)
+      {
+        ENGINE->SendMsg(e1, e2, Message::MV_AABBAABB);
         return 1;
+      }
       return 0;
     }
 
@@ -145,15 +148,21 @@ namespace AlJeEngine
 
       float boxTop = boxPos.y + boxCollider->height * 0.5f;
       float boxBot = boxPos.y - boxCollider->height * 0.5f;
-      float boxleft = boxPos.x - boxCollider->width * 0.5f;
-      float boxright = boxPos.x + boxCollider->width * 0.5f;
+      float boxLeft = boxPos.x - boxCollider->width * 0.5f;
+      float boxRight = boxPos.x + boxCollider->width * 0.5f;
 
-      if (nearestPoint.x < boxleft) nearestPoint.x = boxleft;
-      else if (nearestPoint.x > boxright) nearestPoint.x = boxright;
-      if (nearestPoint.y < boxBot) nearestPoint.y = boxBot;
-      else if (nearestPoint.y > boxTop) nearestPoint.y = boxTop;
+      if      (nearestPoint.x < boxLeft)  nearestPoint.x = boxLeft;
+      else if (nearestPoint.x > boxRight) nearestPoint.x = boxRight;
+      if      (nearestPoint.y < boxBot)   nearestPoint.y = boxBot;
+      else if (nearestPoint.y > boxTop)   nearestPoint.y = boxTop;
 
-      return glm::distance(nearestPoint, circleCenter) < radius;
+
+      if (glm::distance(nearestPoint, circleCenter) < radius)
+      {
+        ENGINE->SendMsg(box, circle, Message::MV_AABBCircle);
+        return 1;
+      }
+      return 0;
     }
 
     bool PhysicsDetect::CircleCircleCheck(EntityPtr e1, EntityPtr e2)
@@ -166,7 +175,13 @@ namespace AlJeEngine
       float radii = e1radius * e1radius + e2radius * e2radius;
       float distance = glm::distance(e1Pos, e2Pos);
 
-      return radii >= distance;
+      if (radii >= distance)
+      {
+        ENGINE->SendMsg(e1, e2, Message::MV_CircleCircle);
+        return 1;
+      }
+
+      return 0;
     }
 
   } // Systems

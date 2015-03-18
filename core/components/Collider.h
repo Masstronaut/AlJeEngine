@@ -10,7 +10,6 @@
 #pragma once
 #include <memory>
 #include <vector>
-#include "../../lib/math/glm/glm.hpp"
 #include "../engine/headers/Component.h"
 
 namespace AlJeEngine

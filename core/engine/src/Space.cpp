@@ -69,7 +69,7 @@ namespace AlJeEngine
 
   void Space::RemoveEntity(EntityPtr in)
   {
-	  for (auto it : _entities)
+	  for (auto &it : _entities)
 	  {
 		  if (it == in)
 		  {
@@ -90,7 +90,14 @@ namespace AlJeEngine
 
   void Space::Clear()
   {
+    // We probably don't want to destroy the camera.
+    EntityPtr camera = GetCamera();
+
+    // This clears out all the objects stored in this space.
     _entities.clear();
+
+    // This re-adds the camera to the space so it isn't lost.
+    _entities.push_back(camera);
   }
 
 

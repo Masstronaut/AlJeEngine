@@ -192,6 +192,9 @@
     <ClInclude Include="..\..\core\engine\headers\Message.h">
       <Filter>Core\Message</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\core\components\Particle.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\core\Shaders\GLSL\dfrag.glsl">

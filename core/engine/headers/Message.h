@@ -16,8 +16,12 @@ namespace AlJeEngine
 
     enum MessageValues
     {
-      // Used to send collision messages
-      MV_Collision = 1,
+      // These message values are used to specify what type of collision has occurred.
+      MV_AABBAABB     = 1,
+      MV_AABBCircle   = 1 <<  1,
+      MV_CircleCircle = 1 <<  2,
+
+
     };
 
 

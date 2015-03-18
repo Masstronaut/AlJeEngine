@@ -28,8 +28,15 @@ namespace AlJeEngine
       void Shutdown();
 
     private:
+      void PretzelInit(unsigned);
       void PretzelDemo(float);
 
+      void FireBallInit(unsigned);
+      void FireBallDemo(float);
+      void FireBallSpawn(unsigned);
+
+
+      float timeAccumulator = 0.f;
     };
 
     typedef std::shared_ptr<Test> TestPtr;

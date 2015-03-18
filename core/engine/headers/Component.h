@@ -24,6 +24,7 @@ namespace AlJeEngine
     EC_CircleCollider =  5,
     EC_Camera         =  6,
     EC_Transform      =  7,
+    EC_Particle       =  8,
     
     // This will correspond to the maximum number of components that exist.
     EC_Max,
@@ -42,6 +43,7 @@ namespace AlJeEngine
     MC_BoxCollider     = 1 <<  5,
     MC_CircleCollider  = 1 <<  6,
     MC_Camera          = 1 <<  7,
+    MC_Particle        = 1 <<  8,
 
   };
 #pragma endregion

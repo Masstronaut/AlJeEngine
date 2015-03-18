@@ -22,8 +22,10 @@ namespace AlJeEngine
     EntityPtr DefaultCamera();
 
     EntityPtr BoxGameObject();
+    EntityPtr BoxParticleObject();
 
     EntityPtr CircleGameObject();
+    EntityPtr CircleParticleObject();
 
 
   } // Archetypes

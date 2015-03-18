@@ -37,7 +37,19 @@ namespace AlJeEngine
 
       return entity;
     }
-  
+
+    EntityPtr BoxParticleObject()
+    {
+      EntityPtr entity(new Entity());
+
+      entity->AddComponent(ComponentPtr(new BoxCollider()));
+      entity->AddComponent(ComponentPtr(new Particle()));
+      entity->AddComponent(ComponentPtr(new Transform()));
+      entity->AddComponent(ComponentPtr(new Sprite()));
+      entity->SetName("Box Particle");
+
+      return entity;
+    }
     EntityPtr CircleGameObject()
     {
       EntityPtr entity(new Entity());
@@ -51,6 +63,20 @@ namespace AlJeEngine
 
       return entity;
     }
+
+    EntityPtr CircleParticleObject()
+    {
+      EntityPtr entity(new Entity());
+
+      entity->AddComponent(ComponentPtr(new CircleCollider()));
+      entity->AddComponent(ComponentPtr(new Particle()));
+      entity->AddComponent(ComponentPtr(new Transform()));
+      entity->AddComponent(ComponentPtr(new Sprite()));
+      entity->SetName("Circle Particle");
+
+      return entity;
+    }
+  
   
   } // Archetypes
 
