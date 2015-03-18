@@ -29,6 +29,7 @@ namespace AlJeEngine
       EntityPtr entity(new Entity());
 
       entity->AddComponent(ComponentPtr(new BoxCollider()));
+      entity->AddComponent(ComponentPtr(new RigidBody()));
       entity->AddComponent(ComponentPtr(new Transform()));
       entity->AddComponent(ComponentPtr(new Sprite()));
       entity->SetName("Box Object");
@@ -41,6 +42,7 @@ namespace AlJeEngine
       EntityPtr entity(new Entity());
 
       entity->AddComponent(ComponentPtr(new CircleCollider()));
+      entity->AddComponent(ComponentPtr(new RigidBody()));
       entity->AddComponent(ComponentPtr(new Transform()));
       entity->AddComponent(ComponentPtr(new Sprite()));
       entity->SetName("Circle Object");

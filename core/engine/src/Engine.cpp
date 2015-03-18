@@ -140,8 +140,15 @@ namespace AlJeEngine
 
   ArchetypeFactory & Engine::Factory()
   {
-    // TODO: insert return statement here
     return _archetypeFactory;
+  }
+
+  void Engine::SendMsg(EntityPtr e1, EntityPtr e2, Message::Message message)
+  {
+    for (auto &it : _systems)
+    {
+      it->SendMsg(e1, e2, message);
+    }
   }
   
  

@@ -17,6 +17,7 @@
 #include "Entity.h"
 #include "Space.h"
 #include "ArchetypeFactory.h"
+#include "Message.h"
 
 namespace AlJeEngine
 {
@@ -49,10 +50,9 @@ namespace AlJeEngine
 
     ArchetypeFactory& Factory();
 
+    void SendMsg(EntityPtr, EntityPtr, Message::Message);
 
-#define GETSYS( systype ) \
-ENGINE->GetSystem<systype>(ES_##systype)
-
+    // Don't use this directly! Do GETSYS(sysType) instead, it's much cleaner looking.
     template<typename T>
     std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
 
@@ -75,6 +75,9 @@ ENGINE->GetSystem<systype>(ES_##systype)
     ArchetypeFactory _archetypeFactory;
 
   };
+
+#define GETSYS( systype ) \
+ENGINE->GetSystem<systype>(ES_##systype)
 
   template <typename T>
   std::shared_ptr<T> Engine::GetSystem(EnumeratedSystem sysType)

@@ -48,7 +48,7 @@ namespace AlJeEngine
 
     // Implementing this function in a derived system is optional.
     // If it is not implemented, the system won't receive any messages
-    virtual void SendMessage(EntityPtr, EntityPtr, Message::Message) {}
+    virtual void SendMsg(EntityPtr, EntityPtr, Message::Message) {}
 
 
     void RegisterComponent(BitfieldComponent);

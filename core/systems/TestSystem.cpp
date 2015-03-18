@@ -10,9 +10,24 @@
 #include "../engine/headers/Engine.h"
 #include "../components/Components.h"
 #include <math.h> // sin and cos
+#include <sstream>
+
+
 namespace AlJeEngine
 {
   extern Engine* ENGINE;
+
+  // Select your engine demo project here!
+  namespace Demo
+  {
+    enum Demo
+    {
+      Pretzel,
+
+    };
+  } // Demo
+
+  static Demo::Demo DemoToUse = Demo::Pretzel;
 
   namespace Systems
   {
@@ -29,21 +44,49 @@ namespace AlJeEngine
       Space& gameworld = ENGINE->GetSpace("Game World");
 
       // Use the factory to create an object matching the "Box" archetype.
-      EntityPtr player = ENGINE->Factory().create("Box");
-      player->GET_COMPONENT(Transform)->position = glm::vec2(0.5f, 0.5f);
+      EntityPtr testObject = ENGINE->Factory().create("Box");
+      testObject->GET_COMPONENT(Transform)->position = glm::vec2(0.5f, 0.5f);
 
       // Add the object we created to the game world space.
-      gameworld.AddEntity(player);
+      gameworld.AddEntity(testObject);
 
       // repeat the process for a few more objects
       for (unsigned i = 0; i < 200; ++i) 
       {
+        // Create an entity from the "Box" archetype.
         EntityPtr entity = ENGINE->Factory().create("Box");
+
+        // Create a string stream to generate a name for the entity.
+        std::ostringstream name;
+        name << "Box" << i;
+
+        // Set the generated name.
+        entity->SetName(name.str());
+
+        // Add the object to the game world.
         gameworld.AddEntity(entity);
       }
     }
 
     void Test::Update(float dt)
+    {
+      switch (DemoToUse)
+      {
+      case(Demo::Pretzel) :
+        PretzelDemo(dt);
+        break;
+
+      default:
+        break;
+      }
+    }
+
+    void Test::Shutdown()
+    {
+
+    }
+
+    void Test::PretzelDemo(float dt)
     {
       glm::vec2 prevObjPosition = { 0.0f, 0.0f };
 
@@ -86,13 +129,12 @@ namespace AlJeEngine
         if (sprite->_color.g < 0.f)
           sprite->_color.g = 1.f;
 
+        sprite->_color.a += rotSpeed * dt * 0.005f;
+        if (sprite->_color.a > 1.f)
+          sprite->_color.a = 0.f;
+
       }
-    }
-
-    void Test::Shutdown()
-    {
-
-    }
+    } // PrezelDemo
 
 
 

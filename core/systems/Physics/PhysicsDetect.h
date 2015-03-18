@@ -29,6 +29,8 @@ namespace AlJeEngine
 
       void Shutdown();
 
+      void SendMsg(EntityPtr, EntityPtr, Message::Message);
+
     private:
       bool AABBCheck(EntityPtr, EntityPtr);
 

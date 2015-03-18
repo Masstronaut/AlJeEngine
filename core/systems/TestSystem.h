@@ -27,7 +27,8 @@ namespace AlJeEngine
       
       void Shutdown();
 
-
+    private:
+      void PretzelDemo(float);
 
     };
 
