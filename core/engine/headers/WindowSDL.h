@@ -23,14 +23,14 @@ namespace AlJeEngine
       void Update(float dt); //Update every frame  
       void Shutdown(void); //called when system is deleted
       bool GetMouseTrigger(void);
-      std::pair<int, int> GetMousePosition(void);
+      glm::vec2 GetMousePosition(void);
 	  int GetWindowHeight(void);
 	  int GetWindowWidth(void);
 	  std::pair<int,int> GetWindowDimensions(void);
     private:
       struct SDLMouse
       {
-        std::pair<int,int> position;
+        glm::vec2 position;
         bool Pressed;
         bool Released;
         bool Trigger;

@@ -8,6 +8,7 @@
 #include "../../engine/headers/WindowSDL.h"
 #include "../headers/Engine.h"
 #include <iostream> //cout, endl
+#include "../glm/gtc/matrix_transform.hpp"
 
 const int screenWidth = 1280;
 const int screenHeight = 720;
@@ -59,9 +60,9 @@ namespace AlJeEngine
       return _theMouse.Trigger;
     }
 
-    std::pair<int, int> WindowSDL::GetMousePosition(void)
+    glm::vec2 WindowSDL::GetMousePosition(void)
     {
-      return std::pair<int,int>(_theMouse.position.first, _theMouse.position.second);
+      return _theMouse.position;
     }
 
     void WindowSDL::PollWindowEvent(SDL_Event &currentEvent)
@@ -115,8 +116,8 @@ namespace AlJeEngine
       switch (currentEvent.type)
       {
       case SDL_MOUSEMOTION:
-        _theMouse.position.first  = _event.motion.x;
-        _theMouse.position.second = _event.motion.y;
+        _theMouse.position.x  = _event.motion.x;
+        _theMouse.position.y  = _event.motion.y;
         break;
       case SDL_MOUSEBUTTONDOWN:
         if (currentEvent.button.button == SDL_BUTTON_LEFT)
@@ -173,7 +174,10 @@ namespace AlJeEngine
 
     void WindowSDL::Update(float dt)
     {
+      CameraPtr camera = ENGINE->GetActiveSpace().GetCamera()->GET_COMPONENT(Camera);
+      glm::vec2 mousepos= GetMousePosition();
       PollEvents();
+      //glm::unProject(glm::vec3(mousepos.x, mousepos.y, 0), camera->_viewMatrix,camera->_pespective,
         //Swap the back buffer and front buffer
       SDL_GL_SwapWindow(_window);
     }

@@ -13,13 +13,13 @@
 #include "../../lib/math/glm/gtc/matrix_transform.hpp"
 #include "../engine/headers/Component.h"
 
-
 namespace AlJeEngine
 {
   namespace Systems
   {
     class CameraSystem;
     class GLGraphics;
+    class WindowSDL;
   }
   class Camera : public Component
   {
@@ -40,6 +40,7 @@ namespace AlJeEngine
 	
     friend class Systems::CameraSystem;
     friend class Systems::GLGraphics;
+    friend class Systems::WindowSDL;
 
   private:
 	  //Note for me graphics programmer
