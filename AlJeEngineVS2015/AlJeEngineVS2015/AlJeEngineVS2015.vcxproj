@@ -197,6 +197,7 @@
     <ClInclude Include="..\..\core\systems\Physics\PhysicsDetect.h" />
     <ClInclude Include="..\..\core\systems\SystemsInclude.h" />
     <ClInclude Include="..\..\core\systems\TestSystem.h" />
+    <ClInclude Include="..\..\lib\math\RNG.h" />
     <ClInclude Include="..\..\lib\timers\ScopeTimer.hpp" />
     <ClInclude Include="..\..\lib\timers\TimeDefines.h" />
   </ItemGroup>

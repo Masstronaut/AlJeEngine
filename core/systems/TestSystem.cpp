@@ -13,7 +13,7 @@
 #include <sstream>
 #include <cstdlib> // rand, srand
 #include <time.h> // seeding rand
-
+#include "../../lib/math/RNG.h" // randfloat
 
 namespace AlJeEngine
 {
@@ -26,6 +26,7 @@ namespace AlJeEngine
     {
       Pretzel,
       FireBall,
+      Explosion,
     };
   } // Demo
 
@@ -49,6 +50,9 @@ namespace AlJeEngine
       case (Demo::FireBall):
         FireBallInit(200);
         break;
+      case Demo::Explosion:
+        ExplosionInit(200);
+        break;
       default:
         break;
       }
@@ -65,6 +69,9 @@ namespace AlJeEngine
       case(Demo::FireBall) :
         FireBallDemo(dt);
         break;
+      case Demo::Explosion:
+        ExplosionDemo(200);
+        break;
       default:
         break;
       }
@@ -80,6 +87,7 @@ namespace AlJeEngine
       // Get a reference to the "Game World" space so that we can add an object to it.
       Space& gameworld = ENGINE->GetSpace("Game World");
 
+      gameworld.GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
       // Clear out any existing objects
       gameworld.Clear();
 
@@ -116,6 +124,7 @@ namespace AlJeEngine
 
     void Test::PretzelDemo(float dt)
     {
+
       glm::vec2 prevObjPosition = { 0.0f, 0.0f };
 
       bool firstObject = true;
@@ -174,6 +183,101 @@ namespace AlJeEngine
 
       // Clear out any existing objects
       gameworld.Clear();
+      FireBallSpawn(200);
+
+    }
+
+    void Test::FireBallDemo(float dt)
+    {
+      timeAccumulator += dt;
+      if (timeAccumulator > 1.f / 60.f)
+      {
+        FireBallSpawn(25);
+        timeAccumulator -= 1.f / 60.f;
+      }
+
+      EntityVec deadParticles;
+
+      for (auto &entity : _entities)
+      {
+        TransformPtr transform = entity->GET_COMPONENT(Transform);
+        ParticlePtr particle = entity->GET_COMPONENT(Particle);
+
+        float xvel = RandFloat() * 5.f - 2.5f;
+        particle->velocity.x = xvel * 2.f;
+
+        //particle->velocity = glm::normalize(particle->velocity);
+
+        transform->rotation += RandFloat() * 20.f - 10.f;
+
+        
+        if (particle->lifetime <= 0.f)
+        {
+          deadParticles.push_back(entity);
+          continue;
+        }
+        
+        transform->position.x += particle->velocity.x * dt ;
+        transform->position.y += particle->velocity.y * dt ;
+        if (particle->lifetime <= 1.0f)
+        {
+          if (transform->scale.x >= 0.f)
+            transform->scale.x -= 2.f * dt ;// *0.5f;
+
+          if (transform->scale.x >= 0.f)
+            transform->scale.y -= 2.f * dt;// *0.5f;
+        }
+
+
+        particle->lifetime -= dt;
+      }
+      for (auto &it : deadParticles)
+        ENGINE->GetActiveSpace().RemoveEntity(it);
+
+
+    }
+
+    void Test::FireBallSpawn(unsigned count)
+    {
+      // Get a reference to the "Game World" space so that we can add an object to it.
+      Space& gameworld = ENGINE->GetSpace("Game World");
+
+
+      for (unsigned i = 0; i < count; ++i)
+      {
+        // get a degree anywhere in a circle (0 through 360)
+        float angle = RandFloat() * 360.f;
+
+        float scale = RandFloat() * 40.f;
+
+        glm::vec2 startPos = { cosf(DEG2RAD*angle) * scale, sinf(DEG2RAD*angle) * scale };
+
+        glm::vec2 velocity = { 0.f, RandFloat() * 8.f + 16.f };
+        float lifetime = RandFloat() * 2.f;
+
+        EntityPtr entity = ENGINE->Factory().create("Fire Particle");
+
+        entity->GET_COMPONENT(Transform)->scale = glm::vec2(scale * .125f, scale * .125f);
+        entity->GET_COMPONENT(Transform)->position = startPos;
+        entity->GET_COMPONENT(Particle)->velocity = velocity;
+        entity->GET_COMPONENT(Particle)->lifetime = lifetime;
+
+        // Create a string stream to generate a name for the entity.
+        std::ostringstream name;
+        name << "Fire Particle " << i / 2;
+        // Set the generated name.
+        entity->SetName(name.str());
+
+        // Add the object to the game world.
+        gameworld.AddEntity(entity);
+      }
+
+    }
+    void Test::ExplosionInit(unsigned count)
+    {
+      Space& gameworld = ENGINE->GetSpace("Game World");
+  
+      gameworld.Clear();
 
       for (unsigned i = 0; i < count; ++i)
       {
@@ -192,10 +296,10 @@ namespace AlJeEngine
         float yvel = static_cast<float>((rand() % 10000) - 5000) / 10000.f;
         particle->velocity = glm::normalize(glm::vec2(xvel, yvel));
 
-
         float r = static_cast<float>(rand() % 1000) / 1000.f;
         float g = r - static_cast<float>(rand() % 1000) / 1000.f;
         entity->GET_COMPONENT(Sprite)->_color = glm::vec4(r, g, 0.f, 1.f);
+
         // Create a string stream to generate a name for the entity.
         name << "Fire Particle " << i / 2;
         // Set the generated name.
@@ -205,13 +309,12 @@ namespace AlJeEngine
         gameworld.AddEntity(entity);
       }
     }
-
-    void Test::FireBallDemo(float dt)
+    void Test::ExplosionDemo(float dt)
     {
       timeAccumulator += dt;
       if (timeAccumulator > 1.f / 60.f)
       {
-        FireBallSpawn(50);
+        ExplosionSpawn(50);
         timeAccumulator -= 1.f / 60.f;
       }
 
@@ -223,28 +326,27 @@ namespace AlJeEngine
         ParticlePtr particle = entity->GET_COMPONENT(Particle);
 
         particle->lifetime -= dt;
-        
+
         if (particle->lifetime <= 0.f)
         {
           deadParticles.push_back(entity);
           continue;
         }
-        
+
         transform->position += particle->velocity * (rand() % 500 * dt);
-        if(particle->lifetime <= 1.5f)
-        transform->scale -= dt / 2.f;// *0.5f;
+        if (particle->lifetime <= 1.5f)
+          transform->scale -= dt / 2.f;// *0.5f;
       }
       for (auto &it : deadParticles)
         ENGINE->GetActiveSpace().RemoveEntity(it);
 
-
     }
 
-    void Test::FireBallSpawn(unsigned count)
+    void Test::ExplosionSpawn(unsigned count)
     {
       // Get a reference to the "Game World" space so that we can add an object to it.
       Space& gameworld = ENGINE->GetSpace("Game World");
-
+      gameworld.GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
       // Clear out any existing objects
       //gameworld.Clear();
 
@@ -264,10 +366,10 @@ namespace AlJeEngine
         float xvel = static_cast<float>((rand() % 10000) - 5000) / 10000.f;
         float yvel = static_cast<float>((rand() % 10000) - 5000) / 10000.f;
         particle->velocity = glm::normalize(glm::vec2(xvel, yvel));
-        
+
         float r = static_cast<float>(rand() % 1000) / 1000.f;
         float g = r - static_cast<float>(rand() % 1000) / 1000.f;
-        entity->GET_COMPONENT(Sprite)->_color = glm::vec4(r,g,0.f,1.f);
+        entity->GET_COMPONENT(Sprite)->_color = glm::vec4(r, g, 0.f, 1.f);
 
         // Create a string stream to generate a name for the entity.
         name << "Fire Particle " << i / 2;
@@ -278,8 +380,6 @@ namespace AlJeEngine
         gameworld.AddEntity(entity);
       }
     }
-
-
 
   } // Systems
 

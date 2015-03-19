@@ -27,6 +27,7 @@ namespace AlJeEngine
     EntityPtr CircleGameObject();
     EntityPtr CircleParticleObject();
 
+    EntityPtr FireParticleObject();
 
   } // Archetypes
 

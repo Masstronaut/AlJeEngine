@@ -35,6 +35,10 @@ namespace AlJeEngine
       void FireBallDemo(float);
       void FireBallSpawn(unsigned);
 
+      void ExplosionInit(unsigned);
+      void ExplosionDemo(float);
+      void ExplosionSpawn(unsigned);
+
 
       float timeAccumulator = 0.f;
     };

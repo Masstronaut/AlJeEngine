@@ -50,6 +50,21 @@ namespace AlJeEngine
 
       return entity;
     }
+
+    EntityPtr FireParticleObject()
+    {
+      EntityPtr entity(new Entity());
+
+      entity->AddComponent(ComponentPtr(new BoxCollider()));
+      entity->AddComponent(ComponentPtr(new Particle()));
+      entity->AddComponent(ComponentPtr(new Transform()));
+      entity->AddComponent(ComponentPtr(new Sprite()));
+      entity->GET_COMPONENT(Sprite)->_color = { 1.f, 0.498f, 0.063f, .5f};
+      entity->SetName("Fire Particle");
+
+      return entity;
+    }
+
     EntityPtr CircleGameObject()
     {
       EntityPtr entity(new Entity());

@@ -20,6 +20,7 @@ namespace AlJeEngine
     addArchetype("Box",              BoxGameObject);
     addArchetype("Circle",           CircleGameObject);
     addArchetype("Box Particle",     BoxParticleObject);
+    addArchetype("Fire Particle",    FireParticleObject);
     addArchetype("Circle Particle",  CircleParticleObject);
   }
 

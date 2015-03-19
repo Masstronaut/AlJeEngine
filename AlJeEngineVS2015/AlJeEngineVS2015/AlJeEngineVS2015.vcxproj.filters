@@ -65,6 +65,9 @@
     <Filter Include="Core\Message">
       <UniqueIdentifier>{b79f0a0e-f468-4781-83a5-4eab5cc7c33d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\Utils">
+      <UniqueIdentifier>{526042fc-b308-4314-b568-ec9c5135daae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -194,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\components\Particle.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\math\RNG.h">
+      <Filter>Libraries\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
