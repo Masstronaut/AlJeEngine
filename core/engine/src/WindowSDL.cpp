@@ -116,8 +116,24 @@ namespace AlJeEngine
       switch (currentEvent.type)
       {
       case SDL_MOUSEMOTION:
-        _theMouse.position.x  = _event.motion.x;
-        _theMouse.position.y  = _event.motion.y;
+      {
+        //1 maps to near plane, -1 far plane
+        std::pair<int, int> windowDimensions;
+        windowDimensions = GetWindowDimensions();
+        CameraPtr camera = ENGINE->GetActiveSpace().GetCamera()->GET_COMPONENT(Camera);
+        glm::vec3 mousescreen(_event.motion.x, _event.motion.y, 1);
+        glm::mat4 invert;
+        invert[0][0] = -1;
+        invert[1][1] = -1;
+        invert[2][2] = 1;
+        invert[3][3] = 1;
+        glm::vec4 viewport(0, 0, windowDimensions.first, windowDimensions.second);
+        glm::vec3 mousepoint = glm::unProject(mousescreen, invert * camera->_viewMatrix, camera->_ortho, viewport);
+        _theMouse.position.x = mousepoint.x;
+        _theMouse.position.y = mousepoint.y;
+        std::cout << "Mouse X: " << _theMouse.position.x << std::endl;
+        std::cout << "Mouse Y: " << _theMouse.position.y << std::endl;
+      }
         break;
       case SDL_MOUSEBUTTONDOWN:
         if (currentEvent.button.button == SDL_BUTTON_LEFT)
@@ -136,9 +152,7 @@ namespace AlJeEngine
         {
           _theMouse.Pressed = false;
           _theMouse.Released = true;
-
-        }
-        
+        }       
         break;
       default:
         break;

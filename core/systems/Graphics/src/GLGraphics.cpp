@@ -93,10 +93,10 @@ namespace AlJeEngine
         //Switching the camera's projection matrix based on the flag
         switch (camera->viewtype)
         {
-        case Camera::ORTHOGRAPHIC:
+        case Camera::CV_ORTHOGRAPHIC:
           shader->UpdateUniforms("proj", camera->_ortho);
           break;
-        case Camera::PERSPECTIVE:
+        case Camera::CV_PERSPECTIVE:
           shader->UpdateUniforms("proj", camera->_pespective);
           break;
         }

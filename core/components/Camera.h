@@ -24,13 +24,13 @@ namespace AlJeEngine
   class Camera : public Component
   {
   public:
-	  enum CameraView {ORTHOGRAPHIC, PERSPECTIVE};
+	  enum CameraView {CV_ORTHOGRAPHIC, CV_PERSPECTIVE};
     Camera() : Component(EC_Camera, MC_Camera)
     {
     }
     
 		//Default average camera values 
-	CameraView viewtype  = ORTHOGRAPHIC;
+	CameraView viewtype  = CV_ORTHOGRAPHIC;
 	float _fieldOfView   = 45.0f; 
 	float _nearPlane     = 1.0f;
 	float _farPlane      = 100.0f;
