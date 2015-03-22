@@ -85,17 +85,17 @@ namespace AlJeEngine
     void Test::PretzelInit(unsigned count)
     {
       // Get a reference to the "Game World" space so that we can add an object to it.
-      Space& gameworld = ENGINE->GetSpace("Game World");
+      SpacePtr gameworld = ENGINE->GetSpace("Game World");
 
-      gameworld.GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
+      gameworld->GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
       // Clear out any existing objects
-      gameworld.Clear();
+      gameworld->Clear();
 
       // Use the factory to create an object matching the "Box" archetype.
       EntityPtr testObject = ENGINE->Factory().create("Box Particle");
 
       // Add the object we created to the game world space.
-      gameworld.AddEntity(testObject);
+      gameworld->AddEntity(testObject);
 
       // repeat the process for a few more objects
       for (unsigned i = 0; i < count; ++i)
@@ -118,7 +118,7 @@ namespace AlJeEngine
         entity->SetName(name.str());
 
         // Add the object to the game world.
-        gameworld.AddEntity(entity);
+        gameworld->AddEntity(entity);
       }
     }
 
@@ -176,13 +176,13 @@ namespace AlJeEngine
     void Test::FireBallInit(unsigned count)
     {
       // Seed the RNG
-      srand(time(NULL));
+      srand(static_cast<unsigned>(time(NULL)));
 
       // Get a reference to the "Game World" space so that we can add an object to it.
-      Space& gameworld = ENGINE->GetSpace("Game World");
+      SpacePtr gameworld = ENGINE->GetSpace("Game World");
 
       // Clear out any existing objects
-      gameworld.Clear();
+      gameworld->Clear();
       FireBallSpawn(200);
 
     }
@@ -195,8 +195,6 @@ namespace AlJeEngine
         FireBallSpawn(25);
         timeAccumulator -= 1.f / 60.f;
       }
-
-      EntityVec deadParticles;
 
       for (auto &entity : _entities)
       {
@@ -213,7 +211,7 @@ namespace AlJeEngine
         
         if (particle->lifetime <= 0.f)
         {
-          deadParticles.push_back(entity);
+          ENGINE->GetActiveSpace()->RemoveEntity(entity);
           continue;
         }
         
@@ -231,8 +229,6 @@ namespace AlJeEngine
 
         particle->lifetime -= dt;
       }
-      for (auto &it : deadParticles)
-        ENGINE->GetActiveSpace().RemoveEntity(it);
 
 
     }
@@ -240,7 +236,7 @@ namespace AlJeEngine
     void Test::FireBallSpawn(unsigned count)
     {
       // Get a reference to the "Game World" space so that we can add an object to it.
-      Space& gameworld = ENGINE->GetSpace("Game World");
+      SpacePtr gameworld = ENGINE->GetSpace("Game World");
 
 
       for (unsigned i = 0; i < count; ++i)
@@ -269,15 +265,15 @@ namespace AlJeEngine
         entity->SetName(name.str());
 
         // Add the object to the game world.
-        gameworld.AddEntity(entity);
+        gameworld->AddEntity(entity);
       }
 
     }
     void Test::ExplosionInit(unsigned count)
     {
-      Space& gameworld = ENGINE->GetSpace("Game World");
+      SpacePtr gameworld = ENGINE->GetSpace("Game World");
   
-      gameworld.Clear();
+      gameworld->Clear();
 
       for (unsigned i = 0; i < count; ++i)
       {
@@ -306,7 +302,7 @@ namespace AlJeEngine
         entity->SetName(name.str());
 
         // Add the object to the game world.
-        gameworld.AddEntity(entity);
+        gameworld->AddEntity(entity);
       }
     }
     void Test::ExplosionDemo(float dt)
@@ -338,15 +334,15 @@ namespace AlJeEngine
           transform->scale -= dt / 2.f;// *0.5f;
       }
       for (auto &it : deadParticles)
-        ENGINE->GetActiveSpace().RemoveEntity(it);
+        ENGINE->GetActiveSpace()->RemoveEntity(it);
 
     }
 
     void Test::ExplosionSpawn(unsigned count)
     {
       // Get a reference to the "Game World" space so that we can add an object to it.
-      Space& gameworld = ENGINE->GetSpace("Game World");
-      gameworld.GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
+      SpacePtr gameworld = ENGINE->GetSpace("Game World");
+      gameworld->GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
       // Clear out any existing objects
       //gameworld.Clear();
 
@@ -377,7 +373,7 @@ namespace AlJeEngine
         entity->SetName(name.str());
 
         // Add the object to the game world.
-        gameworld.AddEntity(entity);
+        gameworld->AddEntity(entity);
       }
     }
 

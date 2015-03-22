@@ -120,7 +120,7 @@ namespace AlJeEngine
         //1 maps to near plane, -1 far plane
         std::pair<int, int> windowDimensions;
         windowDimensions = GetWindowDimensions();
-        CameraPtr camera = ENGINE->GetActiveSpace().GetCamera()->GET_COMPONENT(Camera);
+        CameraPtr camera = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Camera);
         glm::vec3 mousescreen(_event.motion.x, _event.motion.y, 1);
         glm::mat4 invert;
         invert[0][0] = -1;
@@ -188,7 +188,7 @@ namespace AlJeEngine
 
     void WindowSDL::Update(float dt)
     {
-      CameraPtr camera = ENGINE->GetActiveSpace().GetCamera()->GET_COMPONENT(Camera);
+      CameraPtr camera = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Camera);
       glm::vec2 mousepos= GetMousePosition();
       PollEvents();
       //glm::unProject(glm::vec3(mousepos.x, mousepos.y, 0), camera->_viewMatrix,camera->_pespective,

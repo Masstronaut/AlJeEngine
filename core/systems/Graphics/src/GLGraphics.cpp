@@ -50,7 +50,7 @@ namespace AlJeEngine
     // Update every frame 
     void GLGraphics::Update(float dt)
     {
-      CameraPtr camera = ENGINE->GetActiveSpace().GetCamera()->GET_COMPONENT(Camera);
+      CameraPtr camera = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Camera);
       // clear the buffers to begin a new frame.
       newFrame();
 

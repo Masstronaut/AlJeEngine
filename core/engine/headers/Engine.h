@@ -40,13 +40,13 @@ namespace AlJeEngine
 
     float FrameTime();
 
-    Space& CreateSpace(std::string name);
+    SpacePtr CreateSpace(std::string name);
 
-    Space& GetSpace(std::string name);
+    SpacePtr GetSpace(std::string name);
 
-    Space& SetActiveSpace(std::string name);
+    SpacePtr SetActiveSpace(std::string name);
 
-    Space& GetActiveSpace();
+    SpacePtr GetActiveSpace();
 
     ArchetypeFactory& Factory();
 

@@ -31,6 +31,11 @@ namespace AlJeEngine
     //Space(Space &space) : _name(space._name), _entities(space._entities) {}
     Space(std::string &name);
 
+
+    void Update(float dt);
+
+    void AddSystem(SystemPtr);
+
     EntityPtr CreateEntity();
 
     // Creates a camera for the space.
@@ -55,6 +60,8 @@ namespace AlJeEngine
     std::string _name;
     EntityVec _entities;
     EntityPtr _camera;
+
+    SystemVec _systems;
   };
 
   typedef std::shared_ptr<Space> SpacePtr;

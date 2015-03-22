@@ -69,7 +69,7 @@ namespace AlJeEngine
     for (auto sys : _systems)
     {
       // Make sure the system has all the entities that meet it's requirements in the active space.
-      GetActiveSpace().PopulateEntities(sys);
+      GetActiveSpace()->PopulateEntities(sys);
 
       sys->Update(dt);
     }
@@ -105,37 +105,37 @@ namespace AlJeEngine
     return dt;
   }
 
-  Space & Engine::CreateSpace(std::string name)
+  SpacePtr Engine::CreateSpace(std::string name)
   {
     _spaces.emplace(name, SpacePtr(new Space(name)));
     return GetSpace(name);
   }
 
-  Space & Engine::GetSpace(std::string name)
+  SpacePtr Engine::GetSpace(std::string name)
   {
     // Search for a space with the specified name.
     SpaceMap::iterator it = _spaces.find(name);
 
     // Check if the space was found or not
     if (it != _spaces.end())
-      return *(it->second);
+      return it->second;
 
     // If the space wasn't found, throw a range error with a message about what happened.
     throw std::range_error("The specified space does not exist.");
   }
 
-  Space & Engine::SetActiveSpace(std::string name)
+  SpacePtr Engine::SetActiveSpace(std::string name)
   {
 
     _activeSpace = name;
     return GetActiveSpace();
   }
 
-  Space & Engine::GetActiveSpace()
+  SpacePtr Engine::GetActiveSpace()
   {
     auto activeSpace = _spaces.find(_activeSpace);
 
-    return *(activeSpace->second);
+    return activeSpace->second;
   }
 
   ArchetypeFactory & Engine::Factory()

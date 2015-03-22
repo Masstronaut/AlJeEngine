@@ -13,12 +13,31 @@ namespace AlJeEngine
   extern Engine* ENGINE;
 
 
-  Space::Space(std::string & name): _name(name)
+  Space::Space(std::string & name) : _name(name)
   {
     _camera = CreateCamera();
   }
 
-    EntityPtr Space::CreateEntity()
+  void Space::Update(float dt)
+  {
+    for (auto &system : _systems)
+    {
+      PopulateEntities(system);
+      system->Update(dt);
+    }
+  }
+
+  void Space::AddSystem(SystemPtr system)
+  {
+    for (auto systems : _systems)
+    {
+      if (systems == system)
+        throw std::exception("Attempted to add two copies of the same system to one space. No.");
+    }
+    _systems.push_back(system);
+  }
+
+  EntityPtr Space::CreateEntity()
   {
     _entities.push_back(std::shared_ptr<Entity>(new Entity));
     return _entities.back();
@@ -33,7 +52,7 @@ namespace AlJeEngine
   }
 
   EntityPtr Space::GetCamera()
-  {    
+  {
     return _camera;
   }
 
@@ -42,7 +61,7 @@ namespace AlJeEngine
   {
     // clear out the old entities
     sys->_entities.clear();
-    
+
     if (sys->Mask() != EC_NOOBJECTS)
     {
       for (auto &it : _entities)
@@ -58,7 +77,7 @@ namespace AlJeEngine
 
   EntityVec Space::GetEntities(mask m) const
   {
-	  EntityVec matches;
+    EntityVec matches;
 
     // search for entities that fit the mask
     for (auto it : _entities)
@@ -69,18 +88,18 @@ namespace AlJeEngine
 
   void Space::RemoveEntity(EntityPtr in)
   {
-	  for (auto &it : _entities)
-	  {
-		  if (it == in)
-		  {
-			  it.reset();
-			  it = _entities.back();
-			  _entities.pop_back();
-			  return;
-		  }
+    for (auto &it : _entities)
+    {
+      if (it == in)
+      {
+        it.reset();
+        it = _entities.back();
+        _entities.pop_back();
+        return;
+      }
 
-	  }
-	  throw ("Tried to remove an entity that doesn't exist.\n");
+    }
+    throw ("Tried to remove an entity that doesn't exist.\n");
   }
 
   void Space::AddEntity(EntityPtr entity)
