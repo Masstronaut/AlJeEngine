@@ -48,6 +48,8 @@ namespace AlJeEngine
 
     EntityVec GetEntities(mask) const;
 
+    EntityPtr GetEntityByName(std::string);
+
     void RemoveEntity(EntityPtr);
     void AddEntity(EntityPtr);
     // Removes all Entities from the space.

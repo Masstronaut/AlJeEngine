@@ -9,6 +9,7 @@
 #include "TestSystem.h"
 #include "../engine/headers/Engine.h"
 #include "../components/Components.h"
+#include "SystemsInclude.h"
 #include <math.h> // sin and cos
 #include <sstream>
 #include <cstdlib> // rand, srand
@@ -41,6 +42,7 @@ namespace AlJeEngine
       // Register for drawable objects
       RegisterComponent(MC_Transform);
       RegisterComponent(MC_Sprite);
+      RegisterComponent(MC_Particle);
 
       switch (DemoToUse)
       {
@@ -57,6 +59,11 @@ namespace AlJeEngine
         break;
       }
       
+      EntityPtr mouse = ENGINE->Factory().create("Box Particle");
+      mouse->SetName("Mouse");
+      mouse->RemoveComponent(EC_Particle);
+      mouse->GET_COMPONENT(Sprite)->_color = glm::vec4(0.f, 0.f, 1.f, 1.f);
+      ENGINE->GetActiveSpace()->AddEntity(mouse);
     }
 
     void Test::Update(float dt)
@@ -74,6 +81,17 @@ namespace AlJeEngine
         break;
       default:
         break;
+      }
+      
+      try
+      {
+        EntityPtr mouse = ENGINE->GetActiveSpace()->GetEntityByName("Mouse");
+        mouse->GET_COMPONENT(Transform)->position = GETSYS(WindowSDL)->GetMousePosition();
+        mouse->GET_COMPONENT(Transform)->scale = { 10.f, 10.f };
+      }
+      catch (...)
+      {
+        
       }
     }
 

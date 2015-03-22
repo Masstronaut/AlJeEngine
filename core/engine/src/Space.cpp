@@ -89,6 +89,14 @@ namespace AlJeEngine
     return matches;
   }
 
+  EntityPtr Space::GetEntityByName(std::string name)
+  {
+    for (auto entity : _entities)
+      if (entity->Name() == name)
+        return entity;
+    throw std::exception("Attempted to find an entity by name, but no entity with that name exists.");
+  }
+
   void Space::RemoveEntity(EntityPtr in)
   {
     for (auto &it : _entities)

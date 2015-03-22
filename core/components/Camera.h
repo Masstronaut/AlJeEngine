@@ -32,7 +32,7 @@ namespace AlJeEngine
 		//Default average camera values 
 	CameraView viewtype  = CV_ORTHOGRAPHIC;
 	float _fieldOfView   = 45.0f; 
-	float _nearPlane     = 1.0f;
+	float _nearPlane     = .01f;
 	float _farPlane      = 100.0f;
 
 	glm::vec3 _upVec   = {0.0f,1.0f,0.0f};
