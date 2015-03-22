@@ -22,7 +22,10 @@ namespace AlJeEngine
   {
     for (auto &system : _systems)
     {
+      // Make sure the system has all the entities in this space that meet it's requirements.
       PopulateEntities(system);
+
+      // Update the system now that it has been filled with the correct entities.
       system->Update(dt);
     }
   }
@@ -62,7 +65,7 @@ namespace AlJeEngine
     // clear out the old entities
     sys->_entities.clear();
 
-    if (sys->Mask() != EC_NOOBJECTS)
+    if (sys->Mask() != MC_NOOBJECTS)
     {
       for (auto &it : _entities)
       {

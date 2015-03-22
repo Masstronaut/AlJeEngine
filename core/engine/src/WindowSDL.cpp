@@ -30,6 +30,8 @@ namespace AlJeEngine
 
     void WindowSDL::Init()
     {
+      RegisterComponent(MC_NOOBJECTS);
+
       SDL_Init(SDL_INIT_VIDEO);
 
       //Telling OpenGL to be compatible as version 4.0
@@ -192,7 +194,10 @@ namespace AlJeEngine
       glm::vec2 mousepos= GetMousePosition();
       PollEvents();
       //glm::unProject(glm::vec3(mousepos.x, mousepos.y, 0), camera->_viewMatrix,camera->_pespective,
-        //Swap the back buffer and front buffer
+
+
+      //Swap the back buffer and front buffer
+      // This effectively begins the next frame.
       SDL_GL_SwapWindow(_window);
     }
 

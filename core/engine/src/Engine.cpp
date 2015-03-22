@@ -33,14 +33,7 @@ namespace AlJeEngine
     // Start your engines!
     _running = true;
 
-    //  Create a world for the engine to run in
-    CreateSpace("Game World");
-    // set the newly created world to be the active space in the engine.
-    SetActiveSpace("Game World");
-    // Create a camera for the active space.
-    //EntityPtr camera = GetSpace("Game World").CreateCamera();
-
-    // Add systems here
+    // Add systems to the engine here
     _systems.push_back(SystemPtr(new Systems::WindowSDL));
     _systems.push_back(SystemPtr(new Systems::Test));
 
@@ -48,7 +41,25 @@ namespace AlJeEngine
 
     _systems.push_back(SystemPtr(new Systems::CameraSystem));
     _systems.push_back(SystemPtr(new Systems::GLGraphics));
-    _systems.push_back(SystemPtr(new Systems::Render));
+
+
+    //  Create a world for the engine to run in:
+    SpacePtr gameworld = CreateSpace("Game World");
+    // set the newly created world to be the active space in the engine:
+    SetActiveSpace("Game World");
+
+    // we need namespace Systems for this macro expansion to work properly. 
+    // The system types are not defined outside the Systems namespace, 
+    // and using Systems::SystemName would cause the macro to incorrectly expand into:
+    // ENGINE->GetSystem<Systems::SystemName>(ES_Systems::SystemName). The parameter would be invalid.
+    using namespace Systems;
+
+    // Specify which systems should update for this space. The order they are added in is the order they will update in, so be careful!
+    gameworld->AddSystem(GETSYS(Test));
+    gameworld->AddSystem(GETSYS(PhysicsDetect));
+    gameworld->AddSystem(GETSYS(CameraSystem));
+    gameworld->AddSystem(GETSYS(GLGraphics));
+
 
     // initialize all systems
     // using c++11 range-based for loop
@@ -66,12 +77,17 @@ namespace AlJeEngine
 
   void Engine::Update(float dt)
   {
-    for (auto sys : _systems)
-    {
-      // Make sure the system has all the entities that meet it's requirements in the active space.
-      GetActiveSpace()->PopulateEntities(sys);
+    // Update the window management system. It is responsible for the window and input.
+    using Systems::WindowSDL;
+    GETSYS(WindowSDL)->Update(dt);
 
-      sys->Update(dt);
+    for (auto space = _spaces.begin(); space != _spaces.end(); ++space)
+    {
+      // Set this space as the active one. Whenever a system wants access to it, it will be correct.
+      SetActiveSpace(space->first);
+      
+      // The space will fill all the systems with the relevant entities and have them update.
+      space->second->Update(dt);
     }
 
     //cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";

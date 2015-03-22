@@ -29,22 +29,22 @@ namespace AlJeEngine
     // This will correspond to the maximum number of components that exist.
     EC_Max,
 
-    // This is to be used for systems that do not wish to receive any objects automatically.
-    EC_NOOBJECTS = -1
   };
 
   enum BitfieldComponent
   {
-    MC_Alive           = 1,
-    MC_Transform       = 1 <<  1,
-    MC_Drawable        = 1 <<  2,
-    MC_RigidBody       = 1 <<  3,
-    MC_Sprite          = 1 <<  4,
-    MC_BoxCollider     = 1 <<  5,
-    MC_CircleCollider  = 1 <<  6,
-    MC_Camera          = 1 <<  7,
-    MC_Particle        = 1 <<  8,
+    MC_Alive           =  1,
+    MC_Transform       =  1 <<  1,
+    MC_Drawable        =  1 <<  2,
+    MC_RigidBody       =  1 <<  3,
+    MC_Sprite          =  1 <<  4,
+    MC_BoxCollider     =  1 <<  5,
+    MC_CircleCollider  =  1 <<  6,
+    MC_Camera          =  1 <<  7,
+    MC_Particle        =  1 <<  8,
 
+    // This is used when a system doesn't wish to recieve any objects.
+    MC_NOOBJECTS       = -1,
   };
 #pragma endregion
 

@@ -100,9 +100,6 @@
     <ClCompile Include="..\..\core\engine\src\Archetypes.cpp">
       <Filter>Core\ArchetypeFactory</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\core\systems\Graphics\src\Render.cpp">
-      <Filter>Systems\Graphics\Render</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp">
       <Filter>Systems\Graphics\Shader helpers</Filter>
     </ClCompile>
@@ -161,9 +158,6 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Archetypes.h">
       <Filter>Core\ArchetypeFactory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\systems\Graphics\headers\Render.h">
-      <Filter>Systems\Graphics\Render</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\systems\SystemsInclude.h">
       <Filter>Systems</Filter>

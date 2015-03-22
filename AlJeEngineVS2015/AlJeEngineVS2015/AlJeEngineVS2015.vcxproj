@@ -168,7 +168,6 @@
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShaderUniforms.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp" />
-    <ClCompile Include="..\..\core\systems\Graphics\src\Render.cpp" />
     <ClCompile Include="..\..\core\systems\Physics\PhysicsDetect.cpp" />
     <ClCompile Include="..\..\core\systems\TestSystem.cpp" />
   </ItemGroup>
@@ -193,7 +192,6 @@
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShaderUniforms.h" />
-    <ClInclude Include="..\..\core\systems\Graphics\headers\Render.h" />
     <ClInclude Include="..\..\core\systems\Physics\PhysicsDetect.h" />
     <ClInclude Include="..\..\core\systems\SystemsInclude.h" />
     <ClInclude Include="..\..\core\systems\TestSystem.h" />
