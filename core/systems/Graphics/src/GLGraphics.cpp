@@ -146,8 +146,8 @@ namespace AlJeEngine
       if (it != _shaders.end())
         return it->second;
 
-      // If the space wasn't found, throw a range error with a message about what happened.
-      throw std::range_error("The specified space does not exist.");
+      // If the shader wasn't found, throw a range error with a message about what happened.
+      throw std::range_error("The specified shader does not exist.");
     }
 
     void GLGraphics::addShader(std::string shaderName, ShaderPtr shader)

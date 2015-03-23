@@ -13,5 +13,6 @@
 #define RAD2DEG 57.2957795f
 float RandFloat()
 {
-  return static_cast<float>(rand() % 100000) / 100000.f;
+  float ret = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+  return ret;
 }

@@ -207,32 +207,25 @@ namespace AlJeEngine
 
     void Test::FireBallDemo(float dt)
     {
-      timeAccumulator += dt;
-      if (timeAccumulator > 1.f / 60.f)
-      {
-        FireBallSpawn(70);
-        timeAccumulator -= 1.f / 60.f;
-      }
 
       for (auto &entity : _entities)
       {
         TransformPtr transform = entity->GET_COMPONENT(Transform);
         ParticlePtr particle = entity->GET_COMPONENT(Particle);
 
-        float xvel = RandFloat() * 5.f - 2.5f;
+        float xvel = (RandFloat() * 5.f - 2.5f);
         particle->velocity.x = xvel * 2.f;
 
-        //particle->velocity = glm::normalize(particle->velocity);
+        //particle->velocity = glm::normalize(particle->velocity) * dt * 10.f;
 
-        transform->rotation += RandFloat() * 20.f - 10.f;
+        //transform->rotation += RandFloat() * 20.f - 10.f;
 
         
         
         if (particle->lifetime <= 1.0f)
         {
-          transform->scale.x *= .95f;//-= 2.f * dt ;// *0.5f;
-
-            transform->scale.y *= .95f;//-= 2.f * dt;// *0.5f;
+          //transform->scale.x -= 2.f* dt ;// *0.5f;
+          //transform->scale.y -= 2.f* dt;// *0.5f;
         }
 
 
@@ -241,11 +234,17 @@ namespace AlJeEngine
           ENGINE->GetActiveSpace()->RemoveEntity(entity);
           continue;
         }
-        transform->position.x += particle->velocity.x * dt * 25.f ;
-        transform->position.y += particle->velocity.y * dt * 25.f ;
+        transform->position.x += particle->velocity.x * dt;// * 5.f ;
+        transform->position.y += particle->velocity.y * dt;
         particle->lifetime -= dt;
       }
 
+      timeAccumulator += dt;
+      //if (timeAccumulator > 1.f / 60.f)
+      {
+        FireBallSpawn(70);
+        timeAccumulator -= 1.f / 60.f;
+      }
 
     }
 
@@ -254,23 +253,25 @@ namespace AlJeEngine
       // Get a reference to the "Game World" space so that we can add an object to it.
       SpacePtr gameworld = ENGINE->GetSpace("Game World");
 
+      glm::vec2 mousepos = GETSYS(WindowSDL)->GetMousePosition();
 
       for (unsigned i = 0; i < count; ++i)
       {
         // get a degree anywhere in a circle (0 through 360)
         float angle = RandFloat() * 360.f;
 
-        float scale = RandFloat() * 40.f;
+        float scale = RandFloat() * 20.f;
 
-        glm::vec2 startPos = { cosf(DEG2RAD*angle) * scale, sinf(DEG2RAD*angle) * scale };
+        glm::vec2 startPos = { cosf(angle) * scale + mousepos.x * 2.f, sinf(angle) * scale + mousepos.y * 2.f };
 
-        glm::vec2 velocity = { 0.f, RandFloat() * 8.f + 16.f };
+        glm::vec2 velocity = { 0.f, rand() % 8 - 16 };
         float lifetime = RandFloat() * 2.f;
 
         EntityPtr entity = ENGINE->Factory().create("Fire Particle");
 
         entity->GET_COMPONENT(Transform)->scale = glm::vec2(3.5f * 1.45f, 3.5f * 1.45f);
         entity->GET_COMPONENT(Transform)->position = startPos;
+        entity->GET_COMPONENT(Transform)->rotation = 0.f;
         entity->GET_COMPONENT(Particle)->velocity = velocity;
         entity->GET_COMPONENT(Particle)->lifetime = lifetime;
 
