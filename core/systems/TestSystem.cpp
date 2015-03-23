@@ -105,6 +105,7 @@ namespace AlJeEngine
       // Get a reference to the "Game World" space so that we can add an object to it.
       SpacePtr gameworld = ENGINE->GetSpace("Game World");
 
+      // Set the size of the visible game world
       gameworld->GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
       // Clear out any existing objects
       gameworld->Clear();
@@ -198,6 +199,10 @@ namespace AlJeEngine
 
       // Get a reference to the "Game World" space so that we can add an object to it.
       SpacePtr gameworld = ENGINE->GetSpace("Game World");
+
+      // Set the size of the visible game world
+      gameworld->GetCamera()->GET_COMPONENT(Transform)->scale = { 160.f, 90.f };
+
 
       // Clear out any existing objects
       gameworld->Clear();
