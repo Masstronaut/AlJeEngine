@@ -201,7 +201,7 @@ namespace AlJeEngine
 
       // Clear out any existing objects
       gameworld->Clear();
-      FireBallSpawn(200);
+      //FireBallSpawn(200);
 
     }
 
@@ -210,7 +210,7 @@ namespace AlJeEngine
       timeAccumulator += dt;
       if (timeAccumulator > 1.f / 60.f)
       {
-        FireBallSpawn(25);
+        FireBallSpawn(70);
         timeAccumulator -= 1.f / 60.f;
       }
 
@@ -227,24 +227,22 @@ namespace AlJeEngine
         transform->rotation += RandFloat() * 20.f - 10.f;
 
         
+        
+        if (particle->lifetime <= 1.0f)
+        {
+          transform->scale.x *= .95f;//-= 2.f * dt ;// *0.5f;
+
+            transform->scale.y *= .95f;//-= 2.f * dt;// *0.5f;
+        }
+
+
         if (particle->lifetime <= 0.f)
         {
           ENGINE->GetActiveSpace()->RemoveEntity(entity);
           continue;
         }
-        
-        transform->position.x += particle->velocity.x * dt ;
-        transform->position.y += particle->velocity.y * dt ;
-        if (particle->lifetime <= 1.0f)
-        {
-          if (transform->scale.x >= 0.f)
-            transform->scale.x -= 2.f * dt ;// *0.5f;
-
-          if (transform->scale.x >= 0.f)
-            transform->scale.y -= 2.f * dt;// *0.5f;
-        }
-
-
+        transform->position.x += particle->velocity.x * dt * 25.f ;
+        transform->position.y += particle->velocity.y * dt * 25.f ;
         particle->lifetime -= dt;
       }
 
@@ -271,7 +269,7 @@ namespace AlJeEngine
 
         EntityPtr entity = ENGINE->Factory().create("Fire Particle");
 
-        entity->GET_COMPONENT(Transform)->scale = glm::vec2(scale * .125f, scale * .125f);
+        entity->GET_COMPONENT(Transform)->scale = glm::vec2(3.5f * 1.45f, 3.5f * 1.45f);
         entity->GET_COMPONENT(Transform)->position = startPos;
         entity->GET_COMPONENT(Particle)->velocity = velocity;
         entity->GET_COMPONENT(Particle)->lifetime = lifetime;
