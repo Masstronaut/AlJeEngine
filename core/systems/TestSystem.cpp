@@ -218,12 +218,14 @@ namespace AlJeEngine
 
         //particle->velocity = glm::normalize(particle->velocity) * dt * 10.f;
 
+        // Uncomment this when rotation is working properly.
         //transform->rotation += RandFloat() * 20.f - 10.f;
 
         
         
         if (particle->lifetime <= 1.0f)
         {
+          // Uncomment these when scaling is working correctly!
           //transform->scale.x -= 2.f* dt ;// *0.5f;
           //transform->scale.y -= 2.f* dt;// *0.5f;
         }
@@ -264,7 +266,7 @@ namespace AlJeEngine
 
         glm::vec2 startPos = { cosf(angle) * scale + mousepos.x * 2.f, sinf(angle) * scale + mousepos.y * 2.f };
 
-        glm::vec2 velocity = { 0.f, rand() % 8 - 16 };
+        glm::vec2 velocity = { 0.f, RandFloat() * 8.f - 16.f };
         float lifetime = RandFloat() * 2.f;
 
         EntityPtr entity = ENGINE->Factory().create("Fire Particle");

@@ -90,7 +90,7 @@ namespace AlJeEngine
       space->second->Update(dt);
     }
 
-    //cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
+    cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
 
   }
 
