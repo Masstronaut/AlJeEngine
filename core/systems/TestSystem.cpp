@@ -197,10 +197,14 @@ namespace AlJeEngine
       srand(static_cast<unsigned>(time(NULL)));
 
       // Get a reference to the "Game World" space so that we can add an object to it.
-      SpacePtr gameworld = ENGINE->GetSpace("Game World");
+      //SpacePtr gameworld = ENGINE->GetSpace("Game World");
 
+      SpacePtr particleDemo = ENGINE->CreateSpace("Particle Demo");
+      particleDemo->AddSystem(GETSYS(Test));
+      particleDemo->AddSystem(GETSYS(CameraSystem));
+      particleDemo->AddSystem(GETSYS(GLGraphics));
       // Clear out any existing objects
-      gameworld->Clear();
+      particleDemo->Clear();
       //FireBallSpawn(200);
 
     }
@@ -226,8 +230,8 @@ namespace AlJeEngine
         if (particle->lifetime <= 1.0f)
         {
           // Uncomment these when scaling is working correctly!
-          //transform->scale.x -= 2.f* dt ;// *0.5f;
-          //transform->scale.y -= 2.f* dt;// *0.5f;
+          //transform->scale.x -= 3.f* dt ;// *0.5f;
+          //transform->scale.y -= 3.f* dt;// *0.5f;
         }
 
 
@@ -253,7 +257,7 @@ namespace AlJeEngine
     void Test::FireBallSpawn(unsigned count)
     {
       // Get a reference to the "Game World" space so that we can add an object to it.
-      SpacePtr gameworld = ENGINE->GetSpace("Game World");
+      SpacePtr gameworld = ENGINE->GetSpace("Particle Demo");
 
       glm::vec2 mousepos = GETSYS(WindowSDL)->GetMousePosition();
 

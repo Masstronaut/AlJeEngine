@@ -20,7 +20,7 @@ namespace AlJeEngine
       camera->AddComponent(ComponentPtr(new Transform()));
       camera->SetName("Camera");
 
-      camera->GET_COMPONENT(Transform)->scale = glm::vec2(160.0f, 90.0f);
+      camera->GET_COMPONENT(Transform)->scale = glm::vec2(1600.0f, 900.0f);
 
       // this is for a test, disgregard it.
       //camera->GET_COMPONENT(Transform)->position = glm::vec2(10.f, 10.f);

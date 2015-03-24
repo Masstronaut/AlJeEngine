@@ -37,6 +37,7 @@ namespace AlJeEngine
         CameraPtr camera = it->GET_COMPONENT(Camera);
 
         WindowSDLPtr window = GETSYS(WindowSDL);
+        std::pair<int, int> windowDimensions = window->GetWindowDimensions();
         //Perspective of the camera, read more at 
         //http://www.songho.ca/opengl/gl_projectionmatrix.html
         camera->_pespective = glm::perspectiveFov(camera->_fieldOfView, 
@@ -47,17 +48,24 @@ namespace AlJeEngine
 
         //Orthographic projection for the camera, read more at
         //http://www.songho.ca/opengl/gl_projectionmatrix.html
-        camera->_ortho = glm::ortho(transform->position.x - transform->scale.x * 5.f,
-                                    transform->position.x + transform->scale.x * 5.f,
-                                    transform->position.y - transform->scale.y * 5.f,
-                                    transform->position.y + transform->scale.y * 5.f, 
+        /*camera->_ortho = glm::ortho(0.f, 
+                 static_cast<float>(windowDimensions.first), 
+                 static_cast<float>(windowDimensions.second),
+                                    0.f, 
+                                    camera->_nearPlane, 
+                                    camera->_farPlane);
+        */
+        camera->_ortho = glm::ortho(transform->position.x - transform->scale.x * .5f,
+                                    transform->position.x + transform->scale.x * .5f,
+                                    transform->position.y + transform->scale.y * .5f, 
+                                    transform->position.y - transform->scale.y * .5f,
                                     camera->_nearPlane,
                                     camera->_farPlane);
-
+                                    
         //View matrix for the camera, read more at 
         //http://3dgep.com/understanding-the-view-matrix/
-        camera->_viewMatrix = glm::lookAt(glm::vec3(transform->position.x, transform->position.y, -10.0f),
-                                          camera->_target, 
+        camera->_viewMatrix = glm::lookAt(glm::vec3(transform->position.x, transform->position.y, 5.0f),
+                                          glm::vec3(transform->position.x, transform->position.y, 0.0f),//camera->_target, 
                                           camera->_upVec);
       }
     }

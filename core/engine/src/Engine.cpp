@@ -55,7 +55,7 @@ namespace AlJeEngine
     using namespace Systems;
 
     // Specify which systems should update for this space. The order they are added in is the order they will update in, so be careful!
-    gameworld->AddSystem(GETSYS(Test));
+    //gameworld->AddSystem(GETSYS(Test));
     gameworld->AddSystem(GETSYS(PhysicsDetect));
     gameworld->AddSystem(GETSYS(CameraSystem));
     gameworld->AddSystem(GETSYS(GLGraphics));
@@ -90,7 +90,7 @@ namespace AlJeEngine
       space->second->Update(dt);
     }
 
-    cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
+    //cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
 
   }
 
