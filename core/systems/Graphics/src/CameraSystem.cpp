@@ -57,8 +57,8 @@ namespace AlJeEngine
         */
         camera->_ortho = glm::ortho(transform->position.x - transform->scale.x * .5f,
                                     transform->position.x + transform->scale.x * .5f,
-                                    transform->position.y + transform->scale.y * .5f, 
-                                    transform->position.y - transform->scale.y * .5f,
+                                    transform->position.y - transform->scale.y * .5f, 
+                                    transform->position.y + transform->scale.y * .5f,
                                     camera->_nearPlane,
                                     camera->_farPlane);
                                     

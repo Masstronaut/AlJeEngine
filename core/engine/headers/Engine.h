@@ -52,6 +52,8 @@ namespace AlJeEngine
 
     void SendMsg(EntityPtr, EntityPtr, Message::Message);
 
+    float Getdt() { return dt; }
+
     // Don't use this directly! Do GETSYS(sysType) instead, it's much cleaner looking.
     template<typename T>
     std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);

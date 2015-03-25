@@ -83,6 +83,8 @@ namespace AlJeEngine
         break;
       }
       
+      // This is wrapped in a try catch block because it's possible the entity acquired by name doesn't have the necessary components.
+      // If that is the case, the try block will encounter and exception, that gets handled by just ignoring the operation and moving on.
       try
       {
         EntityPtr mouse = ENGINE->GetActiveSpace()->GetEntityByName("Mouse");
@@ -196,16 +198,14 @@ namespace AlJeEngine
       // Seed the RNG
       srand(static_cast<unsigned>(time(NULL)));
 
-      // Get a reference to the "Game World" space so that we can add an object to it.
-      //SpacePtr gameworld = ENGINE->GetSpace("Game World");
-
+      // Create the space for the demo to run in.
       SpacePtr particleDemo = ENGINE->CreateSpace("Particle Demo");
+      // Specify which systems should be updated for this demo.
       particleDemo->AddSystem(GETSYS(Test));
       particleDemo->AddSystem(GETSYS(CameraSystem));
       particleDemo->AddSystem(GETSYS(GLGraphics));
-      // Clear out any existing objects
+      // Clear out any existing objects in the space, except the camera.
       particleDemo->Clear();
-      //FireBallSpawn(200);
 
     }
 
@@ -220,13 +220,11 @@ namespace AlJeEngine
         float xvel = (RandFloat() * 5.f - 2.5f);
         particle->velocity.x = xvel * 2.f;
 
-        //particle->velocity = glm::normalize(particle->velocity) * dt * 10.f;
+
 
         // Uncomment this when rotation is working properly.
         //transform->rotation += RandFloat() * 20.f - 10.f;
 
-        
-        
         if (particle->lifetime <= 1.0f)
         {
           // Uncomment these when scaling is working correctly!
@@ -397,6 +395,30 @@ namespace AlJeEngine
 
         // Add the object to the game world.
         gameworld->AddEntity(entity);
+      }
+    }
+
+    void Test::SendMsg(EntityPtr e1, EntityPtr e2, Message::Message message)
+    {
+      EntityPtr camera = ENGINE->GetSpace("Particle Demo")->GetCamera();
+      switch (message)
+      {
+      case(Message::MV_Up) :
+        camera->GET_COMPONENT(Transform)->position.y += 1000.f * ENGINE->Getdt();
+        break;
+      case(Message::MV_Down) :
+        camera->GET_COMPONENT(Transform)->position.y -= 1000.f * ENGINE->Getdt();
+        break;
+      case(Message::MV_Left) :
+        camera->GET_COMPONENT(Transform)->position.x -= 1000.f * ENGINE->Getdt();
+        break;
+      case(Message::MV_Right) :
+        camera->GET_COMPONENT(Transform)->position.x += 1000.f * ENGINE->Getdt();
+        break;
+
+
+      default:
+        break;
       }
     }
 

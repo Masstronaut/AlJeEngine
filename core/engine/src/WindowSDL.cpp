@@ -64,7 +64,9 @@ namespace AlJeEngine
 
     glm::vec2 WindowSDL::GetMousePosition(void)
     {
-      return _theMouse.position;
+      glm::vec2 currentCameraPos = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Transform)->position;
+      glm::vec2 spaceMousePos = { _theMouse.position.x, _theMouse.position.y + (currentCameraPos.y / 5.f) };
+      return spaceMousePos;
     }
 
     void WindowSDL::PollWindowEvent(SDL_Event &currentEvent)
@@ -105,6 +107,22 @@ namespace AlJeEngine
         {
           //Exit the game
           ENGINE->Stop();
+        }
+        if (currentEvent.key.keysym.sym == SDLK_DOWN)
+        {
+          ENGINE->SendMsg(nullptr, nullptr, Message::MV_Down);
+        }
+        if (currentEvent.key.keysym.sym == SDLK_UP)
+        {
+          ENGINE->SendMsg(nullptr, nullptr, Message::MV_Up);
+        }
+        if (currentEvent.key.keysym.sym == SDLK_LEFT)
+        {
+          ENGINE->SendMsg(nullptr, nullptr, Message::MV_Left);
+        }
+        if (currentEvent.key.keysym.sym == SDLK_RIGHT)
+        {
+          ENGINE->SendMsg(nullptr, nullptr, Message::MV_Right);
         }
         break;
       case SDL_KEYUP:

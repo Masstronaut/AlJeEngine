@@ -75,15 +75,22 @@ namespace AlJeEngine
       {
         //constructing the matrix of the transform
         glm::mat4x4 object2world;
-        object2world = glm::scale(object2world, glm::vec3(transform->scale.x,
-                                                          transform->scale.y,
-                                                          0.f));
+        object2world = glm::scale(object2world, 
+                                  glm::vec3(transform->scale.x,
+                                            transform->scale.y,
+                                            0.f)
+                                 );
 
-        object2world = glm::rotate(object2world, transform->rotation, glm::vec3(0.f, 0.f, 1.0f));
+        object2world = glm::rotate( object2world, 
+                                    transform->rotation * 3.141592f / 180.f, // degrees to radians conversion 
+                                    glm::vec3(0.f, 0.f, 1.0f)
+                                  );
 
-        object2world = glm::translate(object2world, glm::vec3(Entity->GET_COMPONENT(Transform)->position.x,
-          Entity->GET_COMPONENT(Transform)->position.y,
-          0.0f));
+        object2world = glm::translate(object2world, 
+                                      glm::vec3( Entity->GET_COMPONENT(Transform)->position.x,
+                                                 Entity->GET_COMPONENT(Transform)->position.y,
+                                                 0.0f )
+                                     );
 
         //Updating the uniforms in the shader, has to happen every frame
         shader->UpdateUniforms("model", object2world);

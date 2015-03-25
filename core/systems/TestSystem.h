@@ -27,6 +27,8 @@ namespace AlJeEngine
       
       void Shutdown();
 
+      void SendMsg(EntityPtr, EntityPtr, Message::Message);
+
     private:
       void PretzelInit(unsigned);
       void PretzelDemo(float);

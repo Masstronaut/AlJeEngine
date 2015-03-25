@@ -22,6 +22,12 @@ namespace AlJeEngine
       MV_CircleCircle = 1 <<  2,
 
 
+      // These message values are for game-related key press events.
+      MV_Down         = 1 <<  3,
+      MV_Up           = 1 <<  4,
+      MV_Left         = 1 <<  5,
+      MV_Right        = 1 <<  6,
+
     };
 
 
