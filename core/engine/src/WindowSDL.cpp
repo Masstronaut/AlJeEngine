@@ -149,8 +149,8 @@ namespace AlJeEngine
         invert[3][3] = 1;
         glm::vec4 viewport(0, 0, windowDimensions.first, windowDimensions.second);
         glm::vec3 mousepoint = glm::unProject(mousescreen, invert * camera->_viewMatrix, camera->_ortho, viewport);
-        _theMouse.position.x = mousepoint.x / 10.f;
-        _theMouse.position.y = mousepoint.y / 10.f;
+        _theMouse.position.x = mousepoint.x;
+        _theMouse.position.y = mousepoint.y;
         std::cout << "Mouse X: " << _theMouse.position.x << std::endl;
         std::cout << "Mouse Y: " << _theMouse.position.y << std::endl;
       }

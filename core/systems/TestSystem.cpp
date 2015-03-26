@@ -195,6 +195,7 @@ namespace AlJeEngine
 
     void Test::FireBallInit(unsigned count)
     {
+
       // Seed the RNG
       srand(static_cast<unsigned>(time(NULL)));
 
@@ -206,6 +207,7 @@ namespace AlJeEngine
       particleDemo->AddSystem(GETSYS(GLGraphics));
       // Clear out any existing objects in the space, except the camera.
       particleDemo->Clear();
+
 
     }
 
@@ -223,13 +225,13 @@ namespace AlJeEngine
 
 
         // Uncomment this when rotation is working properly.
-        //transform->rotation += RandFloat() * 20.f - 10.f;
+        transform->rotation += RandFloat() * 20.f - 10.f;
 
         if (particle->lifetime <= 1.0f)
         {
           // Uncomment these when scaling is working correctly!
-          //transform->scale.x -= 3.f* dt ;// *0.5f;
-          //transform->scale.y -= 3.f* dt;// *0.5f;
+          transform->scale.x -= 3.f* dt ;// *0.5f;
+          transform->scale.y -= 3.f* dt;// *0.5f;
         }
 
 
@@ -246,7 +248,7 @@ namespace AlJeEngine
       timeAccumulator += dt;
       //if (timeAccumulator > 1.f / 60.f)
       {
-        FireBallSpawn(70);
+        FireBallSpawn(50);
         timeAccumulator -= 1.f / 60.f;
       }
 
@@ -264,9 +266,9 @@ namespace AlJeEngine
         // get a degree anywhere in a circle (0 through 360)
         float angle = RandFloat() * 360.f;
 
-        float scale = RandFloat() * 20.f;
+        float scale = RandFloat() * 80.f;
 
-        glm::vec2 startPos = { cosf(angle) * scale + mousepos.x * 2.f, sinf(angle) * scale + mousepos.y * 2.f };
+        glm::vec2 startPos = { cosf(angle) * scale + mousepos.x, sinf(angle) * scale + mousepos.y };
 
         glm::vec2 velocity = { 0.f, RandFloat() * 8.f - 16.f };
         float lifetime = RandFloat() * 2.f;
