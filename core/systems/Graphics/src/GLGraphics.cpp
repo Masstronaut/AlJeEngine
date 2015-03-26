@@ -52,7 +52,8 @@ namespace AlJeEngine
     {
       CameraPtr camera = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Camera);
       // clear the buffers to begin a new frame.
-      newFrame();
+      //newFrame();
+      // The new frame operation is now handled by the Engine::Update(float) function.
 
       // Enable alpha blending for opacity.
       glEnable(GL_BLEND);

@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\core\engine\src\Archetypes.cpp" />
     <ClCompile Include="..\..\core\engine\src\Engine.cpp" />
     <ClCompile Include="..\..\core\engine\src\Entity.cpp" />
+    <ClCompile Include="..\..\core\engine\src\Gamestate.cpp" />
     <ClCompile Include="..\..\core\engine\src\Space.cpp" />
     <ClCompile Include="..\..\core\engine\src\System.cpp" />
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
     <ClInclude Include="..\..\core\engine\headers\Engine.h" />
     <ClInclude Include="..\..\core\engine\headers\Entity.h" />
+    <ClInclude Include="..\..\core\engine\headers\Gamestate.h" />
     <ClInclude Include="..\..\core\engine\headers\Message.h" />
     <ClInclude Include="..\..\core\engine\headers\Space.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />

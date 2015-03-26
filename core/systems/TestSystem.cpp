@@ -275,7 +275,7 @@ namespace AlJeEngine
 
         EntityPtr entity = ENGINE->Factory().create("Fire Particle");
 
-        entity->GET_COMPONENT(Transform)->scale = glm::vec2(3.5f * 1.45f, 3.5f * 1.45f);
+        entity->GET_COMPONENT(Transform)->scale = glm::vec2(3.5f, 3.5f);
         entity->GET_COMPONENT(Transform)->position = startPos;
         entity->GET_COMPONENT(Transform)->rotation = 0.f;
         entity->GET_COMPONENT(Particle)->velocity = velocity;

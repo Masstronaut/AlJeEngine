@@ -27,7 +27,7 @@ int main(int argc, char* args[])
 {
 
   // Create the Engine.
-  ENGINE = new Engine( );
+  new Engine( );
 
   ENGINE->Init( );
   ENGINE->mainLoop( );

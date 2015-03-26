@@ -13,6 +13,9 @@
 #include <memory> // Shared pointers for automatic memory management
 #include <vector>
 #include <unordered_map>
+#include <stack>
+
+#include "Gamestate.h"
 #include "System.h"
 #include "Entity.h"
 #include "Space.h"
@@ -54,15 +57,21 @@ namespace AlJeEngine
 
     float Getdt() { return dt; }
 
-    // Don't use this directly! Do GETSYS(sysType) instead, it's much cleaner looking.
+    // Don't use this directly! Use GETSYS(sysType) instead, it's much cleaner looking.
     template<typename T>
     std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
 
     void Stop(void) { _running = false;  }
 
+    GamestatePtr CurrentState() const;
+
+    void PushGamestate(GamestatePtr);
+
+    void PopGamestate();
+
   private:
 
-    bool _running = true;
+    std::stack<GamestatePtr> _gamestates;
 
     float dt;
 
@@ -76,6 +85,7 @@ namespace AlJeEngine
 
     ArchetypeFactory _archetypeFactory;
 
+    bool _running = true;
   };
 
 #define GETSYS( systype ) \

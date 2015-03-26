@@ -25,6 +25,7 @@ namespace AlJeEngine
     ES_CameraSystem,
     ES_PhysicsDetect,
 
+    ES_Gamestate,
     // this should always be last
     ES_MAX
   };
@@ -42,6 +43,7 @@ namespace AlJeEngine
           _mask(MC_Alive)
           {
           }
+    virtual ~System() {}
     virtual void   Init() = 0;
     virtual void   Update(float) = 0;
     virtual void   Shutdown() = 0;

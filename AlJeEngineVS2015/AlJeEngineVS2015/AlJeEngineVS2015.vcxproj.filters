@@ -23,9 +23,6 @@
     <Filter Include="Systems\Graphics">
       <UniqueIdentifier>{fb99c097-3255-4099-861b-f3546a7cf17f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Systems\Graphics\Render">
-      <UniqueIdentifier>{6376406c-bca4-4c67-8037-c0d6a071514d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Systems\Graphics\Shader helpers">
       <UniqueIdentifier>{ba40b90f-59bb-443d-80e9-965f0b617573}</UniqueIdentifier>
     </Filter>
@@ -68,6 +65,12 @@
     <Filter Include="Libraries\Utils">
       <UniqueIdentifier>{526042fc-b308-4314-b568-ec9c5135daae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Engine\Window">
+      <UniqueIdentifier>{2623afc2-03cb-48e5-ab41-d556848b3b21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Gamestate">
+      <UniqueIdentifier>{057eefc1-a362-4fd1-9883-4ccda55f01b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -81,9 +84,6 @@
     </ClCompile>
     <ClCompile Include="..\..\core\engine\main.cpp">
       <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp">
-      <Filter>Core\Engine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Space.cpp">
       <Filter>Core\Space</Filter>
@@ -115,6 +115,12 @@
     <ClCompile Include="..\..\core\systems\Physics\PhysicsDetect.cpp">
       <Filter>Systems\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp">
+      <Filter>Core\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\engine\src\Gamestate.cpp">
+      <Filter>Core\Engine\Gamestate</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
@@ -127,9 +133,6 @@
       <Filter>Core\Entity</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Engine.h">
-      <Filter>Core\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\engine\headers\WindowSDL.h">
       <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\components\Collider.h">
@@ -194,6 +197,12 @@
     </ClInclude>
     <ClInclude Include="..\..\lib\math\RNG.h">
       <Filter>Libraries\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\WindowSDL.h">
+      <Filter>Core\Engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\engine\headers\Gamestate.h">
+      <Filter>Core\Engine\Gamestate</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

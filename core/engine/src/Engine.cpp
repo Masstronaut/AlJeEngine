@@ -26,6 +26,7 @@ namespace AlJeEngine
   {
     // There should only ever be one instance of the engine.
     assert(ENGINE == nullptr);
+    ENGINE = this;
   }
 
 	void Engine::Init()
@@ -80,6 +81,10 @@ namespace AlJeEngine
     // Update the window management system. It is responsible for the window and input.
     using Systems::WindowSDL;
     GETSYS(WindowSDL)->Update(dt);
+
+    // Signal to graphics that we are beginning a new frame.
+    using Systems::GLGraphics;
+    GETSYS(GLGraphics)->newFrame();
 
     for (auto space = _spaces.begin(); space != _spaces.end(); ++space)
     {
@@ -165,6 +170,28 @@ namespace AlJeEngine
     {
       it->SendMsg(e1, e2, message);
     }
+  }
+
+  GamestatePtr Engine::CurrentState() const
+  {
+    return _gamestates.top();
+  }
+
+  void Engine::PushGamestate(GamestatePtr GS)
+  {
+    _gamestates.push(GS);
+    GS->Init();
+  }
+
+  void Engine::PopGamestate()
+  {
+    GamestateType GST = _gamestates.top()->State();
+    _gamestates.top()->Shutdown();
+    _gamestates.pop();
+    if (_gamestates.size())
+      _gamestates.top()->PoppedTo(GST);
+    else // There are no remaining Gamestates. The game will now exit.
+      Stop();
   }
   
  
