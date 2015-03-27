@@ -1,3 +1,4 @@
+#include "..\headers\Gamestate.h"
 /**
 * @author Allan Deutsch
 * @version 0.5
@@ -9,5 +10,18 @@ namespace AlJeEngine
 {
 
 
+
+bool Gamestate::CheckSpaceActive(std::string name)
+{
+  for (auto it : _spaces)
+    if (it == name)
+      return true;
+  return false;
+}
+
+void Gamestate::SetLogicalSpace(std::string name)
+{
+  _LogicalSpace = name;
+}
 
 } // AlJeEngine

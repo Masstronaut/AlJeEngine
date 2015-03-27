@@ -6,7 +6,6 @@
 */
 
 #include "Graphics/headers/GLGraphics.hpp"
-#include "TestSystem.h"
 #include "../engine/headers/WindowSDL.h"
 #include "Graphics/headers/CameraSystem.h"
 #include "Physics/PhysicsDetect.h"

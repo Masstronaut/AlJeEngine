@@ -34,9 +34,8 @@ namespace AlJeEngine
     // Start your engines!
     _running = true;
 
-    // Add systems to the engine here
+    // Add systems to the engine here. They will be initialized later in this function.
     _systems.push_back(SystemPtr(new Systems::WindowSDL));
-    _systems.push_back(SystemPtr(new Systems::Test));
 
     _systems.push_back(SystemPtr(new Systems::PhysicsDetect));
 
@@ -46,9 +45,9 @@ namespace AlJeEngine
 
     //  Create a world for the engine to run in:
     SpacePtr gameworld = CreateSpace("Game World");
-    // set the newly created world to be the active space in the engine:
+    
+    // Set the newly created space as the active space.
     SetActiveSpace("Game World");
-
     // we need namespace Systems for this macro expansion to work properly. 
     // The system types are not defined outside the Systems namespace, 
     // and using Systems::SystemName would cause the macro to incorrectly expand into:
@@ -86,13 +85,28 @@ namespace AlJeEngine
     using Systems::GLGraphics;
     GETSYS(GLGraphics)->newFrame();
 
+
+
     for (auto space = _spaces.begin(); space != _spaces.end(); ++space)
     {
       // Set this space as the active one. Whenever a system wants access to it, it will be correct.
       SetActiveSpace(space->first);
       
-      // The space will fill all the systems with the relevant entities and have them update.
-      space->second->Update(dt);
+      // If this is the space that the current gamestate wants to use for updating,
+      // populate it with relevant entities and tell it to update.
+      if (space->first == CurrentState()->GetLogicalSpace())
+      {
+        space->second->PopulateEntities(CurrentState());
+        CurrentState()->Update(dt);
+      }
+
+      // Verify that this space is supposed to be updated.
+      if (CurrentState()->CheckSpaceActive(space->first))
+      {
+        // The space will fill all the systems with the relevant entities and have them update.
+        space->second->Update(dt);
+      }
+    
     }
 
     //cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
@@ -128,7 +142,17 @@ namespace AlJeEngine
 
   SpacePtr Engine::CreateSpace(std::string name)
   {
-    _spaces.emplace(name, SpacePtr(new Space(name)));
+    // First we check if it already exists.
+    // If it does you should get slapped in the face with an exception,
+    // but I'm in a generous mood so I'll just give you the already existing space instead.
+    auto space = _spaces.find(name);
+    // This checks if the space is a valid, existing space.
+    if (space != _spaces.end())
+      return (*space).second;
+
+    // If the space doesn't exist (it shouldn't) this will create it.
+    else
+      _spaces.emplace(name, SpacePtr(new Space(name)));
     return GetSpace(name);
   }
 
@@ -141,15 +165,27 @@ namespace AlJeEngine
     if (it != _spaces.end())
       return it->second;
 
+    // I'm really nice, so I'll give you error-proofing just this once.
+    return CreateSpace(name);
+
+    // This is what would happen if I wasn't nice.
     // If the space wasn't found, throw a range error with a message about what happened.
     throw std::range_error("The specified space does not exist.");
   }
 
   SpacePtr Engine::SetActiveSpace(std::string name)
   {
-
-    _activeSpace = name;
-    return GetActiveSpace();
+    // First we have to make sure the space actually exists. 
+    // It would be a real bummer if someone tried to get a space that doesn't exist...
+    auto space = _spaces.find(name);
+    if (space != _spaces.end())
+    {
+      _activeSpace = name;
+      return GetActiveSpace();
+    }
+    // Ah looks like the space doesn't exist. That sure is a bummer!
+    throw std::range_error("Tried to set the active space to a space that doesn't exist.");
+    
   }
 
   SpacePtr Engine::GetActiveSpace()

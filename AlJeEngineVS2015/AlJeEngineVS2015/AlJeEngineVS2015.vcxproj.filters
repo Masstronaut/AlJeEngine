@@ -14,9 +14,6 @@
     <Filter Include="Components">
       <UniqueIdentifier>{8aed3340-a008-490c-a0c5-d3670c16518c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Systems\Test">
-      <UniqueIdentifier>{b68ef5bf-abc2-421c-9d58-286bea33edb5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Libraries\Timers">
       <UniqueIdentifier>{d4079226-90dd-4c73-b706-a1af39a154c3}</UniqueIdentifier>
     </Filter>
@@ -68,7 +65,13 @@
     <Filter Include="Core\Engine\Window">
       <UniqueIdentifier>{2623afc2-03cb-48e5-ab41-d556848b3b21}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Engine\Gamestate">
+    <Filter Include="Gamestates">
+      <UniqueIdentifier>{f5b2e99c-9878-49bc-91e8-c9536acc7167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gamestates\Test">
+      <UniqueIdentifier>{520d3097-8e56-4a48-80b1-25aa28fc85fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Gamestate">
       <UniqueIdentifier>{057eefc1-a362-4fd1-9883-4ccda55f01b2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -90,9 +93,6 @@
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp">
       <Filter>Systems\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\core\systems\TestSystem.cpp">
-      <Filter>Systems\Test</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\ArchetypeFactory.cpp">
       <Filter>Core\ArchetypeFactory</Filter>
@@ -119,7 +119,10 @@
       <Filter>Core\Engine\Window</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\engine\src\Gamestate.cpp">
-      <Filter>Core\Engine\Gamestate</Filter>
+      <Filter>Core\Gamestate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\Gamestates\Test\TestSystem.cpp">
+      <Filter>Gamestates\Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,9 +152,6 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Space.h">
       <Filter>Core\Space</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\systems\TestSystem.h">
-      <Filter>Systems\Test</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\components\Camera.h">
       <Filter>Components</Filter>
@@ -202,7 +202,13 @@
       <Filter>Core\Engine\Window</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Gamestate.h">
-      <Filter>Core\Engine\Gamestate</Filter>
+      <Filter>Core\Gamestate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\Gamestates\GamestatesInclude.h">
+      <Filter>Gamestates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\Gamestates\Test\TestSystem.h">
+      <Filter>Gamestates\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,6 @@
 
 #include <GL/glew.h>
 #include <iostream>
-#include "../components/Components.h"
 #include <SDL_opengl.h>
 #include <SDL.h>
 #include "headers/Engine.h"
@@ -30,6 +29,9 @@ int main(int argc, char* args[])
   new Engine( );
 
   ENGINE->Init( );
+
+  ENGINE->PushGamestate(Gamestates::TestPtr(new Gamestates::Test()));
+  
   ENGINE->mainLoop( );
 
   // Shutdown the engine when it's no longer running

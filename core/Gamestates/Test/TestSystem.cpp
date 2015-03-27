@@ -7,9 +7,9 @@
 */
 
 #include "TestSystem.h"
-#include "../engine/headers/Engine.h"
-#include "../components/Components.h"
-#include "SystemsInclude.h"
+#include "../../engine/headers/Engine.h"
+#include "../../components/Components.h"
+#include "../../systems/SystemsInclude.h"
 #include <math.h> // sin and cos
 #include <sstream>
 #include <cstdlib> // rand, srand
@@ -33,16 +33,26 @@ namespace AlJeEngine
 
   static Demo::Demo DemoToUse = Demo::FireBall;
 
-  namespace Systems
+
+
+  using namespace Systems;
+  namespace Gamestates
   {
 
       
     void Test::Init()
     {
+      // Register the spaces that should be updated with this system.
+      RegisterSpace("Game World");
+
+      // Set which space this gamestate's Update() function should be used with.
+      SetLogicalSpace("Game World");
+
       // Register for drawable objects
       RegisterComponent(MC_Transform);
       RegisterComponent(MC_Sprite);
       RegisterComponent(MC_Particle);
+
 
       switch (DemoToUse)
       {
@@ -201,8 +211,17 @@ namespace AlJeEngine
 
       // Create the space for the demo to run in.
       SpacePtr particleDemo = ENGINE->CreateSpace("Particle Demo");
+      
+      // Set the Particle Demo space as the logical space for this gamestate.
+      SetLogicalSpace("Particle Demo");
+
+      // Register the Particle Demo space as a space that should be updated each frame.
+      RegisterSpace("Particle Demo");
+
+      // We also won't be using the "Game World" space, so we can deregister it.
+      DeRegisterSpace("Game World");
+
       // Specify which systems should be updated for this demo.
-      particleDemo->AddSystem(GETSYS(Test));
       particleDemo->AddSystem(GETSYS(CameraSystem));
       particleDemo->AddSystem(GETSYS(GLGraphics));
       // Clear out any existing objects in the space, except the camera.

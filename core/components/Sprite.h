@@ -22,12 +22,12 @@ namespace AlJeEngine
 
     enum MeshType {QUAD, CIRCLE};
 
-    MeshType mesh = QUAD;
 
     glm::vec4 _color = { 0.0f, 1.0f, 0.0f, 1.f };
 
     std::string _shaderName = "Box";
     
+    MeshType mesh = QUAD;
 
 
   };

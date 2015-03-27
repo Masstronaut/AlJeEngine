@@ -22,6 +22,9 @@
 #include "ArchetypeFactory.h"
 #include "Message.h"
 
+#include "../../Gamestates/GamestatesInclude.h"
+#include "../../Systems/SystemsInclude.h"
+
 namespace AlJeEngine
 {
 

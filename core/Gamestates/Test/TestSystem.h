@@ -8,19 +8,24 @@
 
 #pragma once
 #include <memory>
-
-#include "../engine/headers/System.h"
-#include "../components/Components.h"
+#include "../../engine/headers/Gamestate.h"
+#include "../../engine/headers/System.h"
+#include "../../components/Components.h"
 namespace AlJeEngine
 {
-  namespace Systems
+  namespace Gamestates
   {
 
-    class Test : public System
+    class Test : public Gamestate
     {
     public:
-      Test() : System(std::string("Test System"), ES_Test) {/* the engine calls init manually, which should take the place of most of the constructor. */}
+      Test() : Gamestate("Test Demo Gamestate", GS_TestDemo) 
+      {
+        /* the engine calls init manually, 
+        which should typically take the place of most of the constructor. */
+      }
 
+      ~Test() {}
       void Init();
 
       void Update(float);
