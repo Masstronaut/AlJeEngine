@@ -31,10 +31,13 @@ namespace AlJeEngine
 
       void SendMsg(EntityPtr, EntityPtr, Message::Message);
 
-    private:
+      bool AABBPointCheck(EntityPtr, glm::vec2);
+      bool CirclePointCheck(EntityPtr, glm::vec2);
       bool AABBAABBCheck(EntityPtr, EntityPtr);
       bool AABBCircleCheck(EntityPtr, EntityPtr);
       bool CircleCircleCheck(EntityPtr, EntityPtr);
+    private:
+      void CheckMouseCollisions();
 
     };
 

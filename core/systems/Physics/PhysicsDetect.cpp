@@ -27,6 +27,8 @@ namespace AlJeEngine
 
     void PhysicsDetect::Update(float dt)
     {
+      CheckMouseCollisions();
+
       // This has to use actual iterators in order to get the current entity's position in the space.
       for (auto obj1 = _entities.begin(); obj1 != _entities.end(); ++obj1)
       {
@@ -182,6 +184,84 @@ namespace AlJeEngine
       }
 
       return 0;
+    }
+
+    bool PhysicsDetect::AABBPointCheck(EntityPtr entity, glm::vec2 point)
+    {
+      // Get easy access to the parts of the entity we want.
+      glm::vec2 boxCenter = entity->GET_COMPONENT(Transform)->position;
+      BoxColliderPtr boxCollider = entity->GET_COMPONENT(BoxCollider);
+      // make a variable to store each side of the AABB.
+      float left, right, up, down;
+
+      // compute each side of the box collider
+      left  = boxCenter.x - (boxCollider->width  * 0.5f);
+      right = boxCenter.x + (boxCollider->width  * 0.5f);
+      up    = boxCenter.y + (boxCollider->height * 0.5f);
+      down  = boxCenter.y - (boxCollider->height * 0.5f);
+
+      // check if the point is inside the box
+      if ( point.x < right && point.x > left // check the x axis
+        && point.y < up    && point.y > down)// check the y axis
+        return true;
+      
+      // If we get here the collision check failed (no collision).
+      return false;
+    }
+
+    bool PhysicsDetect::CirclePointCheck(EntityPtr entity, glm::vec2 point)
+    {
+      float radius = entity->GET_COMPONENT(CircleCollider)->radius;
+      float radiusSQ = radius * radius;
+      glm::vec2 circleCenter = entity->GET_COMPONENT(Transform)->position;
+
+      // Compute the distance on each axis
+      float xdist = circleCenter.x - point.x;
+      float ydist = circleCenter.y - point.y;
+
+      // compute the square distance
+      float distanceSQ = xdist * xdist + ydist * ydist;
+
+      // check if the distance is less than the size of the circle
+      if (distanceSQ < radiusSQ)
+        return true;
+
+      // Check if the distance is less than 
+      return false;
+    }
+
+    void PhysicsDetect::CheckMouseCollisions()
+    {
+      // check all the objects for a collision with the mouse:
+      glm::vec2 mousePos = GETSYS(WindowSDL)->GetMousePosition();
+      bool mouseClicked = GETSYS(WindowSDL)->GetMouseTrigger();
+
+      for (auto obj : _entities)
+      {
+        EnumeratedComponent colliderType = obj->Collider();
+        bool collision = false;
+        switch (colliderType)
+        {
+        case(EC_BoxCollider) :
+          collision = AABBPointCheck(obj, mousePos);
+          break;
+        case(EC_CircleCollider) :
+          collision = CirclePointCheck(obj, mousePos);
+          break;
+
+        default:
+          break;
+        }
+
+        if (collision)
+        {
+          if (mouseClicked)
+            ENGINE->SendMsg(obj, nullptr, Message::MV_MouseClick);
+          else
+            ENGINE->SendMsg(obj, nullptr, Message::MV_MouseHover);
+        }
+
+      }
     }
 
   } // Systems

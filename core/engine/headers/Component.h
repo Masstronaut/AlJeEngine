@@ -25,6 +25,7 @@ namespace AlJeEngine
     EC_Camera         =  6,
     EC_Transform      =  7,
     EC_Particle       =  8,
+    EC_MenuObject     =  9,
     
     // This will correspond to the maximum number of components that exist.
     EC_Max,
@@ -42,6 +43,7 @@ namespace AlJeEngine
     MC_CircleCollider  =  1 <<  6,
     MC_Camera          =  1 <<  7,
     MC_Particle        =  1 <<  8,
+    MC_MenuObject      =  1 <<  9,
 
     // This is used when a system doesn't wish to recieve any objects.
     MC_NOOBJECTS       = -1,

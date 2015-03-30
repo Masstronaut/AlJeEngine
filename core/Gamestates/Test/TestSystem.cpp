@@ -69,11 +69,6 @@ namespace AlJeEngine
         break;
       }
       
-      EntityPtr mouse = ENGINE->Factory().create("Box Particle");
-      mouse->SetName("Mouse");
-      mouse->RemoveComponent(EC_Particle);
-      mouse->GET_COMPONENT(Sprite)->_color = glm::vec4(0.f, 0.f, 1.f, 1.f);
-      ENGINE->GetActiveSpace()->AddEntity(mouse);
     }
 
     void Test::Update(float dt)
@@ -209,8 +204,6 @@ namespace AlJeEngine
       // Seed the RNG
       srand(static_cast<unsigned>(time(NULL)));
 
-      // Create the space for the demo to run in.
-      SpacePtr particleDemo = ENGINE->CreateSpace("Particle Demo");
       
       // Set the Particle Demo space as the logical space for this gamestate.
       SetLogicalSpace("Particle Demo");
@@ -220,6 +213,12 @@ namespace AlJeEngine
 
       // We also won't be using the "Game World" space, so we can deregister it.
       DeRegisterSpace("Game World");
+      
+      if (ENGINE->SpaceExists("Particle Demo"))
+        return;
+      
+      // Create the space for the demo to run in.
+      SpacePtr particleDemo = ENGINE->CreateSpace("Particle Demo");
 
       // Specify which systems should be updated for this demo.
       particleDemo->AddSystem(GETSYS(CameraSystem));
@@ -437,6 +436,9 @@ namespace AlJeEngine
         camera->GET_COMPONENT(Transform)->position.x += 1000.f * ENGINE->Getdt();
         break;
 
+      case(Message::MV_BackButton) :
+        ENGINE->PushGamestate(PauseMenuPtr(new PauseMenu()));
+        break;
 
       default:
         break;

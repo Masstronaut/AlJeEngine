@@ -16,12 +16,26 @@ namespace AlJeEngine
   {
     // This is where you add the archetype creation functions to the factory.
 
-    addArchetype("DefaultCamera",    DefaultCamera);
-    addArchetype("Box",              BoxGameObject);
-    addArchetype("Circle",           CircleGameObject);
-    addArchetype("Box Particle",     BoxParticleObject);
-    addArchetype("Fire Particle",    FireParticleObject);
-    addArchetype("Circle Particle",  CircleParticleObject);
+    addArchetype("DefaultCamera",          DefaultCamera);
+    addArchetype("Box",                    BoxGameObject);
+    addArchetype("Circle",                 CircleGameObject);
+    addArchetype("Box Particle",           BoxParticleObject);
+    addArchetype("Fire Particle",          FireParticleObject);
+    addArchetype("Circle Particle",        CircleParticleObject);
+                                           
+    // Main Menu button archetypes              
+    addArchetype("Main Menu Exit",         MainMenuExit);
+    addArchetype("Main Menu Start",        MainMenuStart);
+    addArchetype("Main Menu Credits",      MainMenuCredits);
+    addArchetype("Main Menu How To Play",  MainMenuHowToPlay);
+    addArchetype("Main Menu Settings",     MainMenuSettings);
+
+    // Pause menu button archetypes
+    addArchetype("Pause Menu Resume",      PauseMenuResume);
+    addArchetype("Pause Menu Quit",        PauseMenuQuit);
+    addArchetype("Pause Menu Restart",     PauseMenuRestart);
+    addArchetype("Pause Menu Options",     PauseMenuOptions);
+
   }
 
   void ArchetypeFactory::addArchetype(std::string archetype, CreateArchetypeFn creator)

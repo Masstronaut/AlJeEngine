@@ -29,6 +29,19 @@ namespace AlJeEngine
 
     EntityPtr FireParticleObject();
 
+    EntityPtr GenericMenuObject();
+
+    EntityPtr MainMenuExit();
+    EntityPtr MainMenuStart();
+    EntityPtr MainMenuCredits();
+    EntityPtr MainMenuHowToPlay();
+    EntityPtr MainMenuSettings();
+
+    EntityPtr PauseMenuResume();
+    EntityPtr PauseMenuQuit();
+    EntityPtr PauseMenuRestart();
+    EntityPtr PauseMenuOptions();
+
   } // Archetypes
 
 } //AlJeEngine

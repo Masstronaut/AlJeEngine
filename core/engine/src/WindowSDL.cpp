@@ -105,8 +105,7 @@ namespace AlJeEngine
         //If the key that is down is the escape key
         if (currentEvent.key.keysym.sym == SDLK_ESCAPE)
         {
-          //Exit the game
-          ENGINE->Stop();
+          ENGINE->SendMsg(nullptr, nullptr, Message::MV_BackButton);
         }
         if (currentEvent.key.keysym.sym == SDLK_DOWN)
         {
@@ -172,6 +171,7 @@ namespace AlJeEngine
         {
           _theMouse.Pressed = false;
           _theMouse.Released = true;
+          _theMouse.Trigger = false;
         }       
         break;
       default:

@@ -86,6 +86,8 @@ namespace AlJeEngine
     GETSYS(GLGraphics)->newFrame();
 
 
+    // Get a pointer to the current gamestate for easy access:
+    GamestatePtr gamestate = CurrentState();
 
     for (auto space = _spaces.begin(); space != _spaces.end(); ++space)
     {
@@ -94,14 +96,14 @@ namespace AlJeEngine
       
       // If this is the space that the current gamestate wants to use for updating,
       // populate it with relevant entities and tell it to update.
-      if (space->first == CurrentState()->GetLogicalSpace())
+      if (space->first == gamestate->GetLogicalSpace())
       {
-        space->second->PopulateEntities(CurrentState());
-        CurrentState()->Update(dt);
+        space->second->PopulateEntities(gamestate);
+        gamestate->Update(dt);
       }
 
       // Verify that this space is supposed to be updated.
-      if (CurrentState()->CheckSpaceActive(space->first))
+      if (gamestate->CheckSpaceActive(space->first))
       {
         // The space will fill all the systems with the relevant entities and have them update.
         space->second->Update(dt);
@@ -195,6 +197,16 @@ namespace AlJeEngine
     return activeSpace->second;
   }
 
+  bool Engine::SpaceExists(std::string name)
+  {
+    auto space = _spaces.find(name);
+    if (space != _spaces.end())
+    {
+      return true;
+    }
+    return false;
+  }
+
   ArchetypeFactory & Engine::Factory()
   {
     return _archetypeFactory;
@@ -206,6 +218,8 @@ namespace AlJeEngine
     {
       it->SendMsg(e1, e2, message);
     }
+
+    CurrentState()->SendMsg(e1, e2, message);
   }
 
   GamestatePtr Engine::CurrentState() const

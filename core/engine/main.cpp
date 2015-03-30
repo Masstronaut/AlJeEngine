@@ -30,7 +30,7 @@ int main(int argc, char* args[])
 
   ENGINE->Init( );
 
-  ENGINE->PushGamestate(Gamestates::TestPtr(new Gamestates::Test()));
+  ENGINE->PushGamestate(Gamestates::MainMenuPtr(new Gamestates::MainMenu()));
   
   ENGINE->mainLoop( );
 

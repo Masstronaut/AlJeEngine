@@ -74,6 +74,15 @@
     <Filter Include="Core\Gamestate">
       <UniqueIdentifier>{057eefc1-a362-4fd1-9883-4ccda55f01b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Gamestates\Menus">
+      <UniqueIdentifier>{99572080-4c23-410a-9644-c776153c6dfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gamestates\Menus\MainMenu">
+      <UniqueIdentifier>{1fe4ec35-e204-44f2-8ce2-37794651d8cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gamestates\Menus\PauseMenu">
+      <UniqueIdentifier>{b5ee8927-931a-4702-9241-5dcdd61abdea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -123,6 +132,12 @@
     </ClCompile>
     <ClCompile Include="..\..\core\Gamestates\Test\TestSystem.cpp">
       <Filter>Gamestates\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\Gamestates\Menus\MainMenu.cpp">
+      <Filter>Gamestates\Menus\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\Gamestates\Menus\PauseMenu.cpp">
+      <Filter>Gamestates\Menus\PauseMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +224,15 @@
     </ClInclude>
     <ClInclude Include="..\..\core\Gamestates\Test\TestSystem.h">
       <Filter>Gamestates\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\Gamestates\Menus\MainMenu.h">
+      <Filter>Gamestates\Menus\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\Gamestates\Menus\PauseMenu.h">
+      <Filter>Gamestates\Menus\PauseMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\MenuObject.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

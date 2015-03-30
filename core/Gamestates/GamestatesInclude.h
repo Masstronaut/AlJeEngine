@@ -7,5 +7,6 @@
 #pragma once
 
 #include "Test/TestSystem.h"
-
+#include "Menus/MainMenu.h"
+#include "Menus/PauseMenu.h"
 

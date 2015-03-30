@@ -28,6 +28,15 @@ namespace AlJeEngine
       MV_Left         = 1 <<  5,
       MV_Right        = 1 <<  6,
 
+      // These message values are for when the mouse collides with an object.
+      // NOTE: The second EntityPtr with these messages will always be null.
+      // The first EntityPtr will be the collided object.
+      MV_MouseHover   = 1 <<  7,
+      MV_MouseClick   = 1 <<  8,
+
+      // These message values are for control flow of the program.
+      MV_BackButton   = 1 <<  9, // this could be esc or back on a controller.
+
     };
 
 

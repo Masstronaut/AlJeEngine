@@ -68,6 +68,136 @@ namespace AlJeEngine
       return entity;
     }
 
+    EntityPtr GenericMenuObject()
+    {
+      EntityPtr entity(new Entity());
+      entity->AddComponent(ComponentPtr(new BoxCollider()));
+      entity->AddComponent(ComponentPtr(new Transform()));
+      entity->AddComponent(ComponentPtr(new MenuObject()));
+      entity->AddComponent(ComponentPtr(new Sprite()));
+      entity->AddComponent(ComponentPtr(new RigidBody()));
+
+      entity->GET_COMPONENT(RigidBody)->isStatic = true;
+      entity->GET_COMPONENT(RigidBody)->gravity  = false;
+      entity->GET_COMPONENT(RigidBody)->ghost    = true;
+
+      entity->GET_COMPONENT(BoxCollider)->height = 10.f;
+      entity->GET_COMPONENT(BoxCollider)->width  = 20.f;
+      entity->GET_COMPONENT(Transform)->scale = { 20.f, 10.f };
+
+      entity->SetName("Menu Object");
+
+      return entity;
+    }
+
+    EntityPtr MainMenuExit()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Exit;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
+
+      entity->SetName("Main Menu Exit Button");
+
+      return entity;
+    }
+
+    EntityPtr MainMenuStart()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Start;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
+
+      entity->SetName("Main Menu Start Button");
+
+      return entity;
+    }
+
+    EntityPtr MainMenuCredits()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Credits;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
+
+      entity->SetName("Main Menu Credits Button");
+
+      return entity;
+    }
+
+    EntityPtr MainMenuHowToPlay()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_HowToPlay;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
+
+      entity->SetName("Main Menu How To Play Button");
+
+      return entity;
+    }
+
+    EntityPtr MainMenuSettings()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Settings;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
+
+      entity->SetName("Main Menu Settings Button");
+
+      return entity;
+    }
+
+    EntityPtr PauseMenuResume()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::PM_Resume;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::PAUSE;
+
+      entity->SetName("Pause Menu Resume Button");
+
+      return entity;
+    }
+
+    EntityPtr PauseMenuQuit()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::PM_Quit;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::PAUSE;
+
+      entity->SetName("Pause Menu Quit Button");
+
+      return entity;
+    }
+
+    EntityPtr PauseMenuRestart()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::PM_Restart;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::PAUSE;
+
+      entity->SetName("Pause Menu Restart Button");
+
+      return entity;
+    }
+
+    EntityPtr PauseMenuOptions()
+    {
+      EntityPtr entity = GenericMenuObject();
+
+      entity->GET_COMPONENT(MenuObject)->_action = MenuAction::PM_Options;
+      entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::PAUSE;
+
+      entity->SetName("Pause Menu Options Button");
+
+      return entity;
+    }
+
     EntityPtr CircleGameObject()
     {
       EntityPtr entity(new Entity());

@@ -54,6 +54,8 @@ namespace AlJeEngine
 
     SpacePtr GetActiveSpace();
 
+    bool SpaceExists(std::string name);
+
     ArchetypeFactory& Factory();
 
     void SendMsg(EntityPtr, EntityPtr, Message::Message);

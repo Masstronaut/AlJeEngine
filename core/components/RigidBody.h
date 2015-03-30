@@ -24,6 +24,7 @@ namespace AlJeEngine
     bool gravity = true;
     bool isStatic = false;
     bool rotationLocked = true;
+    bool ghost = false;
   };
 
 
