@@ -226,7 +226,6 @@ namespace AlJeEngine
       // Clear out any existing objects in the space, except the camera.
       particleDemo->Clear();
 
-
     }
 
     void Test::FireBallDemo(float dt)

@@ -81,9 +81,9 @@ namespace AlJeEngine
       entity->GET_COMPONENT(RigidBody)->gravity  = false;
       entity->GET_COMPONENT(RigidBody)->ghost    = true;
 
-      entity->GET_COMPONENT(BoxCollider)->height = 10.f;
-      entity->GET_COMPONENT(BoxCollider)->width  = 20.f;
-      entity->GET_COMPONENT(Transform)->scale = { 20.f, 10.f };
+      entity->GET_COMPONENT(BoxCollider)->height = 20.f;
+      entity->GET_COMPONENT(BoxCollider)->width  = 40.f;
+      entity->GET_COMPONENT(Transform)->scale = { 40.f, 20.f };
 
       entity->SetName("Menu Object");
 

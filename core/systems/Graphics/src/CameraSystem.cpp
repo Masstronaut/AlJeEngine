@@ -48,13 +48,6 @@ namespace AlJeEngine
 
         //Orthographic projection for the camera, read more at
         //http://www.songho.ca/opengl/gl_projectionmatrix.html
-        /*camera->_ortho = glm::ortho(0.f, 
-                 static_cast<float>(windowDimensions.first), 
-                 static_cast<float>(windowDimensions.second),
-                                    0.f, 
-                                    camera->_nearPlane, 
-                                    camera->_farPlane);
-        */
         camera->_ortho = glm::ortho(transform->position.x - transform->scale.x * .5f,
                                     transform->position.x + transform->scale.x * .5f,
                                     transform->position.y - transform->scale.y * .5f, 

@@ -70,7 +70,7 @@ namespace AlJeEngine
     glm::vec2 WindowSDL::GetMousePosition(void)
     {
       glm::vec2 currentCameraPos = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Transform)->position;
-      glm::vec2 spaceMousePos = { _theMouse.position.x, _theMouse.position.y + (currentCameraPos.y / 5.f) };
+      glm::vec2 spaceMousePos = { _theMouse.position.x, _theMouse.position.y };
       return spaceMousePos;
     }
 
@@ -147,13 +147,14 @@ namespace AlJeEngine
         windowDimensions = GetWindowDimensions();
         CameraPtr camera = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Camera);
         glm::vec3 mousescreen(_event.motion.x, _event.motion.y, 1);
-        glm::mat4 invert;
-        invert[0][0] = 1;
-        invert[1][1] = -1;
-        invert[2][2] = 1;
-        invert[3][3] = 1;
+
+        // We have to do this in order to make the bottom left corner 0,0 instead of the top left. 
+        // By default the top left corner is 0,0, and increases along the y axis as you move down the window.
+        // This flips that so it will work correctly.
+        mousescreen.y = windowDimensions.second - mousescreen.y;
+
         glm::vec4 viewport(0, 0, windowDimensions.first, windowDimensions.second);
-        glm::vec3 mousepoint = glm::unProject(mousescreen, invert * camera->_viewMatrix, camera->_ortho, viewport);
+        glm::vec3 mousepoint = glm::unProject(mousescreen,  camera->_viewMatrix, camera->_ortho, viewport);
         _theMouse.position.x = mousepoint.x;
         _theMouse.position.y = mousepoint.y;
         //std::cout << "Mouse X: " << _theMouse.position.x << std::endl;

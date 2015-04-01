@@ -27,27 +27,18 @@ namespace AlJeEngine
       Quad GraphicsQuad[] =
       {
         //Position of quad             //UV coordiates of quad
-        glm::vec3(-1.0f,  1.0f, 0.0f), glm::vec2(0.0f, 1.0f),//indices 0
-        glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec2(0.0f, 0.0f),//indices 1
-        glm::vec3(1.0f, -1.0f,  0.0f), glm::vec2(1.0f, 0.0f),//indices 2
-        glm::vec3(1.0f,  1.0f,  0.0f), glm::vec2(1.0f, 1.0f) //indices 3    
+        glm::vec3(-0.5f,  .50f, 0.0f), glm::vec2(0.0f, 1.0f),//indices 0
+        glm::vec3(-0.5f, -.50f, 0.0f), glm::vec2(0.0f, 0.0f),//indices 1
+        glm::vec3(0.5f, -.50f,  0.0f), glm::vec2(1.0f, 0.0f),//indices 2
+        glm::vec3(0.5f,  .50f,  0.0f), glm::vec2(1.0f, 1.0f) //indices 3    
       };
-
-
-      //glm::vec3 circleVert[32] = {};
-      //for (int i = 0; i < 32; ++i)
-      //{
-      //  float theta = 2.0f * __PI__ * ((float)i / (float)32);
-      //  circleVert[i].x = cos(theta);
-      //  circleVert[i].y = sin(theta);
-      //}
 
       glm::vec3 circleMesh[30000];
       for (int i = 0; i < 30000; ++i)
       {
         float angle = 2.0f * 3.1415926535f * ((float)i / 30000.0f);
-        circleMesh[i].x = cos(angle);
-        circleMesh[i].y = sin(angle);
+        circleMesh[i].x = cos(angle) * .5f;
+        circleMesh[i].y = sin(angle) * .5f;
       }
       GLushort circleIndicies[30000];
       for (int i = 0; i < 30000; ++i)
