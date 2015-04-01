@@ -77,7 +77,8 @@ namespace AlJeEngine
             break;
           case(MenuAction::PM_Quit) :
             ENGINE->PopGamestate(); // pop the pause menu
-            ENGINE->PopGamestate(); // pop the game gamestate
+            ENGINE->SendMsg(nullptr, nullptr, Message::MV_PopGamestate);
+            //ENGINE->PopGamestate(); // pop the game gamestate
             break;
           case(MenuAction::PM_Restart) :
 

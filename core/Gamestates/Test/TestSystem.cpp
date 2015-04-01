@@ -440,6 +440,10 @@ namespace AlJeEngine
         ENGINE->PushGamestate(PauseMenuPtr(new PauseMenu()));
         break;
 
+      case(Message::MV_PopGamestate) :
+        ENGINE->PopGamestate();
+        break;
+
       default:
         break;
       }

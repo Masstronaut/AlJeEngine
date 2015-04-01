@@ -62,6 +62,11 @@ namespace AlJeEngine
       return _theMouse.Trigger;
     }
 
+    bool WindowSDL::GetMouseReleased(void)
+    {
+      return _theMouse.Released;
+    }
+
     glm::vec2 WindowSDL::GetMousePosition(void)
     {
       glm::vec2 currentCameraPos = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Transform)->position;
@@ -132,6 +137,7 @@ namespace AlJeEngine
 
     void WindowSDL::PollMouseEvent(SDL_Event &currentEvent)
     {
+
       switch (currentEvent.type)
       {
       case SDL_MOUSEMOTION:
@@ -150,30 +156,38 @@ namespace AlJeEngine
         glm::vec3 mousepoint = glm::unProject(mousescreen, invert * camera->_viewMatrix, camera->_ortho, viewport);
         _theMouse.position.x = mousepoint.x;
         _theMouse.position.y = mousepoint.y;
-        std::cout << "Mouse X: " << _theMouse.position.x << std::endl;
-        std::cout << "Mouse Y: " << _theMouse.position.y << std::endl;
+        //std::cout << "Mouse X: " << _theMouse.position.x << std::endl;
+        //std::cout << "Mouse Y: " << _theMouse.position.y << std::endl;
       }
         break;
+
       case SDL_MOUSEBUTTONDOWN:
         if (currentEvent.button.button == SDL_BUTTON_LEFT)
         {
           if (_theMouse.Pressed == false)
+          {
             _theMouse.Trigger = true;
-          else
-            _theMouse.Trigger = false;
-
+          }
           _theMouse.Released = false;
           _theMouse.Pressed = true;
         }
         break;
+
       case SDL_MOUSEBUTTONUP:
         if (currentEvent.button.button == SDL_BUTTON_LEFT)
         {
+          if (_theMouse.Pressed == true)
+          {
+            _theMouse.Released = true;
+          }
+          else
+            _theMouse.Released = false;
+
           _theMouse.Pressed = false;
-          _theMouse.Released = true;
           _theMouse.Trigger = false;
-        }       
+        }
         break;
+
       default:
         break;
       }
@@ -181,6 +195,9 @@ namespace AlJeEngine
 
     void WindowSDL::PollEvents(void)
     {
+      // We only get a single mouse down event, so we can reset triggered to false every frame.
+      _theMouse.Trigger = false;
+
       if(SDL_PollEvent(&_event))
       {
         PollWindowEvent(_event);

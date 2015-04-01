@@ -21,7 +21,6 @@ namespace AlJeEngine
       MV_AABBCircle   = 1 <<  1,
       MV_CircleCircle = 1 <<  2,
 
-
       // These message values are for game-related key press events.
       MV_Down         = 1 <<  3,
       MV_Up           = 1 <<  4,
@@ -36,6 +35,12 @@ namespace AlJeEngine
 
       // These message values are for control flow of the program.
       MV_BackButton   = 1 <<  9, // this could be esc or back on a controller.
+      MV_SelectButton = 1 << 10,
+      MV_PauseButton  = 1 << 11,
+
+      //These messages are for gamestate operations
+      MV_PopGamestate = 1 << 12,
+
 
     };
 

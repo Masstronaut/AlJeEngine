@@ -23,6 +23,7 @@ namespace AlJeEngine
       void Update(float dt); //Update every frame  
       void Shutdown(void); //called when system is deleted
       bool GetMouseTrigger(void);
+      bool GetMouseReleased();
       glm::vec2 GetMousePosition(void);
 	  int GetWindowHeight(void);
 	  int GetWindowWidth(void);

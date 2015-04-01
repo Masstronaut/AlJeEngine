@@ -77,6 +77,9 @@ namespace AlJeEngine
 
   void Engine::Update(float dt)
   {
+    // set the active space to be the one for the current gamestate.
+    // Doing this insures that the mouse will be in worldspace coordinates for that space.
+    SetActiveSpace(CurrentState()->GetLogicalSpace());
     // Update the window management system. It is responsible for the window and input.
     using Systems::WindowSDL;
     GETSYS(WindowSDL)->Update(dt);

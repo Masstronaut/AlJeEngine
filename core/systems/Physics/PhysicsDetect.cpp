@@ -1,4 +1,3 @@
-
 /**
 * @author Allan Deutsch
 * @version 0.5
@@ -236,7 +235,7 @@ namespace AlJeEngine
       glm::vec2 mousePos = GETSYS(WindowSDL)->GetMousePosition();
       bool mouseClicked = GETSYS(WindowSDL)->GetMouseTrigger();
 
-      for (auto obj : _entities)
+      for (auto obj : _entities) // equivalent to: for (auto obj = _entities.begin(); obj != _entities.end(); ++obj) auto obj = *obj;
       {
         EnumeratedComponent colliderType = obj->Collider();
         bool collision = false;
