@@ -104,6 +104,10 @@ namespace AlJeEngine
 
     void Test::Shutdown()
     {
+      if (ENGINE->SpaceExists("Particle Demo"))
+      {
+        ENGINE->GetSpace("Particle Demo")->Clear();
+      }
 
     }
 
@@ -265,7 +269,7 @@ namespace AlJeEngine
       timeAccumulator += dt;
       //if (timeAccumulator > 1.f / 60.f)
       {
-        FireBallSpawn(50);
+        FireBallSpawn(500);
         timeAccumulator -= 1.f / 60.f;
       }
 

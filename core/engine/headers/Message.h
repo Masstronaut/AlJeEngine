@@ -18,14 +18,14 @@ namespace AlJeEngine
     {
       // These message values are used to specify what type of collision has occurred.
       MV_AABBAABB     = 1,
-      MV_AABBCircle   = 1 <<  1,
-      MV_CircleCircle = 1 <<  2,
+      MV_AABBCircle   = 1 <<  1, // 2
+      MV_CircleCircle = 1 <<  2, // 4
 
       // These message values are for game-related key press events.
-      MV_Down         = 1 <<  3,
-      MV_Up           = 1 <<  4,
-      MV_Left         = 1 <<  5,
-      MV_Right        = 1 <<  6,
+      MV_Down         = 1 <<  3, // 8
+      MV_Up           = 1 <<  4, // 16
+      MV_Left         = 1 <<  5, // 32
+      MV_Right        = 1 <<  6, // 64
 
       // These message values are for when the mouse collides with an object.
       // NOTE: The second EntityPtr with these messages will always be null.
@@ -41,7 +41,7 @@ namespace AlJeEngine
       //These messages are for gamestate operations
       MV_PopGamestate = 1 << 12,
 
-
+      MV_ToggleFullScreen = 1 << 13,
     };
 
 

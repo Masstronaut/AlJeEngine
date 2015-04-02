@@ -24,10 +24,12 @@ namespace AlJeEngine
       void Shutdown(void); //called when system is deleted
       bool GetMouseTrigger(void);
       bool GetMouseReleased();
+      void ToggleFullScreen();
       glm::vec2 GetMousePosition(void);
-	  int GetWindowHeight(void);
-	  int GetWindowWidth(void);
-	  std::pair<int,int> GetWindowDimensions(void);
+      int GetWindowHeight(void);
+      int GetWindowWidth(void);
+      std::pair<int, int> GetWindowDimensions(void);
+      void SendMsg(EntityPtr, EntityPtr, Message::Message);
     private:
       struct SDLMouse
       {
@@ -45,8 +47,9 @@ namespace AlJeEngine
       SDL_Window* _window;    //The actual window data
       SDL_GLContext _context; //OpenGL context
       SDL_Event _event; //Events from the window
-	  int _width;         //Window width
-	  int _height;        //Window height
+      bool _fullScreen; // if the screen is fullscreen or not 
+      int _width;         //Window width
+      int _height;        //Window height
       SDLMouse _theMouse;
     };
 

@@ -30,20 +30,19 @@ namespace AlJeEngine
     }
     
 		//Default average camera values 
-	CameraView viewtype  = CV_ORTHOGRAPHIC;
-	float _fieldOfView   = 45.0f; 
-	float _nearPlane     = .01f;
-	float _farPlane      = 100.0f;
-
-	glm::vec3 _upVec   = {0.0f,1.0f,0.0f};
-	glm::vec3 _target  = { 0.0f,0.0f,0.0f };
+    CameraView viewtype  = CV_ORTHOGRAPHIC;
+    float _fieldOfView   = 45.0f; 
+    float _nearPlane     = .01f;
+    float _farPlane      = 100.0f;
+    
+    glm::vec3 _upVec   = {0.0f,1.0f,0.0f};
+    glm::vec3 _target  = { 0.0f,0.0f,0.0f };
 	
     friend class Systems::CameraSystem;
     friend class Systems::GLGraphics;
     friend class Systems::WindowSDL;
 
   private:
-	  //Note for me graphics programmer
 	  glm::mat4 _pespective;  
 	  glm::mat4 _ortho;       
 	  glm::mat4 _viewMatrix;   

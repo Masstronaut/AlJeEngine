@@ -19,13 +19,13 @@ namespace AlJeEngine
   namespace Systems
   {
 
-    WindowSDL::WindowSDL() : System(std::string("WindowSDLSystem"), ES_WindowSDL)
+    WindowSDL::WindowSDL() : System(std::string("WindowSDLSystem"), ES_WindowSDL),
+                             _fullScreen(false),
+                             _window(nullptr),
+                             _context(NULL),
+                             _width(screenWidth),
+                             _height(screenHeight)
     {
-
-      _window = nullptr;
-      _context = NULL;
-      _width = screenWidth;
-      _height = screenHeight;
     }
 
     void WindowSDL::Init()
@@ -81,12 +81,14 @@ namespace AlJeEngine
       case SDL_WINDOWEVENT:
         switch (currentEvent.window.event)
         {
+        case SDL_WINDOWEVENT_SIZE_CHANGED:
+          SDL_GetWindowSize(_window, &_width, &_height);
+                                                                                     //Aspect ratio
+          glViewport(0, 0, _width, static_cast<GLsizei>(_width / (static_cast<float>(_width) / _height)));
+          break;
         case SDL_WINDOWEVENT_CLOSE:
           break;
         case SDL_WINDOWEVENT_MOVED:
-          break;
-        case SDL_WINDOWEVENT_RESIZED:
-          SDL_GetWindowSize(_window, &_width, &_height);
           break;
         case SDL_WINDOWEVENT_FOCUS_GAINED:
           break;
@@ -127,6 +129,10 @@ namespace AlJeEngine
         if (currentEvent.key.keysym.sym == SDLK_RIGHT)
         {
           ENGINE->SendMsg(nullptr, nullptr, Message::MV_Right);
+        }
+        if (currentEvent.key.keysym.sym == SDLK_F11)
+        {
+          ENGINE->SendMsg(nullptr, nullptr, Message::MV_ToggleFullScreen);
         }
         break;
       case SDL_KEYUP:
@@ -237,6 +243,30 @@ namespace AlJeEngine
       SDL_GL_SwapWindow(_window);
     }
 
+    void WindowSDL::ToggleFullScreen()
+    {
+      if (_fullScreen)
+      {
+        SDL_SetWindowFullscreen(_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+      }
+      else
+      {
+        SDL_SetWindowFullscreen(_window, 0);
+      }
+
+      _fullScreen = !_fullScreen;   
+    }
+
+    void WindowSDL::SendMsg(EntityPtr, EntityPtr, Message::Message message)
+    {
+      switch (message)
+      {
+      case Message::MV_ToggleFullScreen:
+        ToggleFullScreen();
+        break;
+      }
+
+    }
 
   } // Systems
 } // AlJeEngine
