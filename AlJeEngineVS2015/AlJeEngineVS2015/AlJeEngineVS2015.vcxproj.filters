@@ -83,6 +83,9 @@
     <Filter Include="Gamestates\Menus\PauseMenu">
       <UniqueIdentifier>{b5ee8927-931a-4702-9241-5dcdd61abdea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\Menus">
+      <UniqueIdentifier>{cf8dc85f-1fd1-4d87-886f-f8a10563163e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -138,6 +141,9 @@
     </ClCompile>
     <ClCompile Include="..\..\core\Gamestates\Menus\PauseMenu.cpp">
       <Filter>Gamestates\Menus\PauseMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Menus\ButtonController.cpp">
+      <Filter>Systems\Menus</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +239,9 @@
     </ClInclude>
     <ClInclude Include="..\..\core\components\MenuObject.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Menus\ButtonController.h">
+      <Filter>Systems\Menus</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

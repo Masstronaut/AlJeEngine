@@ -85,6 +85,8 @@ namespace AlJeEngine
       entity->GET_COMPONENT(BoxCollider)->width  = 40.f;
       entity->GET_COMPONENT(Transform)->scale = { 40.f, 20.f };
 
+      entity->GET_COMPONENT(Sprite)->_color = entity->GET_COMPONENT(MenuObject)->_neutralColor;
+
       entity->SetName("Menu Object");
 
       return entity;
@@ -96,7 +98,9 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Exit;
       entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
-
+      entity->GET_COMPONENT(Sprite)->_color = { .5f, 0.f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_neutralColor = { .5f, 0.f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_hoverColor   = { 1.f, 0.f, 0.f, 1.f };
       entity->SetName("Main Menu Exit Button");
 
       return entity;
@@ -108,7 +112,11 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Start;
       entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
-
+      
+      entity->GET_COMPONENT(Sprite)->_color = { 0.f, .5f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_neutralColor = { 0.f, .5f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_hoverColor   = { 0.f, 1.f, 0.f, 1.f };
+      
       entity->SetName("Main Menu Start Button");
 
       return entity;
@@ -120,6 +128,7 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Credits;
       entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
+      //entity->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 0.f, 1.f };
 
       entity->SetName("Main Menu Credits Button");
 
@@ -132,7 +141,7 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_HowToPlay;
       entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
-
+      //entity->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 0.f, 1.f };
       entity->SetName("Main Menu How To Play Button");
 
       return entity;
@@ -144,6 +153,7 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(MenuObject)->_action = MenuAction::MM_Settings;
       entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::MAIN;
+      //entity->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 0.f, 1.f };
 
       entity->SetName("Main Menu Settings Button");
 
@@ -156,6 +166,9 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(MenuObject)->_action = MenuAction::PM_Resume;
       entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::PAUSE;
+      entity->GET_COMPONENT(Sprite)->_color = { 0.f, .5f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_neutralColor = { 0.f, .5f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_hoverColor   = { 0.f, 1.f, 0.f, 1.f };
 
       entity->SetName("Pause Menu Resume Button");
 
@@ -168,6 +181,9 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(MenuObject)->_action = MenuAction::PM_Quit;
       entity->GET_COMPONENT(MenuObject)->_menuType = MenuObject::PAUSE;
+      entity->GET_COMPONENT(Sprite)->_color = { .5f, 0.f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_neutralColor = { .5f, 0.f, 0.f, 1.f };
+      entity->GET_COMPONENT(MenuObject)->_hoverColor   = { 1.f, 0.f, 0.f, 1.f };
 
       entity->SetName("Pause Menu Quit Button");
 

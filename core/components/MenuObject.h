@@ -43,6 +43,12 @@ namespace AlJeEngine
 
     MenuAction::MenuAction _action;
 
+    glm::vec4 _neutralColor = { 0.2f, 0.2f, 0.2f, 1.0f };
+
+    glm::vec4 _hoverColor = { 0.5f, 0.5f, 0.5f, 1.0f };
+
+    bool _hovered = false;
+
 
   };
 

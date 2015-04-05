@@ -38,7 +38,7 @@ namespace AlJeEngine
     _systems.push_back(SystemPtr(new Systems::WindowSDL));
 
     _systems.push_back(SystemPtr(new Systems::PhysicsDetect));
-
+    _systems.push_back(SystemPtr(new Systems::ButtonController));
     _systems.push_back(SystemPtr(new Systems::CameraSystem));
     _systems.push_back(SystemPtr(new Systems::GLGraphics));
 

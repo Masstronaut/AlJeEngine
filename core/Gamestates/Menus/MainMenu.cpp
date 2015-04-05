@@ -45,6 +45,7 @@ namespace AlJeEngine
       createButtons();
 
       mainMenu->AddSystem(GETSYS(PhysicsDetect));
+      mainMenu->AddSystem(GETSYS(ButtonController));
       mainMenu->AddSystem(GETSYS(CameraSystem));
       mainMenu->AddSystem(GETSYS(GLGraphics));
     }
@@ -120,7 +121,6 @@ namespace AlJeEngine
 
       // Add a green start button
       EntityPtr start = ENGINE->Factory().create("Main Menu Start");
-      start->GET_COMPONENT(Sprite)->_color = { 0.f, 1.f, 0.f, 1.f };
       start->GET_COMPONENT(Transform)->position = { cameraSize.x * .2f, cameraSize.y * .2f };
 
       // add the button to the space
@@ -128,7 +128,6 @@ namespace AlJeEngine
 
       // Add a red exit button
       EntityPtr exit = ENGINE->Factory().create("Main Menu Exit");
-      exit->GET_COMPONENT(Sprite)->_color = { 1.f, 0.f, 0.f, 1.f };
       exit->GET_COMPONENT(Transform)->position = { -cameraSize.x * .2f, cameraSize.y * .2f };
 
       // add the button to the space
@@ -136,7 +135,6 @@ namespace AlJeEngine
 
       // Add a yellow credits button
       EntityPtr credits = ENGINE->Factory().create("Main Menu Credits");
-      credits->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 0.f, 1.f };
       credits->GET_COMPONENT(Transform)->position = { 0.f, - cameraSize.y * .2f };
 
       // add the button to the space
@@ -144,7 +142,6 @@ namespace AlJeEngine
 
       // Add a yellow how to play button
       EntityPtr howToPlay = ENGINE->Factory().create("Main Menu How To Play");
-      howToPlay->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 0.f, 1.f };
       howToPlay->GET_COMPONENT(Transform)->position = { cameraSize.x * .3f, -cameraSize.y * .2f };
 
       // add the button to the space
@@ -152,7 +149,6 @@ namespace AlJeEngine
 
       // Add a yellow settings button
       EntityPtr settings = ENGINE->Factory().create("Main Menu Settings");
-      settings->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 0.f, 1.f };
       settings->GET_COMPONENT(Transform)->position = { -cameraSize.x * .3f, -cameraSize.y * .2f };
 
       // add the button to the space

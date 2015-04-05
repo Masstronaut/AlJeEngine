@@ -205,7 +205,7 @@ namespace AlJeEngine
       // We only get a single mouse down event, so we can reset triggered to false every frame.
       _theMouse.Trigger = false;
 
-      if(SDL_PollEvent(&_event))
+      while(SDL_PollEvent(&_event))
       {
         PollWindowEvent(_event);
         PollKeyEvent(_event);

@@ -42,6 +42,7 @@ namespace AlJeEngine
 
 
       pauseMenu->AddSystem(GETSYS(PhysicsDetect));
+      pauseMenu->AddSystem(GETSYS(ButtonController));
       pauseMenu->AddSystem(GETSYS(CameraSystem));
       pauseMenu->AddSystem(GETSYS(GLGraphics));
 
@@ -118,7 +119,6 @@ namespace AlJeEngine
 
       // Add a green start button
       EntityPtr start = ENGINE->Factory().create("Pause Menu Resume");
-      start->GET_COMPONENT(Sprite)->_color = { 0.f, 1.f, 0.f, 1.f };
       start->GET_COMPONENT(Transform)->position = { cameraSize.x * .2f, cameraSize.y * .2f };
 
       // add the button to the space
@@ -126,7 +126,6 @@ namespace AlJeEngine
 
       // Add a red exit button
       EntityPtr exit = ENGINE->Factory().create("Pause Menu Quit");
-      exit->GET_COMPONENT(Sprite)->_color = { 1.f, 0.f, 0.f, 1.f };
       exit->GET_COMPONENT(Transform)->position = { -cameraSize.x * .2f, cameraSize.y * .2f };
 
       // add the button to the space
