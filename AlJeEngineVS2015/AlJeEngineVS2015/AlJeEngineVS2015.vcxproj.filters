@@ -86,6 +86,21 @@
     <Filter Include="Systems\Menus">
       <UniqueIdentifier>{cf8dc85f-1fd1-4d87-886f-f8a10563163e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\Gameplay">
+      <UniqueIdentifier>{1033af5e-7f63-41e5-854e-9e8be3143a61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gamestates\Asteroids">
+      <UniqueIdentifier>{134f08fb-4e56-4ad4-b8a7-36fc9579e312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Gameplay">
+      <UniqueIdentifier>{45ea2859-ff4f-4c96-9243-f8f3a93bd958}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Graphics">
+      <UniqueIdentifier>{aa5f61f7-1734-4504-8360-6f4e817cd7bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Physics">
+      <UniqueIdentifier>{257edb1d-598a-44b5-bd9b-869a831efe03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -145,6 +160,12 @@
     <ClCompile Include="..\..\core\systems\Menus\ButtonController.cpp">
       <Filter>Systems\Menus</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\Gamestates\Asteroids\Asteroids.cpp">
+      <Filter>Gamestates\Asteroids</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\math\RNG.cpp">
+      <Filter>Libraries\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
@@ -159,13 +180,7 @@
     <ClInclude Include="..\..\core\engine\headers\Engine.h">
       <Filter>Core\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\components\Collider.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\core\components\Components.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\components\Sprite.h">
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\components\Transform.h">
@@ -173,9 +188,6 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Space.h">
       <Filter>Core\Space</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\components\Camera.h">
-      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\ArchetypeFactory.h">
       <Filter>Core\ArchetypeFactory</Filter>
@@ -206,9 +218,6 @@
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Physics\PhysicsDetect.h">
       <Filter>Systems\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\components\RigidBody.h">
-      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Message.h">
       <Filter>Core\Message</Filter>
@@ -242,6 +251,33 @@
     </ClInclude>
     <ClInclude Include="..\..\core\systems\Menus\ButtonController.h">
       <Filter>Systems\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\Gamestates\Asteroids\Asteroids.h">
+      <Filter>Gamestates\Asteroids</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Bullet.h">
+      <Filter>Components\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Weapon.h">
+      <Filter>Components\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Health.h">
+      <Filter>Components\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Camera.h">
+      <Filter>Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Sprite.h">
+      <Filter>Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Collider.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\RigidBody.h">
+      <Filter>Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Score.h">
+      <Filter>Components\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

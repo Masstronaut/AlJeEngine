@@ -1,5 +1,3 @@
-
-
 /**
 * @author Allan Deutsch
 * @version 0.5
@@ -15,3 +13,10 @@
 #include "RigidBody.h"
 #include "Particle.h"
 #include "MenuObject.h"
+#include "Bullet.h"
+#include "Parent.h"
+#include "Weapon.h"
+#include "Health.h"
+#include "Score.h"
+
+

@@ -164,6 +164,7 @@
     <ClCompile Include="..\..\core\engine\src\Space.cpp" />
     <ClCompile Include="..\..\core\engine\src\System.cpp" />
     <ClCompile Include="..\..\core\engine\src\WindowSDL.cpp" />
+    <ClCompile Include="..\..\core\Gamestates\Asteroids\Asteroids.cpp" />
     <ClCompile Include="..\..\core\Gamestates\Menus\MainMenu.cpp" />
     <ClCompile Include="..\..\core\Gamestates\Menus\PauseMenu.cpp" />
     <ClCompile Include="..\..\core\Gamestates\Test\TestSystem.cpp" />
@@ -174,16 +175,21 @@
     <ClCompile Include="..\..\core\systems\Graphics\src\mesh.cpp" />
     <ClCompile Include="..\..\core\systems\Menus\ButtonController.cpp" />
     <ClCompile Include="..\..\core\systems\Physics\PhysicsDetect.cpp" />
+    <ClCompile Include="..\..\lib\math\RNG.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\core\components\Bullet.h" />
     <ClInclude Include="..\..\core\components\Camera.h" />
     <ClInclude Include="..\..\core\components\Collider.h" />
     <ClInclude Include="..\..\core\components\Components.h" />
+    <ClInclude Include="..\..\core\components\Health.h" />
     <ClInclude Include="..\..\core\components\MenuObject.h" />
     <ClInclude Include="..\..\core\components\Particle.h" />
     <ClInclude Include="..\..\core\components\RigidBody.h" />
+    <ClInclude Include="..\..\core\components\Score.h" />
     <ClInclude Include="..\..\core\components\Sprite.h" />
     <ClInclude Include="..\..\core\components\Transform.h" />
+    <ClInclude Include="..\..\core\components\Weapon.h" />
     <ClInclude Include="..\..\core\engine\headers\ArchetypeFactory.h" />
     <ClInclude Include="..\..\core\engine\headers\Archetypes.h" />
     <ClInclude Include="..\..\core\engine\headers\Component.h" />
@@ -194,6 +200,7 @@
     <ClInclude Include="..\..\core\engine\headers\Space.h" />
     <ClInclude Include="..\..\core\engine\headers\System.h" />
     <ClInclude Include="..\..\core\engine\headers\WindowSDL.h" />
+    <ClInclude Include="..\..\core\Gamestates\Asteroids\Asteroids.h" />
     <ClInclude Include="..\..\core\Gamestates\GamestatesInclude.h" />
     <ClInclude Include="..\..\core\Gamestates\Menus\MainMenu.h" />
     <ClInclude Include="..\..\core\Gamestates\Menus\PauseMenu.h" />

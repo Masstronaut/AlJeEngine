@@ -31,16 +31,24 @@ namespace AlJeEngine
 
     EntityPtr GenericMenuObject();
 
+    /*     Menu Objects      */
+    // Main menu
     EntityPtr MainMenuExit();
     EntityPtr MainMenuStart();
     EntityPtr MainMenuCredits();
     EntityPtr MainMenuHowToPlay();
     EntityPtr MainMenuSettings();
 
+    // Pause menu
     EntityPtr PauseMenuResume();
     EntityPtr PauseMenuQuit();
     EntityPtr PauseMenuRestart();
     EntityPtr PauseMenuOptions();
+
+    /*     Gameplay Objects    */
+    EntityPtr PlayerBullet();
+    EntityPtr Player();
+    EntityPtr Asteroid();
 
   } // Archetypes
 

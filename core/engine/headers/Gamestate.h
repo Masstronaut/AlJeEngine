@@ -20,6 +20,7 @@ namespace AlJeEngine
     GS_MainMenu,
     GS_PauseMenu,
     GS_TestDemo,
+    GS_Asteroids,
   };
 
   class Gamestate : public System

@@ -9,4 +9,5 @@
 #include "Test/TestSystem.h"
 #include "Menus/MainMenu.h"
 #include "Menus/PauseMenu.h"
+#include "Asteroids/Asteroids.h"
 

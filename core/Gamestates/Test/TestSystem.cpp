@@ -224,11 +224,12 @@ namespace AlJeEngine
       // Create the space for the demo to run in.
       SpacePtr particleDemo = ENGINE->CreateSpace("Particle Demo");
 
+      // Clear out any existing objects in the space, except the camera.
+      particleDemo->Clear();
+
       // Specify which systems should be updated for this demo.
       particleDemo->AddSystem(GETSYS(CameraSystem));
       particleDemo->AddSystem(GETSYS(GLGraphics));
-      // Clear out any existing objects in the space, except the camera.
-      particleDemo->Clear();
 
     }
 

@@ -8,25 +8,28 @@
 
 #pragma once
 #include <memory>
-#include "../../engine/headers/Engine.h"
+#include "../../engine/headers/Gamestate.h"
 #include "../../engine/headers/System.h"
 #include "../../components/Components.h"
-#include "../SystemsInclude.h"
-
 namespace AlJeEngine
 {
-  namespace Systems
+  namespace Gamestates
   {
 
-    class ButtonController : public System
+    class Asteroids : public Gamestate
     {
     public:
-      ButtonController() : System(std::string("Button Controller System"), ES_ButtonController) {/* the engine calls init manually, which should take the place of most of the constructor. */ }
+      Asteroids() : Gamestate("Asteroids Gamestate", GS_Asteroids) 
+      {
+        /* the engine calls init manually, 
+        which should typically take the place of most of the constructor. */
+      }
 
+      ~Asteroids() {}
       void Init();
 
       void Update(float);
-
+      
       void Shutdown();
 
       void SendMsg(EntityPtr, EntityPtr, Message::Message);
@@ -35,7 +38,7 @@ namespace AlJeEngine
 
     };
 
-    typedef std::shared_ptr<ButtonController> ButtonControllerPtr;
+    typedef std::shared_ptr<Asteroids> AsteroidsPtr;
 
   }; // Systems
 

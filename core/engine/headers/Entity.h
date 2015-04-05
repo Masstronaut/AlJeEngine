@@ -13,7 +13,6 @@
 #include <vector> // the best data structure ever
 #include <string>
 #include "Component.h"
-#include "../../components/Components.h"
 
 namespace AlJeEngine
 {

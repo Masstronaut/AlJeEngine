@@ -12,7 +12,8 @@
 #include <GL/glew.h> //Lots of opengl functions
 #include <unordered_map> //unordered_map
 #include "GLShader.h"
-
+#include "../../../engine/headers/Entity.h"
+#include "../../../components/Camera.h"
 
 namespace AlJeEngine
 {

@@ -32,6 +32,7 @@ namespace AlJeEngine
     void Update(float dt);
 
     void AddSystem(SystemPtr);
+    void RemoveSystem(std::string);
 
     EntityPtr CreateEntity();
 
@@ -49,7 +50,7 @@ namespace AlJeEngine
 
     void RemoveEntity(EntityPtr);
     void AddEntity(EntityPtr);
-    // Removes all Entities from the space.
+    // Removes all Entities and systems from the space.
     void Clear();
 
     // Allows read-only access to the Space's name.

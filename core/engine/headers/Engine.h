@@ -1,4 +1,3 @@
-
 /**
  * @author Allan Deutsch
  * @version 0.5

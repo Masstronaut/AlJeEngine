@@ -36,6 +36,11 @@ namespace AlJeEngine
     addArchetype("Pause Menu Restart",     PauseMenuRestart);
     addArchetype("Pause Menu Options",     PauseMenuOptions);
 
+    // Asteroids gameplay archetypes
+    addArchetype("Player",                 Player);
+    addArchetype("Player Bullet",          PlayerBullet);
+    addArchetype("Asteroid",               Asteroid);
+
   }
 
   void ArchetypeFactory::addArchetype(std::string archetype, CreateArchetypeFn creator)

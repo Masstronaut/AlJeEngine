@@ -26,7 +26,12 @@ namespace AlJeEngine
     EC_Transform      =  7,
     EC_Particle       =  8,
     EC_MenuObject     =  9,
-    
+    EC_Bullet         = 10,
+    EC_Parent         = 11,
+    EC_Weapon         = 12,
+    EC_Health         = 13,
+    EC_Score          = 14,
+
     // This will correspond to the maximum number of components that exist.
     EC_Max,
 
@@ -44,6 +49,11 @@ namespace AlJeEngine
     MC_Camera          =  1 <<  7,
     MC_Particle        =  1 <<  8,
     MC_MenuObject      =  1 <<  9,
+    MC_Bullet          =  1 << 10,
+    MC_Parent          =  1 << 11,
+    MC_Weapon          =  1 << 12,
+    MC_Health          =  1 << 13,
+    MC_Score           =  1 << 14,
 
     // This is used when a system doesn't wish to recieve any objects.
     MC_NOOBJECTS       = -1,

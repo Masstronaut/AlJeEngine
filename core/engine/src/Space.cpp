@@ -128,6 +128,9 @@ namespace AlJeEngine
 
     // This re-adds the camera to the space so it isn't lost.
     _entities.push_back(camera);
+
+    // Remove all the systems from the space.
+    _systems.clear();
   }
 
 
