@@ -168,6 +168,7 @@
     <ClCompile Include="..\..\core\Gamestates\Menus\MainMenu.cpp" />
     <ClCompile Include="..\..\core\Gamestates\Menus\PauseMenu.cpp" />
     <ClCompile Include="..\..\core\Gamestates\Test\TestSystem.cpp" />
+    <ClCompile Include="..\..\core\systems\Gameplay\BulletController.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\CameraSystem.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\GLGraphics.cpp" />
     <ClCompile Include="..\..\core\systems\Graphics\src\GLShader.cpp" />
@@ -181,9 +182,11 @@
     <ClInclude Include="..\..\core\components\Bullet.h" />
     <ClInclude Include="..\..\core\components\Camera.h" />
     <ClInclude Include="..\..\core\components\Collider.h" />
-    <ClInclude Include="..\..\core\components\Components.h" />
+    <ClInclude Include="..\..\core\components\ComponentsInclude.h" />
     <ClInclude Include="..\..\core\components\Health.h" />
+    <ClInclude Include="..\..\core\components\Lifetime.h" />
     <ClInclude Include="..\..\core\components\MenuObject.h" />
+    <ClInclude Include="..\..\core\components\Parent.h" />
     <ClInclude Include="..\..\core\components\Particle.h" />
     <ClInclude Include="..\..\core\components\RigidBody.h" />
     <ClInclude Include="..\..\core\components\Score.h" />
@@ -205,6 +208,7 @@
     <ClInclude Include="..\..\core\Gamestates\Menus\MainMenu.h" />
     <ClInclude Include="..\..\core\Gamestates\Menus\PauseMenu.h" />
     <ClInclude Include="..\..\core\Gamestates\Test\TestSystem.h" />
+    <ClInclude Include="..\..\core\systems\Gameplay\BulletController.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\CameraSystem.h" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLGraphics.hpp" />
     <ClInclude Include="..\..\core\systems\Graphics\headers\GLShader.h" />

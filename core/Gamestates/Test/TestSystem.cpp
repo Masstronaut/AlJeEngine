@@ -8,7 +8,7 @@
 
 #include "TestSystem.h"
 #include "../../engine/headers/Engine.h"
-#include "../../components/Components.h"
+#include "../../components/ComponentsInclude.h"
 #include "../../systems/SystemsInclude.h"
 #include <math.h> // sin and cos
 #include <sstream>

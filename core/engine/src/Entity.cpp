@@ -9,7 +9,7 @@
 #include <cassert>
 #include <memory>
 #include "../headers/Entity.h"
-#include "../../components/Components.h"
+#include "../../components/ComponentsInclude.h"
 
 namespace AlJeEngine
 {

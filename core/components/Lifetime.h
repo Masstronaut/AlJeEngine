@@ -1,3 +1,5 @@
+
+
 /**
 * @author Allan Deutsch
 * @version 0.5
@@ -11,18 +13,16 @@
 
 namespace AlJeEngine
 {
-  class Score : public Component
+  class Lifetime : public Component
   {
   public:
-    Score() : Component(EC_Score, MC_Score)
+    Lifetime() : Component(EC_Lifetime, MC_Lifetime)
                   {
                   }
 
-    float currentScore = 0.f;
-
-    float killScore = 10.f;
+    float lifetime = 1.f;
   };
 
-  typedef std::shared_ptr<Score> ScorePtr;
+  typedef std::shared_ptr<Lifetime> LifetimePtr;
 
 }; // namespace AlJe

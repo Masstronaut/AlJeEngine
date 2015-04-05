@@ -223,11 +223,13 @@ namespace AlJeEngine
           entity->AddComponent(ComponentPtr(new Sprite()));
           entity->AddComponent(ComponentPtr(new Bullet()));
           entity->AddComponent(ComponentPtr(new Parent()));
+          entity->AddComponent(ComponentPtr(new Lifetime()));
           
           entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
           entity->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 1.f, 1.f };
           entity->GET_COMPONENT(RigidBody)->gravity = false;
 
+          entity->SetName("Bullet");
           return entity;
         }
 
@@ -250,6 +252,8 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(RigidBody)->gravity = false;
 
+      entity->SetName("Player");
+
       return entity;
     }
 
@@ -264,7 +268,7 @@ namespace AlJeEngine
       entity->AddComponent(ComponentPtr(new Score()));
 
       entity->GET_COMPONENT(RigidBody)->gravity = false;
-      entity->GET_COMPONENT(Score)->score = 10.f;
+      entity->GET_COMPONENT(Score)->killScore = 10.f;
 
       entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
       entity->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 1.f, 1.f };
@@ -272,6 +276,7 @@ namespace AlJeEngine
       entity->GET_COMPONENT(Transform)->scale = { 2.f, 2.f };
       entity->GET_COMPONENT(CircleCollider)->radius = 2.f;
 
+      entity->SetName("Asteroid");
       return entity;
     }
 

@@ -1,4 +1,3 @@
-
 /**
 * @author Allan Deutsch
 * @version 0.5
@@ -18,10 +17,10 @@ namespace AlJeEngine
   namespace Systems
   {
 
-    class ButtonController : public System
+    class BulletController : public System
     {
     public:
-      ButtonController() : System(std::string("Button Controller System"), ES_ButtonController) {/* the engine calls init manually, which should take the place of most of the constructor. */ }
+      BulletController() : System(std::string("Bullet Controller System"), ES_BulletController) {/* the engine calls init manually, which should take the place of most of the constructor. */ }
 
       void Init();
 
@@ -33,9 +32,11 @@ namespace AlJeEngine
 
     private:
 
+      void resolveBulletHit(EntityPtr, EntityPtr);
+
     };
 
-    typedef std::shared_ptr<ButtonController> ButtonControllerPtr;
+    typedef std::shared_ptr<BulletController> BulletControllerPtr;
 
   }; // Systems
 

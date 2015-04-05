@@ -166,6 +166,9 @@
     <ClCompile Include="..\..\lib\math\RNG.cpp">
       <Filter>Libraries\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\core\systems\Gameplay\BulletController.cpp">
+      <Filter>Systems\Gameplay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\core\engine\headers\Component.h">
@@ -179,9 +182,6 @@
     </ClInclude>
     <ClInclude Include="..\..\core\engine\headers\Engine.h">
       <Filter>Core\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\core\components\Components.h">
-      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\components\Transform.h">
       <Filter>Components</Filter>
@@ -277,6 +277,18 @@
       <Filter>Components\Physics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\core\components\Score.h">
+      <Filter>Components\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Gameplay\BulletController.h">
+      <Filter>Systems\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Lifetime.h">
+      <Filter>Components\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\ComponentsInclude.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\components\Parent.h">
       <Filter>Components\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>

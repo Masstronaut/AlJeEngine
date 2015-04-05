@@ -7,7 +7,7 @@
 
 #pragma once
 #include "Entity.h"
-#include "../../components/Components.h"
+#include "../../components/ComponentsInclude.h"
 
 
 namespace AlJeEngine

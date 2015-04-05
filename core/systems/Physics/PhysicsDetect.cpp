@@ -6,7 +6,7 @@
 */
 
 #include "../../engine/headers/Engine.h"
-#include "../../components/Components.h"
+#include "../../components/ComponentsInclude.h"
 #include "../SystemsInclude.h"
 #include <math.h> // sin and cos
 namespace AlJeEngine

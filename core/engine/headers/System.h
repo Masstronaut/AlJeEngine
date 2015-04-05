@@ -25,6 +25,10 @@ namespace AlJeEngine
     ES_CameraSystem,
     ES_PhysicsDetect,
     ES_ButtonController,
+    
+
+    //Gameplay systems
+    ES_BulletController,
 
     ES_Gamestate,
     // this should always be last

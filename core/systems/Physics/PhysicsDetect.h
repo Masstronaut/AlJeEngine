@@ -10,7 +10,7 @@
 #include <memory>
 #include "../../engine/headers/Engine.h"
 #include "../../engine/headers/System.h"
-#include "../../components/Components.h"
+#include "../../components/ComponentsInclude.h"
 #include "../SystemsInclude.h"
 
 namespace AlJeEngine

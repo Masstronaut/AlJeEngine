@@ -10,7 +10,7 @@
 #include <memory>
 #include "../../engine/headers/Gamestate.h"
 #include "../../engine/headers/System.h"
-#include "../../components/Components.h"
+#include "../../components/ComponentsInclude.h"
 namespace AlJeEngine
 {
   namespace Gamestates

@@ -8,7 +8,7 @@
 
 #include "Asteroids.h"
 #include "../../engine/headers/Engine.h"
-#include "../../components/Components.h"
+#include "../../components/ComponentsInclude.h"
 #include "../../systems/SystemsInclude.h"
 #include <math.h> // sin and cos
 #include <sstream>
@@ -38,13 +38,15 @@ namespace AlJeEngine
       // clear out any pre-existing entities and systems from the space.
       gameworld->Clear();
 
+      gameworld->AddSystem(GETSYS(BulletController));
+
       gameworld->AddSystem(GETSYS(CameraSystem));
       gameworld->AddSystem(GETSYS(GLGraphics));
 
       // Register for drawable objects
-      RegisterComponent(MC_Transform);
-      RegisterComponent(MC_Sprite);
-      RegisterComponent(MC_Particle);
+      RegisterComponent(MC_NOOBJECTS);
+
+      gameworld->AddEntity(ENGINE->Factory().create("Player"));
   
     }
 

@@ -42,6 +42,11 @@ namespace AlJeEngine
       MV_PopGamestate = 1 << 12,
 
       MV_ToggleFullScreen = 1 << 13,
+
+      // This is a gameplay related message. It is sent when a game object is destroyed.
+      // The first entity is the object that was killed.
+      // The second entity is the object that killed it and caused the death, if one exists.
+      MV_ObjectKilled = 1 << 14,
     };
 
 

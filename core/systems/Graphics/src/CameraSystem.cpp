@@ -4,7 +4,7 @@
 * @copyright Copyright (C) Allan Deutsch & Jeff Uong. All rights reserved.
 *
 */
-#include "../../../components/Components.h"
+#include "../../../components/ComponentsInclude.h"
 #include "../../SystemsInclude.h"
 #include "../../../engine/headers/Engine.h"
 #include "../../../lib/math/glm/gtc/matrix_transform.hpp" //scale, rot, trans, projection

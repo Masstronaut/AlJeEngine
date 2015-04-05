@@ -23,7 +23,7 @@ namespace AlJeEngine
                   {
                   }
 
-    std::shared_ptr<Entity> _parent = nullptr;
+    std::shared_ptr<Entity> parent = nullptr;
   };
 
   typedef std::shared_ptr<Parent> ParentPtr;

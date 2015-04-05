@@ -31,6 +31,7 @@ namespace AlJeEngine
     EC_Weapon         = 12,
     EC_Health         = 13,
     EC_Score          = 14,
+    EC_Lifetime       = 15,
 
     // This will correspond to the maximum number of components that exist.
     EC_Max,
@@ -54,6 +55,7 @@ namespace AlJeEngine
     MC_Weapon          =  1 << 12,
     MC_Health          =  1 << 13,
     MC_Score           =  1 << 14,
+    MC_Lifetime        =  1 << 15,
 
     // This is used when a system doesn't wish to recieve any objects.
     MC_NOOBJECTS       = -1,
