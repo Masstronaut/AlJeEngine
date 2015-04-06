@@ -20,10 +20,13 @@ namespace AlJeEngine
 
     float rateOfFire = .5f;
     float shotCooldownRemaining = 0.f;
+    float projectileSpeed = 10.f;
+    float projectileLifetime = 1.f;
 
     unsigned shots = 0;
     unsigned hits = 0;
     unsigned misses = 0;
+
   };
 
   typedef std::shared_ptr<Weapon> WeaponPtr;

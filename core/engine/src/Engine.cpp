@@ -37,7 +37,9 @@ namespace AlJeEngine
     // Add systems to the engine here. They will be initialized later in this function.
     _systems.push_back(SystemPtr(new Systems::WindowSDL));
 
+    _systems.push_back(SystemPtr(new Systems::WeaponController));
     _systems.push_back(SystemPtr(new Systems::BulletController));
+    _systems.push_back(SystemPtr(new Systems::Movement));
     _systems.push_back(SystemPtr(new Systems::PhysicsDetect));
     _systems.push_back(SystemPtr(new Systems::ButtonController));
     _systems.push_back(SystemPtr(new Systems::CameraSystem));
@@ -218,8 +220,10 @@ namespace AlJeEngine
 
   void Engine::SendMsg(EntityPtr e1, EntityPtr e2, Message::Message message)
   {
+    
     for (auto &it : _systems)
     {
+      
       it->SendMsg(e1, e2, message);
     }
 

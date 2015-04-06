@@ -80,7 +80,8 @@ namespace AlJeEngine
             ENGINE->Stop();
             break;
           case(MenuAction::MM_Credits) :
-
+            // This is not actually a credits screen
+            ENGINE->PushGamestate(AsteroidsPtr(new Asteroids()));
             break;
           case(MenuAction::MM_HowToPlay) :
 

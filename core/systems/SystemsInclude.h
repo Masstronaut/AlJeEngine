@@ -5,9 +5,20 @@
 *
 */
 
-#include "Graphics/headers/GLGraphics.hpp"
+// Window handling system
 #include "../engine/headers/WindowSDL.h"
+
+// Graphics systems
+#include "Graphics/headers/GLGraphics.hpp"
 #include "Graphics/headers/CameraSystem.h"
-#include "Physics/PhysicsDetect.h"
+
+// Menu systems
 #include "Menus/ButtonController.h"
+
+// Physics systems
+#include "Physics/PhysicsDetect.h"
+#include "Physics/Movement.h"
+
+// Gameplay systems
 #include "Gameplay/BulletController.h"
+#include "Gameplay/WeaponController.h"

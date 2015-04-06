@@ -17,36 +17,37 @@ namespace AlJeEngine
     enum MessageValues
     {
       // These message values are used to specify what type of collision has occurred.
-      MV_AABBAABB     = 1,
-      MV_AABBCircle   = 1 <<  1, // 2
-      MV_CircleCircle = 1 <<  2, // 4
+      MV_AABBAABB,
+      MV_AABBCircle,
+      MV_CircleCircle,
 
       // These message values are for game-related key press events.
-      MV_Down         = 1 <<  3, // 8
-      MV_Up           = 1 <<  4, // 16
-      MV_Left         = 1 <<  5, // 32
-      MV_Right        = 1 <<  6, // 64
+      MV_Down,
+      MV_Up,
+      MV_Left,
+      MV_Right,
+      MV_Space,
 
       // These message values are for when the mouse collides with an object.
       // NOTE: The second EntityPtr with these messages will always be null.
       // The first EntityPtr will be the collided object.
-      MV_MouseHover   = 1 <<  7,
-      MV_MouseClick   = 1 <<  8,
+      MV_MouseHover,
+      MV_MouseClick,
 
       // These message values are for control flow of the program.
-      MV_BackButton   = 1 <<  9, // this could be esc or back on a controller.
-      MV_SelectButton = 1 << 10,
-      MV_PauseButton  = 1 << 11,
+      MV_BackButton, // this could be esc or back on a controller.
+      MV_SelectButton,
+      MV_PauseButton,
 
       //These messages are for gamestate operations
-      MV_PopGamestate = 1 << 12,
+      MV_PopGamestate,
 
-      MV_ToggleFullScreen = 1 << 13,
+      MV_ToggleFullScreen,
 
       // This is a gameplay related message. It is sent when a game object is destroyed.
       // The first entity is the object that was killed.
       // The second entity is the object that killed it and caused the death, if one exists.
-      MV_ObjectKilled = 1 << 14,
+      MV_ObjectKilled,
     };
 
 

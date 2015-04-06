@@ -27,6 +27,8 @@ namespace AlJeEngine
     // The transformation data of the object.
     glm::vec2 position;
     glm::vec2 scale;
+
+    // This is in degrees. If you need Radians multiply by (PI/180.f)
     float rotation;
 
     // The matrix that transforms object vertices from object space to world space.

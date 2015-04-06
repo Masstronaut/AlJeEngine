@@ -38,7 +38,7 @@ namespace AlJeEngine
 
     // Asteroids gameplay archetypes
     addArchetype("Player",                 Player);
-    addArchetype("Player Bullet",          PlayerBullet);
+    addArchetype("Bullet",                 PlayerBullet);
     addArchetype("Asteroid",               Asteroid);
 
   }

@@ -111,29 +111,26 @@ namespace AlJeEngine
       case SDL_KEYDOWN:
         //If the key that is down is the escape key
         if (currentEvent.key.keysym.sym == SDLK_ESCAPE)
-        {
           ENGINE->SendMsg(nullptr, nullptr, Message::MV_BackButton);
-        }
+        
         if (currentEvent.key.keysym.sym == SDLK_DOWN)
-        {
           ENGINE->SendMsg(nullptr, nullptr, Message::MV_Down);
-        }
+        
         if (currentEvent.key.keysym.sym == SDLK_UP)
-        {
           ENGINE->SendMsg(nullptr, nullptr, Message::MV_Up);
-        }
+        
         if (currentEvent.key.keysym.sym == SDLK_LEFT)
-        {
           ENGINE->SendMsg(nullptr, nullptr, Message::MV_Left);
-        }
+        
         if (currentEvent.key.keysym.sym == SDLK_RIGHT)
-        {
           ENGINE->SendMsg(nullptr, nullptr, Message::MV_Right);
-        }
+        
         if (currentEvent.key.keysym.sym == SDLK_F11)
-        {
           ENGINE->SendMsg(nullptr, nullptr, Message::MV_ToggleFullScreen);
-        }
+        
+        if (currentEvent.key.keysym.sym == SDLK_SPACE)
+          ENGINE->SendMsg(nullptr, nullptr, Message::MV_Space);
+
         break;
       case SDL_KEYUP:
         break;

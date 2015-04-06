@@ -20,7 +20,6 @@ namespace AlJeEngine
     void PhysicsDetect::Init()
     {
       RegisterComponent(MC_Transform);
-      RegisterComponent(MC_BoxCollider);
       RegisterComponent(MC_RigidBody);
     }
 
@@ -176,7 +175,7 @@ namespace AlJeEngine
       float radii = e1radius * e1radius + e2radius * e2radius;
       float distance = glm::distance(e1Pos, e2Pos);
 
-      if (radii >= distance)
+      if (radii >= distance * distance)
       {
         ENGINE->SendMsg(e1, e2, Message::MV_CircleCircle);
         return 1;

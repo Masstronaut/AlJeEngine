@@ -36,6 +36,10 @@ namespace AlJeEngine
 
     private:
 
+      float asteroidSpawnTimer = 0.f;
+      float asteroidSpawnRate = 5.f;
+
+      void SpawnAsteroid();
     };
 
     typedef std::shared_ptr<Asteroids> AsteroidsPtr;

@@ -18,17 +18,25 @@ namespace AlJeEngine
 #pragma region metadataEnums 
   enum EnumeratedSystem
   {
-    ES_Test,
+    // Window handler
     ES_WindowSDL,
+
+    // Graphics systems
     ES_GLGraphics,
-    ES_Render,
     ES_CameraSystem,
+
+    // Physics systems
     ES_PhysicsDetect,
+    ES_Movement,
+
+    // Menu systems
     ES_ButtonController,
     
 
     //Gameplay systems
     ES_BulletController,
+    ES_WeaponController,
+
 
     ES_Gamestate,
     // this should always be last

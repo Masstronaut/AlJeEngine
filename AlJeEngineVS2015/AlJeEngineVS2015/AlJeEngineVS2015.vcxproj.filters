@@ -101,6 +101,18 @@
     <Filter Include="Components\Physics">
       <UniqueIdentifier>{257edb1d-598a-44b5-bd9b-869a831efe03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\Gameplay\BulletController">
+      <UniqueIdentifier>{c1c48d5c-4503-4f8a-b2cf-6d56993df7c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Gameplay\WeaponController">
+      <UniqueIdentifier>{297daf0a-d483-43d5-a263-c62c7c135601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\Math">
+      <UniqueIdentifier>{09653b1a-b4a3-44f3-9c36-fdc010abc131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Physics\Movement">
+      <UniqueIdentifier>{a0afb1bb-b1cd-47b4-aa64-6bd8ea154b3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\core\engine\src\System.cpp">
@@ -167,7 +179,13 @@
       <Filter>Libraries\Utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\core\systems\Gameplay\BulletController.cpp">
-      <Filter>Systems\Gameplay</Filter>
+      <Filter>Systems\Gameplay\BulletController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Gameplay\WeaponController.cpp">
+      <Filter>Systems\Gameplay\WeaponController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\systems\Physics\Movement.cpp">
+      <Filter>Systems\Physics\Movement</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -279,9 +297,6 @@
     <ClInclude Include="..\..\core\components\Score.h">
       <Filter>Components\Gameplay</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\core\systems\Gameplay\BulletController.h">
-      <Filter>Systems\Gameplay</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\core\components\Lifetime.h">
       <Filter>Components\Gameplay</Filter>
     </ClInclude>
@@ -290,6 +305,15 @@
     </ClInclude>
     <ClInclude Include="..\..\core\components\Parent.h">
       <Filter>Components\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Gameplay\BulletController.h">
+      <Filter>Systems\Gameplay\BulletController</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Gameplay\WeaponController.h">
+      <Filter>Systems\Gameplay\WeaponController</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\systems\Physics\Movement.h">
+      <Filter>Systems\Physics\Movement</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

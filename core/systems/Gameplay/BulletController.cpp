@@ -23,7 +23,6 @@ namespace AlJeEngine
       RegisterComponent(MC_CircleCollider);
       RegisterComponent(MC_RigidBody);
       RegisterComponent(MC_Bullet);
-      RegisterComponent(MC_Transform);
       RegisterComponent(MC_Parent);
       RegisterComponent(MC_Lifetime);
     }
@@ -76,32 +75,36 @@ namespace AlJeEngine
       }
     }
 
-    void BulletController::resolveBulletHit(EntityPtr e1, EntityPtr e2)
+    void BulletController::resolveBulletHit(EntityPtr bullet, EntityPtr hitObject)
     {
+      // bullets shouldn't hit the object that fired them.
+      if (bullet->HasComponent(EC_Parent) && bullet->GET_COMPONENT(Parent)->parent == hitObject)
+        return;
 
       // Deal the bullet's damage
-      if (e2->HasComponent(EC_Health))
+      if (hitObject->HasComponent(EC_Health))
       {
-        e2->GET_COMPONENT(Health)->currentHP -= e1->GET_COMPONENT(Bullet)->damage;
-        if (e2->GET_COMPONENT(Health)->currentHP <= 0.f)
+        hitObject->GET_COMPONENT(Health)->currentHP -= bullet->GET_COMPONENT(Bullet)->damage;
+        if (hitObject->GET_COMPONENT(Health)->currentHP <= 0.f)
         {
           // First object is the one that was killed.
           // Second object is the one that killed it.
-          ENGINE->SendMsg(e2, e1, Message::MV_ObjectKilled);
+          ENGINE->SendMsg(hitObject, bullet, Message::MV_ObjectKilled);
+          ENGINE->GetActiveSpace()->RemoveEntity(hitObject);
 
-          if (e1->HasComponent(EC_Parent))
+          if (bullet->HasComponent(EC_Parent))
           {
             // Update the shooter's hit counter
-            if (e1->GET_COMPONENT(Parent)->parent->HasComponent(EC_Weapon))
+            if (bullet->GET_COMPONENT(Parent)->parent->HasComponent(EC_Weapon))
             {
-              e1->GET_COMPONENT(Parent)->parent->GET_COMPONENT(Weapon)->hits += 1;
+              bullet->GET_COMPONENT(Parent)->parent->GET_COMPONENT(Weapon)->hits += 1;
             }
 
             // Update the shooter's score
-            if (e1->GET_COMPONENT(Parent)->parent->HasComponent(EC_Score) &&
-                e2->HasComponent(EC_Score))
+            if (bullet->GET_COMPONENT(Parent)->parent->HasComponent(EC_Score) &&
+                hitObject->HasComponent(EC_Score))
             {
-              e1->GET_COMPONENT(Parent)->parent->GET_COMPONENT(Score)->currentScore += e2->GET_COMPONENT(Score)->killScore;
+              bullet->GET_COMPONENT(Parent)->parent->GET_COMPONENT(Score)->currentScore += hitObject->GET_COMPONENT(Score)->killScore;
             }
 
           }
@@ -111,9 +114,16 @@ namespace AlJeEngine
       }
 
       // Destroy the bullet if it can't penetrate objects.
-      if (e1->HasComponent(EC_RigidBody) && !e1->GET_COMPONENT(RigidBody)->ghost)
+      if (bullet->HasComponent(EC_RigidBody) && !bullet->GET_COMPONENT(RigidBody)->ghost)
       {
-        ENGINE->GetActiveSpace()->RemoveEntity(e1);
+        try
+        {
+          ENGINE->GetActiveSpace()->RemoveEntity(bullet);
+        }
+        catch (...)
+        {
+          // if this code gets executed the bullet probably hit two things at once.
+        }
       }
 
     }

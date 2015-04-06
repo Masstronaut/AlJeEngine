@@ -19,13 +19,14 @@ namespace AlJeEngine
 
     RigidBody() : Component(EC_RigidBody, MC_RigidBody) {}
     
-    bool gravity = true;
-    bool isStatic = false;
+    bool gravity        = true;
+    bool isStatic       = false;
     bool rotationLocked = true;
-    bool ghost = false;
+    bool ghost          = false;
 
     glm::vec2 direction = { 0.f, 0.f };
-    float     speed     = 0.f;
+    float     speed     =   0.f;
+    float     maxSpeed  =  10.f;
   };
 
 

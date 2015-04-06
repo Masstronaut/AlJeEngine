@@ -6,7 +6,7 @@
  */
 
 #include "../headers/Archetypes.h"
-
+#include "../../../lib/math/RNG.h"
 
 namespace AlJeEngine
 {
@@ -215,19 +215,22 @@ namespace AlJeEngine
     }
 
     EntityPtr PlayerBullet()
-        {
-          EntityPtr entity(new Entity());
-          entity->AddComponent(ComponentPtr(new CircleCollider()));
-          entity->AddComponent(ComponentPtr(new RigidBody()));
-          entity->AddComponent(ComponentPtr(new Transform()));
-          entity->AddComponent(ComponentPtr(new Sprite()));
-          entity->AddComponent(ComponentPtr(new Bullet()));
-          entity->AddComponent(ComponentPtr(new Parent()));
-          entity->AddComponent(ComponentPtr(new Lifetime()));
-          
-          entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
-          entity->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 1.f, 1.f };
-          entity->GET_COMPONENT(RigidBody)->gravity = false;
+    {
+      EntityPtr entity(new Entity());
+      entity->AddComponent(ComponentPtr(new CircleCollider()));
+      entity->AddComponent(ComponentPtr(new RigidBody()));
+      entity->AddComponent(ComponentPtr(new Transform()));
+      entity->AddComponent(ComponentPtr(new Sprite()));
+      entity->AddComponent(ComponentPtr(new Bullet()));
+      entity->AddComponent(ComponentPtr(new Parent()));
+      entity->AddComponent(ComponentPtr(new Lifetime()));
+
+      entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
+      entity->GET_COMPONENT(Sprite)->_color = { 1.f, .0f, .0f, 1.f };
+      entity->GET_COMPONENT(RigidBody)->gravity = false;
+
+      entity->GET_COMPONENT(Transform)->scale = { 0.25f, 0.25f };
+      entity->GET_COMPONENT(CircleCollider)->radius = 0.25f;
 
           entity->SetName("Bullet");
           return entity;
@@ -245,10 +248,10 @@ namespace AlJeEngine
       entity->AddComponent(ComponentPtr(new Score()));
 
       entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
-      entity->GET_COMPONENT(Sprite)->_color = { 0.8f, 0.8f, 0.8f, 1.f };
+      entity->GET_COMPONENT(Sprite)->_color = { 0.f, 1.f, 0.f, 1.f };
       
-      entity->GET_COMPONENT(Transform)->scale = { 2.f, 2.f };
-      entity->GET_COMPONENT(CircleCollider)->radius = 2.f;
+      entity->GET_COMPONENT(Transform)->scale = { 1.f, 1.f };
+      entity->GET_COMPONENT(CircleCollider)->radius = 1.f;
 
       entity->GET_COMPONENT(RigidBody)->gravity = false;
 
@@ -271,7 +274,8 @@ namespace AlJeEngine
       entity->GET_COMPONENT(Score)->killScore = 10.f;
 
       entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
-      entity->GET_COMPONENT(Sprite)->_color = { 1.f, 1.f, 1.f, 1.f };
+      float color = RandFloat();
+      entity->GET_COMPONENT(Sprite)->_color = { color, color, color, 1.f };
 
       entity->GET_COMPONENT(Transform)->scale = { 2.f, 2.f };
       entity->GET_COMPONENT(CircleCollider)->radius = 2.f;
