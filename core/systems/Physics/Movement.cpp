@@ -70,7 +70,7 @@ namespace AlJeEngine
       case(Message::MV_Down) :
         try
         {
-          ApplyThrust(ENGINE->GetActiveSpace()->GetEntityByName("Player"), thrust);
+          ApplyThrust(ENGINE->GetActiveSpace()->GetEntityByName("Player"), -thrust);
         }
         catch (...)
         {

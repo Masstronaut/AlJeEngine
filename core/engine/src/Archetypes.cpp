@@ -251,9 +251,11 @@ namespace AlJeEngine
       entity->GET_COMPONENT(Sprite)->_color = { 0.f, 1.f, 0.f, 1.f };
       
       entity->GET_COMPONENT(Transform)->scale = { 1.f, 1.f };
+      entity->GET_COMPONENT(Transform)->rotation = 90.f;
       entity->GET_COMPONENT(CircleCollider)->radius = 1.f;
 
       entity->GET_COMPONENT(RigidBody)->gravity = false;
+      entity->GET_COMPONENT(RigidBody)->maxSpeed = 5.f;
 
       entity->SetName("Player");
 
