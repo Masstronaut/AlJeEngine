@@ -18,6 +18,11 @@ namespace AlJeEngine
     _camera = CreateCamera();
   }
 
+  Space::~Space()
+  {
+    _entities.clear();
+  }
+
   void Space::Update(float dt)
   {
     for (auto &system : _systems)
@@ -58,7 +63,6 @@ namespace AlJeEngine
   {
     return _camera;
   }
-
 
   void Space::PopulateEntities(SystemPtr sys) const
   {

@@ -28,6 +28,7 @@ namespace AlJeEngine
   public:
     Space(std::string &name);
 
+    ~Space();
 
     void Update(float dt);
 

@@ -270,7 +270,7 @@ namespace AlJeEngine
       timeAccumulator += dt;
       //if (timeAccumulator > 1.f / 60.f)
       {
-        FireBallSpawn(500);
+        FireBallSpawn(100);
         timeAccumulator -= 1.f / 60.f;
       }
 

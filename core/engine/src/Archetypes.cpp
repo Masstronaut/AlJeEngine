@@ -277,6 +277,7 @@ namespace AlJeEngine
 
       entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
       float color = RandFloat();
+      color = (color > .25f) ? color : color + .25f;
       entity->GET_COMPONENT(Sprite)->_color = { color, color, color, 1.f };
 
       entity->GET_COMPONENT(Transform)->scale = { 2.f, 2.f };

@@ -76,6 +76,13 @@ namespace AlJeEngine
     for (auto sys : _systems)
       sys->Shutdown();
 
+    _systems.clear();
+    _spaces.clear();
+    
+    while (!_gamestates.empty())
+      PopGamestate();
+
+    ENGINE = nullptr;
   }
 
   void Engine::Update(float dt)
@@ -141,11 +148,6 @@ namespace AlJeEngine
 
     }
 
-  }
-
-  float Engine::FrameTime()
-  {
-    return dt;
   }
 
   SpacePtr Engine::CreateSpace(std::string name)
@@ -223,8 +225,14 @@ namespace AlJeEngine
     
     for (auto &it : _systems)
     {
-      
-      it->SendMsg(e1, e2, message);
+      try
+      {
+        it->SendMsg(e1, e2, message);
+      }
+      catch (...)
+      {
+
+      }
     }
 
     CurrentState()->SendMsg(e1, e2, message);

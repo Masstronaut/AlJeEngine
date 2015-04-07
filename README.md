@@ -4,4 +4,4 @@ The purpose of this project is to provide a basic introduction to game engine ar
 
 The engine is intentionally very simple and lacks many features necessary for a production engine. This is to retain as much clarity as possible, while still providing a functional engine.
 
-All files are copyright (C) Allan Deutsch. All rights reserved. You are free to use and modify them for academic purposes only.
+All files are copyright (C) Allan Deutsch and Jeffrey Uong. All rights reserved. You are free to use and modify them for academic purposes only.

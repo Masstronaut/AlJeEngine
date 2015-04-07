@@ -50,7 +50,15 @@ namespace AlJeEngine
 
   EntityPtr ArchetypeFactory::create(std::string archetype)
   {
-    CreateArchetypeFn creator = _archetypes.find(archetype)->second;
-    return creator();
+    // Search for the archetype
+    std::unordered_map<std::string, CreateArchetypeFn>::iterator it = _archetypes.find(archetype);
+
+    // Check if the archetype was found. If it was, we can return a new instance of the archetype.
+    if (it != _archetypes.end())
+      return it->second();
+
+    // If the archetype wasn't found, throw a range error with a message about what happened.
+    throw std::range_error("Tried to create an archetype that doesn't exist: " + archetype);
+
   }
 }; //AlJeEngine
