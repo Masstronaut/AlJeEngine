@@ -61,15 +61,44 @@ namespace AlJeEngine
     */
     EnumeratedComponent Collider();
 
+    /*!
+    * @brief Allows checking if the entity has all of a set of components.
+    * @par This functioned is used by OR-ing together multiple MaskComponent values.
+    * An example of this would be CheckMask(MC_Transform | MC_RigidBody).
+    * This example would check that the object has both the Transform and Rigidbody components.
+    * 
+    * @param[in] m The mask of one or more OR-ed MaskComponent enum values.
+    *  
+    * @return Returns a bool. True if the component has every specified component, false in all other cases.
+    */
     bool CheckMask(mask m);
 
+    /*!
+    * @brief Getter for the Entity's name.
+    *
+    * @return Returns a const string reference to the Entity's name.
+    */
     const std::string& Name() { return _name; }
 
+    /*!
+    * @brief Sets the name of the Entity.
+    *
+    * @param[in] name The name to set for the Entity.
+    */
     void SetName(std::string name) { _name = name; }
 
 #define GET_COMPONENT( type ) \
   GetComponent<type>(EC_##type)
 
+    /*!
+    * @brief Allows access to derived components attached to the Entity.
+    * @par It is recommended that you use the GET_COMPONENT macro,
+    * as it automatically expands the typename into the template call and parameter.
+    *
+    * @param[in] ec The enum identifier of the component. 
+    *
+    * @return Returns a shared_ptr containing a derived pointer to the component attached to the Entity.
+    */
     template <typename T>
     std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
 
@@ -86,6 +115,7 @@ namespace AlJeEngine
   template <typename T>
   std::shared_ptr<T> Entity::GetComponent(EnumeratedComponent ec)
   {
+    // Verify that this component type is attached to the Entity so that the user doesn't try to read invalid memory.
     assert(_components[ec]);
     return std::static_pointer_cast<T>(_components[ec]);
   }
