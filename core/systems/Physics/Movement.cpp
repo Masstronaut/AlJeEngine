@@ -51,7 +51,7 @@ namespace AlJeEngine
 
     void Movement::SendMsg(EntityPtr, EntityPtr, Message::Message message)
     {
-      float rotationSpeed = 10000.f;
+      float rotationSpeed = 360.f;
       float thrust = 50.f;
 
       switch (message)

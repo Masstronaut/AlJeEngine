@@ -250,9 +250,9 @@ namespace AlJeEngine
       entity->GET_COMPONENT(Sprite)->mesh = Sprite::CIRCLE;
       entity->GET_COMPONENT(Sprite)->_color = { 0.f, 1.f, 0.f, 1.f };
       
-      entity->GET_COMPONENT(Transform)->scale = { 1.f, 1.f };
+      entity->GET_COMPONENT(Transform)->scale = { .5f, .5f };
       entity->GET_COMPONENT(Transform)->rotation = 90.f;
-      entity->GET_COMPONENT(CircleCollider)->radius = 1.f;
+      entity->GET_COMPONENT(CircleCollider)->radius = .5f;
 
       entity->GET_COMPONENT(RigidBody)->gravity = false;
       entity->GET_COMPONENT(RigidBody)->maxSpeed = 5.f;
@@ -280,8 +280,8 @@ namespace AlJeEngine
       color = (color > .25f) ? color : color + .25f;
       entity->GET_COMPONENT(Sprite)->_color = { color, color, color, 1.f };
 
-      entity->GET_COMPONENT(Transform)->scale = { 2.f, 2.f };
-      entity->GET_COMPONENT(CircleCollider)->radius = 2.f;
+      entity->GET_COMPONENT(Transform)->scale = { 1.f, 1.f };
+      entity->GET_COMPONENT(CircleCollider)->radius = 1.f;
 
       entity->SetName("Asteroid");
       return entity;
