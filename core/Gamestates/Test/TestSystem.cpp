@@ -218,9 +218,6 @@ namespace AlJeEngine
       // We also won't be using the "Game World" space, so we can deregister it.
       DeRegisterSpace("Game World");
       
-      if (ENGINE->SpaceExists("Particle Demo"))
-        return;
-      
       // Create the space for the demo to run in.
       SpacePtr particleDemo = ENGINE->CreateSpace("Particle Demo");
 

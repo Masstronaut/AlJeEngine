@@ -18,6 +18,9 @@ namespace AlJeEngine
 
   namespace Archetypes
   {
+    // These are pretty self explanatory, so I won't be documenting them all individually.
+    // If you feel this is the wrong decision, feel free to document them yourself and make a pull request.
+
 
     EntityPtr DefaultCamera();
 

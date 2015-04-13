@@ -14,6 +14,11 @@ namespace AlJeEngine
 
   typedef unsigned mask;
 #pragma region metadataEnums
+
+  /*!
+  * @brief The EnumeratedComponent is used for indexing components.
+  * The value of the enum is the index on the entity of the component.
+  */
   enum EnumeratedComponent
   {
     EC_None           =  0,
@@ -38,6 +43,11 @@ namespace AlJeEngine
 
   };
 
+  /*!
+  * @brief The BitfieldComponent is used for rapidly checking which components are attached to an entity.
+  * They can be ORed together (IE MC_Alive | MC_Transform) 
+  * to check an entity for multiple components in a single compare. 
+  */
   enum BitfieldComponent
   {
     MC_Alive           =  1,
@@ -71,12 +81,12 @@ namespace AlJeEngine
     const EnumeratedComponent _type;
     const BitfieldComponent   _mask;
 
-    // this makes sure derived component types are deallocated properly.
+    // this must be virtual to makes sure derived component types are deallocated properly.
     virtual ~Component() {}
 
   private:
-    // no default construction is allowed.
-    //Component();
+    // no default construction is allowed. Components MUST have a type and mask.
+    Component() = delete;
   };
 
   typedef std::shared_ptr<Component> ComponentPtr;
