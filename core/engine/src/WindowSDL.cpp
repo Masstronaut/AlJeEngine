@@ -19,6 +19,10 @@ namespace AlJeEngine
   namespace Systems
   {
 
+    /*!
+    * @brief Ctor for the SDL window class.
+    *
+    */
     WindowSDL::WindowSDL() : System(std::string("WindowSDLSystem"), ES_WindowSDL),
                              _fullScreen(false),
                              _window(nullptr),
@@ -28,6 +32,10 @@ namespace AlJeEngine
     {
     }
 
+    /*!
+    * @brief Set all the values that the system needs when setting up SDL.
+    *
+    */
     void WindowSDL::Init()
     {
       RegisterComponent(MC_NOOBJECTS);
@@ -51,17 +59,28 @@ namespace AlJeEngine
       glewInit();
     }
 
+    /*!
+    * @brief Destruct the context for SDL.
+    */
     void WindowSDL::Shutdown(void)
     {
       //Delete the context
       SDL_GL_DeleteContext(_context);
     }
 
+    /*!
+    * @brief Gets the mouse trigger during the pressed frame.
+    * @return bool if the mouse was triggered or not
+    */
     bool WindowSDL::GetMouseTrigger(void)
     {
       return _theMouse.Trigger;
     }
 
+    /*!
+    * @brief Gets the mouse release during the pressed frame.
+    * @return bool if the mouse was released on click or not
+    */
     bool WindowSDL::GetMouseReleased(void)
     {
       return _theMouse.Released;
@@ -74,6 +93,11 @@ namespace AlJeEngine
       return spaceMousePos;
     }
 
+    /*!
+    * @brief Gets all the window events that SDL has
+    *
+    * @param currentEvent The window event SDL is trying to get.
+    */
     void WindowSDL::PollWindowEvent(SDL_Event &currentEvent)
     {
       switch (currentEvent.type)
@@ -104,6 +128,11 @@ namespace AlJeEngine
       }//switch
     }
 
+    /*!
+    * @brief Gets all the keyboard events that SDL has
+    *
+    * @param currentEvent The keyboard event SDL is trying to get.
+    */
     void WindowSDL::PollKeyEvent(SDL_Event &currentEvent)
     {
       switch (currentEvent.type)
@@ -138,6 +167,11 @@ namespace AlJeEngine
 
     }
 
+    /*!
+    * @brief Gets all the mouse events that SDL has
+    *
+    * @param currentEvent The window mouse event SDL is trying to get.
+    */
     void WindowSDL::PollMouseEvent(SDL_Event &currentEvent)
     {
 
@@ -197,6 +231,9 @@ namespace AlJeEngine
       }
     }
 
+    /*!
+    * @brief Gets all the events that SDL has
+    */
     void WindowSDL::PollEvents(void)
     {
       // We only get a single mouse down event, so we can reset triggered to false every frame.
@@ -227,16 +264,35 @@ namespace AlJeEngine
       return dimensions;
     }
 
+    /*!
+    * @brief Updates everything for SDL
+    *
+    * @param dt time if it needs to be used.
+    */
     void WindowSDL::Update(float dt)
     {
       CameraPtr camera = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Camera);
       glm::vec2 mousepos= GetMousePosition();
       PollEvents();
-      //glm::unProject(glm::vec3(mousepos.x, mousepos.y, 0), camera->_viewMatrix,camera->_pespective,
 
 
-      //Swap the back buffer and front buffer
-      // This effectively begins the next frame.
+    }
+
+    /*!
+    * @brief clears the color to start a new frame
+    */
+    void WindowSDL::newFrame()
+    {
+       // Clear the color buffer so the screen can be re-drawn.
+       glClear(GL_COLOR_BUFFER_BIT);
+    }
+
+    /*!
+    * @brief Swap the back buffer and front buffer
+    */
+    void WindowSDL::endFrame()
+    {
+      // This effectively the end of the frame.
       SDL_GL_SwapWindow(_window);
     }
 

@@ -5,16 +5,23 @@
 namespace AlJeEngine
 {
   
+  /*!
+  * @brief Gets the mouse trigger during the pressed frame.
+  * @param filename the name of the file in the GLSL folder
+  * @param storage the string the whole shader will be stored in
+  * @return bool if shader could of been read from a file or not
+  */
   bool ShaderReader(const char *filename, std::string &storage)
   {
-    storage.clear();
+    storage.clear(); //Clear it to make sure it's empty
     if (filename == nullptr)
     {
       return false;
     }
 
     std::string file(filename);
-    std::string location ("../../core/Shaders/GLSL/") ;
+    //hardcoding the location to be in the GLSL folder
+    std::string location ("../../core/Shaders/GLSL/"); 
     location += file;
 
     std::ifstream shaderfile(location.c_str(), std::ios::in);
@@ -32,6 +39,11 @@ namespace AlJeEngine
     return true;
   }
 
+  /*!
+  * @brief Checks if the shader was able to compile.
+  * @param shaderID the shader handle that openGL gives you when making a shader
+  * @return bool if the shader had an error it will print it out
+  */
   static GLboolean checkShaderStatus(GLuint shaderID)
   {
     GLint shaderStatus;
@@ -45,13 +57,18 @@ namespace AlJeEngine
       glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &shaderInfoLogLen);
       GLchar *buffer = new GLchar[shaderInfoLogLen]; //allocate memory b/c size unkn
       glGetShaderInfoLog(shaderID, shaderInfoLogLen, NULL, buffer);
-      printf("Loading Shader Error. %s\n", buffer);
+      printf("Loading Shader Error. %s\n", buffer); //You can print this or throw
       delete[] buffer; //Watching out for memory leaks
       return GL_FALSE; //Abort, mission failed
     }
     return GL_TRUE;
   }
 
+  /*!
+  * @brief Checks if the shader program is able to link properly.
+  * @param ProgramID the shader program handle that openGL gives you when making a shader
+  * @return bool if the shader program is able to link properly 
+  */
   static GLboolean checkProgramStatus(GLuint ProgramID)
   {
     GLint linkStatus;
@@ -72,6 +89,11 @@ namespace AlJeEngine
     return GL_TRUE;
   }
 
+  /*!
+  * @brief Compiles the shader type accociated with the file
+  * @param type the type of shader it is
+  * @return bool if the shader is able to compile
+  */
   bool GLShader::CompileFile(ShaderType type)
   {
     const char *file = _shaderFile[type].c_str();
@@ -104,6 +126,9 @@ namespace AlJeEngine
     return true;
   }
 
+  /*!
+  * @brief Ctor for the shader, making sure the shader's value is init
+  */
   GLShader::GLShader()
   {
     for(int i = 0; i < maxShaderType; ++i)
@@ -115,6 +140,9 @@ namespace AlJeEngine
     _shaderProgram = 0;
   }
 
+  /*!
+  * @brief dtor for the shader class, delete the handle of the shader
+  */
   GLShader::~GLShader()
   {
     for (int i = 0; i < maxShaderType; ++i)
@@ -125,6 +153,12 @@ namespace AlJeEngine
     
   }
 
+  /*!
+  * @brief Loads the vert, frag, and/or the geometry shader
+  * @param vert the vert shader in char to be loaded
+  * @param frag the frag shader in char to be loaded
+  * @param geo the geometry shader in char to be loaded
+  */
   void GLShader::LoadShaderFile(const char *vert,
     const char *frag, const char *geo)
   {
@@ -133,9 +167,13 @@ namespace AlJeEngine
     _shaderflags[GEOMETRY] = ShaderReader(geo, _shaderFile[GEOMETRY]);
     bool bvert = _shaderflags[VERTEX];
     bool bfrag = _shaderflags[FRAGMENT];
-    bool bgeo = _shaderflags[GEOMETRY];
+    bool bgeo  = _shaderflags[GEOMETRY];
   }
 
+  /*!
+  * @brief finds the uniform data in the current shader
+  * @param uniformName the name of the uniform the user wants to find
+  */
   void GLShader::FindUniforms(const std::string &uniformName)
   {
       //Finding the uniform in the shader.
@@ -148,6 +186,9 @@ namespace AlJeEngine
     }
   }
 
+  /*!
+  * @brief Compiles the shader in order to be usable
+  */
   void GLShader::Compile()
   {
       //Shaders need both a vertex and a fragment to be whole
@@ -186,12 +227,18 @@ namespace AlJeEngine
     }  
   }
 
+  /*!
+  * @brief Binds the shader to be ready to use for the current draw
+  */
   void AlJeEngine::GLShader::Use()
   {
       //Use the current shader;
     glUseProgram(_shaderProgram);
   }
 
+  /*!
+  * @brief UnBinds the shader to stop using the shader
+  */
   void AlJeEngine::GLShader::UnUse()
   {
       //Unbinding the current shader

@@ -14,10 +14,17 @@ namespace AlJeEngine
   namespace Systems
   {
 
+    /*!
+    * @brief Ctor for the graphics system
+    */
     GLGraphics::GLGraphics() : System(std::string("GLGraphicsSystem"), ES_GLGraphics)
     {
 
     }
+
+    /*!
+    * @brief Initilize everything SDL needs at the start
+    */
     void GLGraphics::Init(void) //Initilize SDL
     {
       // Register the components needed for graphics.
@@ -47,8 +54,13 @@ namespace AlJeEngine
       addShader("Box", defaultShader);
 
     }
-    // Update every frame 
-    void GLGraphics::Update(float dt)
+
+
+    /*!
+    * @brief Draws everything that is in the entities list with a sprite component
+    * @param dt the time per frame use if needed
+    */
+    void GLGraphics::Update(float dt)    // Update every frame 
     {
       CameraPtr camera = ENGINE->GetActiveSpace()->GetCamera()->GET_COMPONENT(Camera);
       // clear the buffers to begin a new frame.
@@ -66,6 +78,11 @@ namespace AlJeEngine
       
     }
 
+    /*!
+    * @brief Draws everything that is in the entities list with a sprite component
+    * @param Entity the entity that is going to be drawn
+    * @param camera the camera used to draw the objects to
+    */
     void GLGraphics::DrawEntity(const EntityPtr &Entity, const CameraPtr &camera)
     {
       ShaderPtr shader = _shaders.find(Entity->GET_COMPONENT(Sprite)->_shaderName)->second;
@@ -117,11 +134,15 @@ namespace AlJeEngine
         {
         case Sprite::QUAD:
           glBindVertexArray(_quadInfo.vao);
-          glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_SHORT, nullptr);
+          glDrawElements(
+            GL_TRIANGLE_STRIP, //Draw Type
+            6,                 //Number of points
+            GL_UNSIGNED_SHORT, //Data that it is when being read
+            nullptr);          
           break;
         case Sprite::CIRCLE:
           glBindVertexArray(_circleInfo.vao);
-          glDrawElements(GL_TRIANGLE_FAN,30000, GL_UNSIGNED_SHORT, nullptr);
+          glDrawElements(GL_TRIANGLE_FAN, 30000, GL_UNSIGNED_SHORT, nullptr);
           break;
         default:
           glBindVertexArray(_quadInfo.vao);
@@ -132,19 +153,21 @@ namespace AlJeEngine
       }
     }
 
-    //called when system is deleated
-    void GLGraphics::Shutdown(void)
+
+    /*!
+    * @brief Calls when the system is shutting down
+    */
+    void GLGraphics::Shutdown(void)  //called when system is deleated
     {
       DeleteMesh();
     }
 
-    void GLGraphics::newFrame()
-    {
-      // Clear the color buffer so the screen can be re-drawn.
-      glClear(GL_COLOR_BUFFER_BIT);
-    }
     
-
+    /*!
+    * @brief Gets the shader associated with the shader
+    *
+    * @param shaderName the name of the shader the user is trying to get
+    */
     ShaderPtr GLGraphics::getShader(std::string shaderName)
     {
       // Search for a space with the specified name.
@@ -158,6 +181,12 @@ namespace AlJeEngine
       throw std::range_error("The specified shader does not exist.");
     }
 
+    /*!
+    * @brief Adds shaders to the map
+    *
+    * @param shaderName name of the shader to access from the map
+    * @param shader Shader to put in the map
+    */
     void GLGraphics::addShader(std::string shaderName, ShaderPtr shader)
     {
       //Adding the shader to the map, .first = shadername .second = shader

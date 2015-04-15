@@ -20,7 +20,10 @@ namespace AlJeEngine
 {
   namespace Systems
   {
-
+    /*!
+    * @brief Creates a quad and a circle for the GPU
+    * this is hard coded and you should find a better way to do this
+    */
     void GLGraphics::CreateMesh()
     {
       //Make a quad on the stack
@@ -116,30 +119,31 @@ namespace AlJeEngine
     void GLGraphics::DeleteMesh()
     {
       //Clean up after yourself when allocating memory
-      if (_quadInfo.vao < 0)
+      //I check if it's greater than 0 because 0 is the unbinding value.
+      if (_quadInfo.vao > 0)
       {
         glDeleteBuffers(1, &_quadInfo.vao);
       }
-      if (_quadInfo.ebo < 0)
+      if (_quadInfo.ebo > 0)
       {
         glDeleteBuffers(1, &_quadInfo.ebo);
       }
-      if (_quadInfo.vbo < 0)
+      if (_quadInfo.vbo > 0)
       {
         glDeleteBuffers(1, &_quadInfo.vbo);
       }
 
 
       //DELETE CIRCLE
-      if (_circleInfo.vao < 0)
+      if (_circleInfo.vao > 0)
       {
         glDeleteBuffers(1, &_quadInfo.vao);
       }
-      if (_circleInfo.ebo < 0)
+      if (_circleInfo.ebo > 0)
       {
         glDeleteBuffers(1, &_quadInfo.ebo);
       }
-      if (_circleInfo.vbo < 0)
+      if (_circleInfo.vbo > 0)
       {
         glDeleteBuffers(1, &_quadInfo.vbo);
       }

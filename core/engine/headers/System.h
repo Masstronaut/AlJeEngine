@@ -104,9 +104,9 @@ namespace AlJeEngine
     /*!
     * @brief Specifies that a specific component type is required for the system to function.
     *
-    * @param component The component being registered as a requirement to run.
+    * @param bc The component being registered as a requirement to run.
     */
-    inline void RegisterComponent(BitfieldComponent component);
+    void RegisterComponent(BitfieldComponent);
 
     /*!
     * @brief exposes the component requirements of the System.

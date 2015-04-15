@@ -15,18 +15,28 @@ namespace AlJeEngine
   namespace Systems
   {
 
-
+    /*!
+    * @brief Ctor for the camera system
+    */
     CameraSystem::CameraSystem() : System(std::string("Camera System"), ES_CameraSystem)
     {
 
     }
 
+    /*!
+    * @brief Gets everything the camera needs
+    */
     void CameraSystem::Init()
     {
       RegisterComponent(MC_Camera);
       RegisterComponent(MC_Transform);
     }
 
+    /*!
+    * @brief Updates every camera component
+    *
+    * @param dt time if needed
+    */
     void CameraSystem::Update(float dt)
     {
       for (auto &it : _entities)
@@ -58,7 +68,7 @@ namespace AlJeEngine
         //View matrix for the camera, read more at 
         //http://3dgep.com/understanding-the-view-matrix/
         camera->_viewMatrix = glm::lookAt(glm::vec3(transform->position.x, transform->position.y, 5.0f),
-                                          glm::vec3(transform->position.x, transform->position.y, 0.0f),//camera->_target, 
+                                          glm::vec3(transform->position.x, transform->position.y, 0.0f),
                                           camera->_upVec);
       }
     }

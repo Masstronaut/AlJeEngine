@@ -95,8 +95,7 @@ namespace AlJeEngine
     GETSYS(WindowSDL)->Update(dt);
 
     // Signal to graphics that we are beginning a new frame.
-    using Systems::GLGraphics;
-    GETSYS(GLGraphics)->newFrame();
+    GETSYS(WindowSDL)->newFrame();
 
 
     // Get a pointer to the current gamestate for easy access:
@@ -125,7 +124,8 @@ namespace AlJeEngine
     }
 
     //cout << "updated: " << static_cast<int>(1.f / dt) << " FPS, " << dt << "ms\n";
-
+    // Tell the window management system to end the frame
+    GETSYS(WindowSDL)->endFrame();
   }
 
   void Engine::mainLoop()

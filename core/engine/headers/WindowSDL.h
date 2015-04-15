@@ -25,12 +25,15 @@ namespace AlJeEngine
       bool GetMouseTrigger(void);
       bool GetMouseReleased();
       void ToggleFullScreen();
+      void newFrame();
+      void endFrame();
       glm::vec2 GetMousePosition(void);
       int GetWindowHeight(void);
       int GetWindowWidth(void);
       std::pair<int, int> GetWindowDimensions(void);
       void SendMsg(EntityPtr, EntityPtr, Message::Message);
     private:
+
       struct SDLMouse
       {
         glm::vec2 position;
