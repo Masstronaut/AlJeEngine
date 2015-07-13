@@ -8,7 +8,7 @@
 #ifndef GLSHADER_H
 #define GLSHADER_H
 
-#include "../../../dependencies/include/GL/glew.h"
+#include "../../../../dependencies/include/GL/glew.h"
 #include "GLShaderUniforms.h"
 #include <string> //string
 #include <iostream> //cout, endl

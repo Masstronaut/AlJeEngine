@@ -8,8 +8,8 @@
 #ifndef GLSHADERUNIFORMS_H
 #define GLSHADERUNIFORMS_H
 #include "GLShader.h"
-#include "../../../dependencies/include/GL/glew.h"
-#include "../../../lib/math/glm/glm.hpp" //vec2,vec3,vec4, matrix3x3 ,matrix4x4
+#include "../../../../dependencies/include/GL/glew.h"
+#include "../../../../lib/math/glm/glm.hpp" //vec2,vec3,vec4, matrix3x3 ,matrix4x4
 
 
 void LoadShaderData(const GLint location, const GLint &data);
